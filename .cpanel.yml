@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/user/public_html/
-    - /bin/cp -R ping-pong $DEPLOYPATH/ide/ping-pong
+    - /bin/cp test $DEPLOYPATH
