@@ -20,11 +20,6 @@
     }
 </style>
 
-<div class="btn-primary" id="score1">Nombres de points du joueur 1</div>
-
-<div class="btn-danger" id="score2">Nombre de points du joueur 2</div>
-
-
 <?php
 try {
     $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
@@ -32,12 +27,27 @@ try {
 catch(Exception $e) {
         die('Erreur : '.$e->getMessage());
 }
-$reponse = $bdd->query('SELECT pseudo, message, DATE_FORMAT(date_ajout, \'%d/%m/%Y à %Hh%imin%ss\') AS date_ajout FROM minichat ORDER BY ID DESC LIMIT 0, 10');
+$nom_joueur = $bdd->query('SELECT nom FROM joueur');
    
-while ($donnees = $reponse->fetch()) {
-    echo 'test '
-    ;
-}
-      
-$reponse->closeCursor();
+$joueur1 = $nom_joueur->fetch();
+$joueur2 = $nom_joueur->fetch();
+
+$score_joueur = $bdd->query('SELECT score FROM joueur');
+$score1 = $score_joueur->fetch();
+$score2 = $score_joueur->fetch();
+
 ?>
+
+<div class="btn-primary" id="score1">
+    Joueur 1 : <?php echo $joueur1['nom']; ?> 
+    </br> 
+    Score : <?php echo $score1['score']; ?> 
+</div>
+
+<div class="btn-danger" id="score2">
+    Joueur 2 : <?php echo $joueur2['nom']; ?> 
+    </br> 
+    Score : <?php echo $score2['score']; ?> 
+</div>
+
+
