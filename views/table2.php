@@ -4,7 +4,7 @@
 
     require_once('../controllers/database.php') ;
 
-    $ps = $pdo->prepare("SELECT * FROM matchs WHERE ID=$id") ;
+    $ps = $pdo->prepare("SELECT * FROM matchs WHERE id=$id") ;
     $ps->execute() ;
 
     $et = $ps -> fetch() ;
@@ -13,30 +13,30 @@
 
 <!--==========-->
 
-<?php include("../include/partials/header.php") ?>
+<?php include("../includes/partials/header.php") ?>
 
 <!--==========-->
 
 <div class="container">
 
     <h3 class="text-center">
-        Table 1 - <?php echo($et['HOUR']) ?>
+        Table 1 - <?php echo($et['hour']) ?>
     </h3>
 
     <?php
 
-        $blue = $et['BLUE_PLAYER'];
+        $blue = $et['blue_player'];
 
-        $psBlue = $pdo->prepare("SELECT * FROM players WHERE ID=$blue") ;
+        $psBlue = $pdo->prepare("SELECT * FROM players WHERE id=$blue") ;
         $psBlue->execute() ;
 
         $etBlue = $psBlue -> fetch() ;
 
         ######################
 
-        $red = $et['RED_PLAYER'];
+        $red = $et['red_player'];
 
-        $psRed = $pdo->prepare("SELECT * FROM players WHERE ID=$red") ;
+        $psRed = $pdo->prepare("SELECT * FROM players WHERE id=$red") ;
         $psRed->execute() ;
 
         $etRed = $psRed -> fetch();
@@ -48,21 +48,21 @@
 
             <div class="card bg-primary mb-3" style="width: 18rem;">
 
-                <img src="../assets/img/players/<?php echo($etBlue['PICTURE'])?>" class="card-img-top" width="320" height=320 alt="">
+                <img src="../assets/img/players/<?php echo($etBlue['picture'])?>" class="card-img-top" width="320" height=320 alt="">
 
                 <div class="card-body">
                     <h5 class="card-title">
-                        <?php echo($etBlue['NAME']) ?>
-                        <?php echo($etBlue['SURNAME']) ?>
+                        <?php echo($etBlue['name']) ?>
+                        <?php echo($etBlue['surname']) ?>
                     </h5>
                 </div>
 
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        Cat. <?php echo($etBlue['CAT']) ?>
+                        Cat. <?php echo($etBlue['cat']) ?>
                     </li>
                     <li class="list-group-item">
-                        <?php echo($etBlue['CLUB']) ?>
+                        <?php echo($etBlue['club']) ?>
                     </li>
                 </ul>
                     
@@ -81,7 +81,7 @@
                 <tbody>
                     <tr>
                         <th scope="row">
-                            <?php echo($etBlue['SURNAME'])?>
+                            <?php echo($etBlue['surname'])?>
                         </th>
                         <td>11</td>
                         <td>5</td>
@@ -91,7 +91,7 @@
                     </tr>
                     <tr>
                         <th scope="row">
-                            <?php echo($etRed['SURNAME'])?>
+                            <?php echo($etRed['surname'])?>
                             <span class="badge badge-secondary">Service</span>
                         </th>
                         <td>8</td>
@@ -104,10 +104,10 @@
             </table>
 
             <?php 
-                if ( $et['STATE'] == 0) {
+                if ( $et['state'] == 0) {
                     echo("<h3 class='text-success text-center'>En cours</h3>");
                 }
-                elseif ( $et['STATE'] == 1) {
+                elseif ( $et['state'] == 1) {
                     echo("<h3 class='text-danger text-center'>Terminé</h3>");
                 }
             ?>
@@ -118,21 +118,21 @@
 
             <div class="card bg-danger mb-3" style="width: 18rem;">
 
-                <img src="../assets/img/players/<?php echo($etRed['PICTURE'])?>" class="card-img-top" width="320" height=320 alt="">
+                <img src="../assets/img/players/<?php echo($etRed['picture'])?>" class="card-img-top" width="320" height=320 alt="">
 
                 <div class="card-body">
                     <h5 class="card-title">
-                        <?php echo($etRed['NAME']) ?>
-                        <?php echo($etRed['SURNAME']) ?>
+                        <?php echo($etRed['name']) ?>
+                        <?php echo($etRed['surname']) ?>
                     </h5>
                 </div>
 
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        Cat. <?php echo($etRed['CAT']) ?>
+                        Cat. <?php echo($etRed['cat']) ?>
                     </li>
                     <li class="list-group-item">
-                        <?php echo($etRed['CLUB']) ?>
+                        <?php echo($etRed['club']) ?>
                     </li>
                 </ul>
                         
