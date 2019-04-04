@@ -38,6 +38,8 @@ debug($verif); */
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="../../assets/css/signin.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -55,8 +57,6 @@ debug($verif); */
         }
       }
     </style>
-    <!-- Custom styles for this template -->
-    <link href="/fork-ASPCN/assets/css/signin.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
@@ -66,7 +66,7 @@ debug($verif); */
 
 
     <form method="post" action="" enctype="multipart/form-data" class="form-signin">
-        <img class="mb-4" src="/fork-ASPCN/assets/img/logo_projet.png" alt="" width="100">
+        <img class="mb-4" src="../../assets/img/logo_projet.png" alt="" width="100">
 
         <?php if(isset($_SESSION['flash'])): ?>
             <?php foreach ($_SESSION['flash'] as $type => $message): ?>
