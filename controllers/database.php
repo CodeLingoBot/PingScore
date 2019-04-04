@@ -1,8 +1,8 @@
 <?php
 
     try {
-        $strConnexion = 'mysql:host=192.168.8.101;dbname=PI_aspcn' ;
-        $pdo = new PDO ($strConnexion,'aspcn','456852');
+        $strConnexion = 'mysql:host=localhost;dbname=PI_aspcn' ;
+        $pdo = new PDO ($strConnexion,'root','');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
