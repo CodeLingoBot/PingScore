@@ -1,11 +1,11 @@
 [submodule "vendor/bootstrap"]
 	path = vendor/bootstrap
-	url = git@github.com:twbs/bootstrap.git
+	url = https://github.com/twbs/bootstrap.git
 
 [submodule "vendor/DataTables"]
 	path = vendor/DataTables
-	url = git@github.com:DataTables/DataTables.git
+	url = https://github.com/DataTables/DataTables.git
 
 [submodule "vendor/material-design-icons"]
     path = vendor/material-design-icons
-    url = git@github.com:google/material-design-icons.git
+    url = https://github.com/google/material-design-icons.git
