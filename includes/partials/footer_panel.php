@@ -22,7 +22,7 @@
 
 
     <!-- Scripts for this page -->
-    <script src="../../assets/js/scripts.js"></script>
+    <script src="../../assets/js/dataTable_joueurs.js"></script>
 
 
 <script>
