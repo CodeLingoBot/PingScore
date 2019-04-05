@@ -10,10 +10,13 @@
 
     <meta charset="UTF-8">
     <title>Espace Compétition · Ping Score</title>
+    <!-- Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+
     <style>
-        /* Set a background image by replacing the URL below */
         body {
             -webkit-background-size: cover;
             -moz-background-size: cover;
