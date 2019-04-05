@@ -1,5 +1,9 @@
 <?php
 
+//TODO : Rédiger le contenu
+//TODO : rajouter les photos dans Add et Edit
+
+
 require_once '../../includes/functions.php';
 
 check_auth();
@@ -28,9 +32,6 @@ include_once '../../includes/toasts.php';
         </div>
     </div>
 </div>
-
-
-
 
 <div class="container">
     <div class="card border-0 shadow my-5">
@@ -67,7 +68,6 @@ include_once '../../includes/toasts.php';
         </div>
     </div>
 </div>
-//TODO : Rédiger le contenu
 <div id="add_data_Modal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -87,6 +87,14 @@ include_once '../../includes/toasts.php';
                     <select name="cat" id="cat" class="form-control">
                         <option value="1">1</option>
                         <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
                     </select>
                     <br />
                     <label>Enter Club</label>

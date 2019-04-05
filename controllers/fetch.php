@@ -1,4 +1,5 @@
-<?php //TODO : REECRIRE CE FICIHIER
+<?php
+//TODO : REECRIRE CE FICIHIER
 
 $connect = mysqli_connect("localhost", "root", "root", "PI_aspcn");
 if(isset($_POST["id"]))

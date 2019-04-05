@@ -1,4 +1,7 @@
-<?php //TODO : REECRIRE CE FICIHIER + voir pour les toasts + voir dataTable => ø ...
+<?php
+//TODO : REECRIRE CE FICIHIER
+//TODO : voir pour les toasts
+//TODO : voir dataTable => ø
 
 
 $connect = mysqli_connect("localhost", "root", "root", "PI_aspcn");
@@ -48,7 +51,6 @@ VALUES('$surname', '$name', '$cat', '$club', '$rank');
                     <th>CLASSEMENT</th>
                     <th>PHOTO</th>
                     <th>ACTION</th>
-
                 </tr>
                 </thead>
                 <tbody>
