@@ -30,8 +30,8 @@ include_once '../../includes/partials/header_panel.php'?>
 
 <div class="container">
     <div class="card border-0 shadow my-5">
-        <div class="container">
-            <table id="table_id" class="table table-striped table-bordered display">
+        <div class="container my-5">
+            <table id="table_id" class="table table-striped table-bordered">
                 <thead>
                 <tr>
                     <th>ID</th>
