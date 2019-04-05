@@ -2,7 +2,7 @@
 
 require_once '../../includes/functions.php';
 
-logged();
+check_auth();
 
 include_once '../../includes/partials/header_panel.php'?>
 

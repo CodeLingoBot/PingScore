@@ -11,11 +11,11 @@ if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
     $req->execute(['username' => $_POST['username']]);
     if (($user = $req->fetch(PDO::FETCH_OBJ)) && password_verify($_POST['password'], $user->password)) {
         $_SESSION['auth'] = $user;
-        $_SESSION['flash']['success'] = "Vous êtes maintenant connecté";
+        $_SESSION['flash']['success'] = "Vous êtes maintenant connecté.";
         header('Location: espace_competition.php');
         exit();
     } else {
-        $_SESSION['flash']['danger'] = 'Identifiant ou mot de passe incorrect';
+        $_SESSION['flash']['danger'] = 'Identifiant ou mot de passe incorrect.';
     }
 }
 /*

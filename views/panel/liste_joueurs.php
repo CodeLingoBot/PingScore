@@ -2,7 +2,7 @@
 
 require_once '../../includes/functions.php';
 
-logged();
+check_auth();
 
 try {
     require_once('../../controllers/database.php');
@@ -31,7 +31,7 @@ include_once '../../includes/partials/header_panel.php'?>
 <div class="container">
     <div class="card border-0 shadow my-5">
         <div class="container my-5">
-            <table id="table_id" class="table table-striped table-bordered">
+            <table id="table_joueurs" class="table table-hover table-responsive-lg">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -45,7 +45,7 @@ include_once '../../includes/partials/header_panel.php'?>
                 </thead>
                 <tbody>
                 <?php while ($data = $ps->fetch()) { ?>
-                    <tr>
+                    <tr id="ligne_<?php echo($data['id']) ?>">
                         <td><?php echo($data['id']) ?></td>
                         <td><?php echo($data['surname']) ?></td>
                         <td><?php echo($data['name']) ?></td>
@@ -70,7 +70,8 @@ include_once '../../includes/partials/header_panel.php'?>
 <!--
 <td><a href="editPlayer.php?id=<?php echo($data['id']); ?>"><button class="btn btn-success">Editer</button></a></td>
 
-<td><button class="btn btn-danger" onclick=console.log("coucou"); data-toggle="modal" data-target="#<?php echo($data['id']) ?>">Supprimer</button></td>
+<td><button class="btn btn-danger" data-toggle="modal" data-target="#<?php echo($data['id']) ?>">Supprimer</button></td>
+
 
 <div class="modal fade" id="<?php echo($data['id'])?>" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
