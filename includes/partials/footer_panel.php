@@ -8,6 +8,8 @@
         <a id="myBtn" class="dropbtn" onclick="toggle()"><p>&copy; Ping Score 2019</p></a>
     </div>
 
+
+
 </body>
 
     <!-- Bootstrap core JavaScript-->
@@ -19,14 +21,19 @@
     <script type="text/javascript" src="../../vendor/DataTables/media/js/dataTables.bootstrap4.min.js"></script>
 
 
-    <!-- Scripts for this page-->
+    <!-- Scripts for this page -->
     <script src="../../assets/js/scripts.js"></script>
 
 
 <script>
-        function toggle() {
+         function toggle() {
             console.log("$_SESSION");
             $("#myDropdown").slideToggle('slow');
         }
-    </script>
+
+         $(document).ready( function () {
+             $('.toast').toast("show")
+         } );
+
+</script>
 </html>

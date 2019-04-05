@@ -3,11 +3,13 @@ require_once '../../includes/functions.php';
 check_auth();
 
 include_once '../../includes/partials/header_panel.php';
+include_once '../../includes/toasts.php';
 ?>
 
 <script>
     document.getElementById("body").style.background = "url('https://cwsmgmt.corsair.com/newscripts/landing-pages/wallpaper/v4/Wallpaper-v4-1920x1200.jpg') no-repeat center center fixed";
 </script>
+
     <!-- Page Content -->
     <div class="container">
         <div class="card border-0 shadow my-5">

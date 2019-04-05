@@ -38,7 +38,7 @@ debug($verif);
     <title>Login · Ping Score</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../../assets/css/signin.css" rel="stylesheet">
 
@@ -60,35 +60,46 @@ debug($verif);
     </style>
 </head>
 
-<body class="text-center">
+<body>
 
-<div class="container">
+<?php include_once '../../includes/toasts.php'; ?>
+
+    <div class="container text-center">
+        <form method="post" action="" enctype="multipart/form-data" class="form-signin">
+            <img class="mb-4" src="../../assets/img/logo_projet.png" alt="" width="100">
 
 
 
-    <form method="post" action="" enctype="multipart/form-data" class="form-signin">
-        <img class="mb-4" src="../../assets/img/logo_projet.png" alt="" width="100">
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username" required autofocus>
+             <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+            <div class="checkbox mb-3">
+                <label>
+                <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-secondary btn-block" type="submit">Sign in</button>
+        </form>
+    </div>
 
-        <?php if(isset($_SESSION['flash'])): ?>
-            <?php foreach ($_SESSION['flash'] as $type => $message): ?>
-                <div class="alert alert-<?= $type; ?>">
-                    <?= $message ?>
-                </div>
-            <?php endforeach; ?>
-            <?php unset($_SESSION['flash']); ?>
-        <?php endif; ?>
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username" required autofocus>
-         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-        <div class="checkbox mb-3">
-            <label>
-            <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
-        <button class="btn btn-lg btn-secondary btn-block" type="submit">Sign in</button>
-    </form>
+<!-- Bootstrap core JavaScript-->
+<script src="../../vendor/jquery/jquery.min.js"></script>
+<script src="../../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready( function () {
+            $('.toast').toast("show")
+        } );
+
+    </script>
+
+
+</html>
+
+
+
 
 

@@ -10,7 +10,7 @@
 
     <meta charset="UTF-8">
     <title>Espace Compétition · Ping Score</title>
-    <!-- Custom fonts for this template-->
+    <!-- Material icons Google fonts-->
     <link href="../../vendor/material-design-icons/iconfont/material-icons.css" rel="stylesheet" type="text/css">
     <!-- Bootstrap core CSS -->
     <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -75,14 +75,3 @@
             </div>
         </div>
     </nav>
-
-    <div class="container">
-        <?php if(isset($_SESSION['flash'])): ?>
-            <?php foreach ($_SESSION['flash'] as $type => $message): ?>
-                <div class="alert alert-<?= $type; ?>">
-                    <?= $message ?>
-                </div>
-            <?php endforeach; ?>
-            <?php unset($_SESSION['flash']); ?>
-        <?php endif; ?>
-    </div>
