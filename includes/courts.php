@@ -4,7 +4,7 @@
 
                 require_once('../controllers/database.php') ;
 
-                $ps = $pdo->prepare("SELECT m.court, j.surname, m.hour, m.score FROM matchs m INNER JOIN players j ON (j.id = m.blue_player OR j.id = m.red_player) AND m.court=$nb") ;
+                $ps = $pdo->prepare("SELECT m.court, j.surname, m.hour, m.score FROM matchs m INNER JOIN players j ON (j.id = m.blue_player OR j.id = m.red_player) AND m.court=$nb AND m.state=1") ;
                 $result = $ps->execute() ;
                 $et = $ps -> fetchAll() ;  
                 
