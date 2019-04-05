@@ -13,9 +13,9 @@
     <!-- Custom fonts for this template-->
     <link href="../../vendor/material-design-icons/iconfont/material-icons.css" rel="stylesheet" type="text/css">
     <!-- Bootstrap core CSS -->
-    <link href="../../vendor/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Datatables CSS -->
-    <link rel="stylesheet" type="text/css" href="../../vendor/DataTables/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../vendor/DataTables/media/css/dataTables.bootstrap4.min.css"/>
     <!-- Custom styles for this template -->
 
     <style>

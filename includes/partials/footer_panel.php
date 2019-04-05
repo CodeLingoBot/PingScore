@@ -12,10 +12,12 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../vendor/bootstrap-4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- Datatables JS -->
-    <script type="text/javascript" src="../../vendor/DataTables/datatables.min.js"></script>
+    <script type="text/javascript" src="../../vendor/DataTables/media/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../../vendor/DataTables/media/js/dataTables.bootstrap4.min.js"></script>
+
 
     <!-- Scripts for this page-->
     <script src="../../assets/js/scripts.js"></script>
