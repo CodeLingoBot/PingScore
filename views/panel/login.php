@@ -2,6 +2,8 @@
 
 require_once "../../includes/functions.php";
 
+session_start();
+
 if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
     require_once "../../controllers/database.php";
     session_start();
@@ -23,7 +25,6 @@ debug($passwrd);
 $verif = password_verify($real_passwd, $passwrd);
 debug($verif);
 */
-
 
 ?>
 
