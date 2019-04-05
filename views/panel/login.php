@@ -2,7 +2,6 @@
 
 require_once "../../includes/functions.php";
 
-session_start();
 if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
     require_once "../../controllers/database.php";
     session_start();
@@ -18,11 +17,11 @@ if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
     }
 }
 
-/*$real_passwd = "root";
+$real_passwd = "root";
 $passwrd = password_hash($real_passwd, PASSWORD_BCRYPT);
 debug($passwrd);
 $verif = password_verify($real_passwd, $passwrd);
-debug($verif); */
+debug($verif);
 
 
 ?>
