@@ -30,32 +30,34 @@
 
             ?>
 
-            <table class="table table-secondary">
+            <a href="tables/table<?php echo($nb)?>.php" style="text-decoration:none;">
+                <table class="table table-info">
 
-                <thead>
-                    Table <?php echo($nb)?> - <?php echo($et[0]['hour'])?>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">
-                            <?php echo($et[0]['surname'])?>
-                        </th>
-                        <td width=10%><?php echo($json->round1->blue)?></td>
-                        <td width=10%><?php echo($json->round2->blue)?></td>
-                        <td width=10%><?php echo($json->round3->blue)?></td>
-                        <td width=10%><?php echo($json->round4->blue)?></td>
-                        <td width=10%><?php echo($json->round5->blue)?></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <?php echo($et[1]['surname'])?>
-                        </th>
-                        <td width=10%><?php echo($json->round1->red)?></td>
-                        <td width=10%><?php echo($json->round2->red)?></td>
-                        <td width=10%><?php echo($json->round3->red)?></td>
-                        <td width=10%><?php echo($json->round4->red)?></td>
-                        <td width=10%><?php echo($json->round5->red)?></td>
-                    </tr>
-                </tbody>
-            </table>
+                    <thead>
+                        Table <?php echo($nb)?> - <?php echo($et[0]['hour'])?>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                <?php echo($et[0]['surname'])?>
+                            </th>
+                            <td width=10%><?php echo($json->round1->blue)?></td>
+                            <td width=10%><?php echo($json->round2->blue)?></td>
+                            <td width=10%><?php echo($json->round3->blue)?></td>
+                            <td width=10%><?php echo($json->round4->blue)?></td>
+                            <td width=10%><?php echo($json->round5->blue)?></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <?php echo($et[1]['surname'])?>
+                            </th>
+                            <td width=10%><?php echo($json->round1->red)?></td>
+                            <td width=10%><?php echo($json->round2->red)?></td>
+                            <td width=10%><?php echo($json->round3->red)?></td>
+                            <td width=10%><?php echo($json->round4->red)?></td>
+                            <td width=10%><?php echo($json->round5->red)?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </a>
         </div>

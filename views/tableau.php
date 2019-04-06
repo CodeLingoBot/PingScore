@@ -4,8 +4,11 @@
 
 <!--==========-->
 
-<div class="container">
+<h3 class="text-center">Tableau des matchs en cours</h3>
 
+<div class="container bg-light">
+
+    <!-- Partie à refresh -->
     <?php echo("<div class='row'>")?>
 
     <?php 
@@ -28,6 +31,7 @@
     ?>
 
     <?php echo('</div>')?>
+    <!-- Fin de partie à refresh -->
 
 
 </div>
