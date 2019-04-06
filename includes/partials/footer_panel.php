@@ -13,8 +13,9 @@
 </body>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../vendor/bootstrap/dist/js/bootstrap.min.js.map"></script>
 
     <!-- Datatables JS -->
     <script type="text/javascript" src="../../vendor/DataTables/media/js/jquery.dataTables.min.js"></script>
@@ -22,9 +23,10 @@
 
     <!-- Toastr JS -->
     <script type="text/javascript" src="../../vendor/toastr/build/toastr.min.js"></script>
+    <script type="text/javascript" src="../../vendor/toastr/nuget/content/scripts/toastr.min.js.map"></script>
 
     <!-- Scripts for this page -->
-    <script src="../../assets/js/dataTable_joueurs.js"></script>
+    <script type="text/javascript" src="../../assets/js/dataTable_joueurs.js"></script>
 
 
 <script>

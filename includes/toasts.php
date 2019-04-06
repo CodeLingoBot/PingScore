@@ -5,7 +5,7 @@
         <?php if(isset($_SESSION['flash'])): ?>
             <?php foreach ($_SESSION['flash'] as $type => $message): ?>
                 <!-- Then put toasts within -->
-                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="min-width: 350px;">
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="min-width: 350px; background-color: white;">
                     <div class="toast-header">
                         <img src="../../assets/img/logo_projet.png" class="rounded mr-2" alt="..." style="width: 20px;">
                         <strong class="mr-auto"><span class="badge badge-<?= $type; ?>" style="font-size: 13px">Message d'information</span></strong>

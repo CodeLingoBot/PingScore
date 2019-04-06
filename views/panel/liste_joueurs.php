@@ -59,7 +59,7 @@ include_once '../../includes/toasts.php';
                         <td><?php echo($data['cat']) ?></td>
                         <td><?php echo($data['club']) ?></td>
                         <td><?php echo($data['rank']) ?></td>
-                        <td><?php $res = (!empty($data['picture'])) ? "<i class=\"material-icons\">check_box</i>" : "<i class=\"material-icons\">check_box_outline_blank</i>"; echo $res ?></td>
+                        <td><?php echo((!empty($data['picture'])) ? "<i class=\"material-icons\">check_box</i>" : "<i class=\"material-icons\">check_box_outline_blank</i>"); ?></td>
                         <td><input type="button" name="edit" value="Edit" id="<?php echo $data["id"]; ?>" class="btn btn-info btn-xs edit_data" /></td>
                     </tr>
                 <?php } ?>
@@ -172,21 +172,6 @@ include_once '../../includes/toasts.php';
                         $('#insert_form')[0].reset();
                         $('#add_data_Modal').modal('hide');
                         $('#employee_table').html(data);
-                    }
-                });
-            }
-        });
-        $(document).on('click', '.view_data', function(){
-            var id = $(this).attr("id");
-            if(id != '')
-            {
-                $.ajax({
-                    url:"select.php",
-                    method:"POST",
-                    data:{id:id},
-                    success:function(data){
-                        $('#employee_detail').html(data);
-                        $('#dataModal').modal('show');
                     }
                 });
             }
