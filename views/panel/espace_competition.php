@@ -1,7 +1,6 @@
 <?php
 require_once '../../includes/functions.php';
 check_auth();
-
 include_once '../../includes/partials/header_panel.php';
 include_once '../../includes/toasts.php';
 ?>

@@ -9,3 +9,7 @@
 [submodule "vendor/material-design-icons"]
     path = vendor/material-design-icons
     url = https://github.com/google/material-design-icons.git
+
+[submodule "toastr"]
+	path = vendor/toastr
+	url = https://github.com/CodeSeven/toastr.git

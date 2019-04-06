@@ -20,6 +20,8 @@
     <script type="text/javascript" src="../../vendor/DataTables/media/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="../../vendor/DataTables/media/js/dataTables.bootstrap4.min.js"></script>
 
+    <!-- Toastr JS -->
+    <script type="text/javascript" src="../../vendor/toastr/build/toastr.min.js"></script>
 
     <!-- Scripts for this page -->
     <script src="../../assets/js/dataTable_joueurs.js"></script>

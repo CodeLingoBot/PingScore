@@ -16,6 +16,8 @@
     <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Datatables CSS -->
     <link rel="stylesheet" type="text/css" href="../../vendor/DataTables/media/css/dataTables.bootstrap4.min.css"/>
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" type="text/css" href="../../vendor/toastr/build/toastr.min.css"/>
     <!-- Custom styles for this template -->
 
     <style>
