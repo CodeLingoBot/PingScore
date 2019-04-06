@@ -1,9 +1,6 @@
 <?php
-
 require_once "../../includes/functions.php";
-
 session_start();
-
 if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
     require_once "../../controllers/database.php";
     session_start();
@@ -25,9 +22,7 @@ debug($passwrd);
 $verif = password_verify($real_passwd, $passwrd);
 debug($verif);
 */
-
 ?>
-
 <!doctype html>
 <html lang="fr">
 <head>
@@ -36,12 +31,10 @@ debug($verif);
     <meta name="description" content="">
     <meta name="author" content="Luc NICOLAS">
     <title>Login · Ping Score</title>
-
     <!-- Bootstrap core CSS -->
     <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../../assets/css/signin.css" rel="stylesheet">
-
     <style>
       .bd-placeholder-img {
     font-size: 1.125rem;
@@ -51,7 +44,6 @@ debug($verif);
         -ms-user-select: none;
         user-select: none;
       }
-
       @media (min-width: 768px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
@@ -59,11 +51,8 @@ debug($verif);
       }
     </style>
 </head>
-
 <body>
-
 <?php include_once '../../includes/toasts.php'; ?>
-
     <div class="container text-center">
         <form method="post" action="" enctype="multipart/form-data" class="form-signin">
             <img class="mb-4" src="../../assets/img/logo_projet.png" alt="" width="100">
@@ -80,23 +69,12 @@ debug($verif);
             <button class="btn btn-lg btn-secondary btn-block" type="submit">Sign in</button>
         </form>
     </div>
-
-
 <!-- Bootstrap core JavaScript-->
 <script src="../../vendor/jquery/jquery.min.js"></script>
 <script src="../../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-
     <script>
         $(document).ready( function () {
             $('.toast').toast("show")
         } );
-
     </script>
-
-
 </html>
-
-
-
-
-

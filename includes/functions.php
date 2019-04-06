@@ -1,5 +1,4 @@
 <?php
-
 function check_auth(){
     if(session_status() == PHP_SESSION_NONE){
         session_start();
@@ -16,9 +15,6 @@ function check_auth(){
         exit();
     }
 }
-
-
-function debug($variable)
-{
+function debug($variable){
     echo '<pre>' . print_r($variable, true) . '</pre>';
 }

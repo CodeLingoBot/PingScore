@@ -1,11 +1,7 @@
 <?php
-
 require_once '../../includes/functions.php';
-
 check_auth();
-
-include_once '../../includes/partials/header_panel.php'?>
-
+include_once '../../includes/partials/header_panel.html' ?>
 <div class="jumbotron container">
     <div class="container">
         <h1 class="display-5">Liste des arbitres :</h1>
@@ -23,6 +19,6 @@ include_once '../../includes/partials/header_panel.php'?>
 
 
 <?php
-include '../../includes/partials/footer_panel.php'
+include '../../includes/partials/footer_panel.html'
 ?>
 

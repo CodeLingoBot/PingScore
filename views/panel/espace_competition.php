@@ -1,21 +1,15 @@
 <?php
 require_once '../../includes/functions.php';
 check_auth();
-include_once '../../includes/partials/header_panel.php';
+include_once '../../includes/partials/header_panel.html';
 include_once '../../includes/toasts.php';
 ?>
-
-<script>
-    document.getElementById("body").style.background = "url('https://cwsmgmt.corsair.com/newscripts/landing-pages/wallpaper/v4/Wallpaper-v4-1920x1200.jpg') no-repeat center center fixed";
-</script>
-
     <!-- Page Content -->
     <div class="container">
         <div class="card border-0 shadow my-5">
             <div class="card-body p-5">
                 <h1 class="font-weight-light text-primary">ESPACE COMPETITION</h1>
                 <p class="lead">Voici l'espace de gestion de la compétition, ici vous pouvez accéder aux différents espace matchs, joueurs et arbitres</p>
-
                 <table>
                     <td>
                         <div class="card border-0 shadow my-5 btn-light">
@@ -26,7 +20,6 @@ include_once '../../includes/toasts.php';
                             </div></a>
                         </div>
                     </td>
-
                     <td>
                         <div class="card border-0 shadow my-5 btn-light">
                             <a href="liste_joueurs.php"><div class="card-body p-5">
@@ -35,7 +28,6 @@ include_once '../../includes/toasts.php';
                         </div></a>
                     </div>
                     </td>
-
                     <td>
                         <div class="card border-0 shadow my-5 btn-light">
                             <a href="liste_arbitres.php"><div class="card-body p-5">
@@ -44,13 +36,9 @@ include_once '../../includes/toasts.php';
                         </div>
                     </div>
                     </td>
-
                 </table>
-
             </div>
         </div>
     </div>
-
-<?php
-include '../../includes/partials/footer_panel.php'
-?>
+<?php include '../../includes/partials/footer_panel.html' ?>
+<script>document.getElementById("body").style.background = "url('https://cwsmgmt.corsair.com/newscripts/landing-pages/wallpaper/v4/Wallpaper-v4-1920x1200.jpg') no-repeat center center fixed";</script>

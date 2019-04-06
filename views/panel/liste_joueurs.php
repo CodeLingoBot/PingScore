@@ -1,29 +1,20 @@
 <?php
-
 //TODO : Rédiger le contenu
 //TODO : rajouter les photos dans Add et Edit
-
-
 require_once '../../includes/functions.php';
-
 check_auth();
-
 try {
     require_once('../../controllers/database.php');
     $req = "SELECT * FROM players ORDER BY id ASC";
     $ps = $pdo -> prepare($req);
     $ps -> execute();
-}
-
-catch (PDOException $e){
+} catch (PDOException $e){
     $msg = 'Erreur PDO dans' . $e -> getMessage();
     die($msg);
 }
-
-include_once '../../includes/partials/header_panel.php';
+include_once '../../includes/partials/header_panel.html';
 include_once '../../includes/toasts.php';
 ?>
-
 <div class="jumbotron container">
     <div class="container">
         <h1 class="display-5">Liste des joueurs :</h1>
@@ -32,7 +23,6 @@ include_once '../../includes/toasts.php';
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="card border-0 shadow my-5">
         <div id="employee_table" class="container my-5">
@@ -47,7 +37,6 @@ include_once '../../includes/toasts.php';
                     <th>CLASSEMENT</th>
                     <th>PHOTO</th>
                     <th>ACTION</th>
-
                 </tr>
                 </thead>
                 <tbody>
@@ -113,9 +102,7 @@ include_once '../../includes/toasts.php';
         </div>
     </div>
 </div>
-
-<?php include '../../includes/partials/footer_panel.php'?>
-
+<?php include '../../includes/partials/footer_panel.html' ?>
 <script>
     $(document).ready(function(){
         $('#add').click(function(){
@@ -143,24 +130,15 @@ include_once '../../includes/toasts.php';
         });
         $('#insert_form').on("submit", function(event){
             event.preventDefault();
-            if($('#surname').val() == "")
-            {
+            if($('#surname').val() == ""){
                 alert("Name is required");
-            }
-            else if($('#name').val() == '')
-            {
+            } else if($('#name').val() == ''){
                 alert("Address is required");
-            }
-            else if($('#club').val() == '')
-            {
+            } else if($('#club').val() == ''){
                 alert("Designation is required");
-            }
-            else if($('#rank').val() == '')
-            {
+            } else if($('#rank').val() == ''){
                 alert("Age is required");
-            }
-            else
-            {
+            } else{
                 $.ajax({
                     url:"../../controllers/insert.php",
                     method:"POST",

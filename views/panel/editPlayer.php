@@ -1,17 +1,12 @@
 <?php
-
 require_once '../../includes/functions.php';
-
 require_once '../../controllers/database.php';
-
 $req = "SELECT * FROM players WHERE id = ?";
 $ps = $pdo -> prepare($req);
 $id=$_GET['id'];
 $ps -> execute(array($id));
 $dataPlayer = $ps->fetch();
-
-include_once ('../../includes/partials/header_panel.php');
-
+include_once('../../includes/partials/header_panel.html');
 ?>
 
 <div class="jumbotron">
@@ -20,12 +15,9 @@ include_once ('../../includes/partials/header_panel.php');
         <p></p>
     </div>
 </div>
-
 <div class="container">
     <div class="card border-0 shadow my-5">
-
         <form method="post" action="../../controllers/edit.php" enctype="multipart/form-data">
-
             <div class="form-group container">
                 <label class="control-label"></label >
                 <input type="hidden" name="id" value="<?php echo ($dataPlayer['id']) ?>" class="form-control">
