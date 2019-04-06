@@ -6,9 +6,7 @@ $cat = $_POST['cat'];
 $rank = $_POST['rank'];
 $namePicture = $_FILES['picture']['name'];
 $club = $_POST['club'];
-
 require_once 'database.php';
-
 if ($namePicture == "") {
     $req = $pdo->prepare("UPDATE players SET surname=?, name=?, cat=?, rank=?, club=? WHERE id=?");
     $params = array($surname,$name, $cat, $rank, $club, $id);
@@ -20,5 +18,4 @@ if ($namePicture == "") {
     $params = array($surname,$name, $cat, $rank, $namePicture, $club, $id);
     $req->execute($params);
 }
-
 header("location: ../views/panel/liste_joueurs.php");
