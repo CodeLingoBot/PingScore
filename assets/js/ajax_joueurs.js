@@ -7,7 +7,7 @@ $(document).ready(function(){
     $(document).on('click', '.edit_data', function(){
         var id = $(this).attr("id");
         $.ajax({
-            url:"../../controllers/fetch.php",
+            url:"../../controllers/players/fetch.php",
             method:"POST",
             data:{id:id},
             dataType:"json",
@@ -36,7 +36,7 @@ $(document).ready(function(){
             alert("Age is required");
         } else{
             $.ajax({
-                url:"../../controllers/insert.php",
+                url:"../../controllers/players/insert.php",
                 method:"POST",
                 data:$('#insert_form').serialize(),
                 beforeSend:function(){
