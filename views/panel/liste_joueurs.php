@@ -1,6 +1,6 @@
 <?php
-//TODO : Rédiger le contenu
-//TODO : rajouter les photos dans Add et Edit
+//TODO : Google Trad + contenu
+//TODO : rajouter les files photo dans Add et Edit
 require_once '../../includes/functions.php';
 check_auth();
 try {
@@ -94,6 +94,7 @@ include_once '../../includes/toasts.php';
                     <br />
                     <input type="hidden" name="id" id="id"/>
                     <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
+                    <input type="hidden" name="del" id="del" value="Del" class="btn btn-danger" />
                 </form>
             </div>
             <div class="modal-footer">
@@ -104,9 +105,40 @@ include_once '../../includes/toasts.php';
 </div>
 <?php include '../../includes/partials/footer_panel.html' ?>
 <script>
+    function showToastr(type, title, message) {
+        toastr.remove();
+        let body;
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": true,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": 5000,
+            "onclick": null,
+            "onCloseClick": null,
+            "extendedTimeOut": 0,
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut",
+            "tapToDismiss": false
+        };
+        switch(type){
+            case "success": body = "<span> <i class='fa fa-cog fa-pulse'></i></span>";
+                break;
+            default: body = '';
+        }
+        const content = message + body;
+        toastr[type](content, title)
+    }
     $(document).ready(function(){
         $('#add').click(function(){
             $('#insert').val("Insert");
+            $('#del').prop("type", "hidden");
             $('#insert_form')[0].reset();
         });
         $(document).on('click', '.edit_data', function(){
@@ -124,6 +156,7 @@ include_once '../../includes/toasts.php';
                     $('#rank').val(data.rank);
                     $('#id').val(data.id);
                     $('#insert').val("Update");
+                    $('#del').prop("type", "button");
                     $('#add_data_Modal').modal('show');
                 }
             });
@@ -150,6 +183,10 @@ include_once '../../includes/toasts.php';
                         $('#insert_form')[0].reset();
                         $('#add_data_Modal').modal('hide');
                         $('#employee_table').html(data);
+                        type = "success";
+                        title = "Success";
+                        message = "Data up to date !";
+                        showToastr(type, title, message);
                     }
                 });
             }

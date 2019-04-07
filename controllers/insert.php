@@ -1,5 +1,7 @@
 <?php
-session_start();
+//TODO: Bug lors de la saisie d'un nouveau joueur, après en avoir éditer un du tableau (le fond sombre reste)
+//TODO: Regarder pour mettre les $message(s) dans un toastr
+
 $connect = mysqli_connect("localhost", "root", "root", "PI_aspcn");
 if(!empty($_POST)){
     $output = '';
@@ -11,10 +13,10 @@ if(!empty($_POST)){
     $rank = mysqli_real_escape_string($connect, $_POST["rank"]);
     if($_POST["id"] != ''){
         $query = "UPDATE players SET surname='$surname', name='$name', cat='$cat', club = '$club', rank = '$rank' WHERE id='".$_POST["id"]."'";
-        $message = 'Data Updated';
+        $message = $_POST['name'] . ' ' . $_POST['surname'] . '\'s Informations Updated';
     } else {
         $query = "INSERT INTO players(surname, name, cat, club, rank) VALUES('$surname', '$name', '$cat', '$club', '$rank');";
-        $message = 'Data Inserted';
+        $message = $_POST['name'] . ' ' . $_POST['surname'] . '\'s Informations Inserted';
     }
     if(mysqli_query($connect, $query)){
         $output .= '<label class="text-success">' . $message . '</label>';
