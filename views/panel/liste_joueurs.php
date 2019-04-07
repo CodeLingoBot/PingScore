@@ -60,3 +60,5 @@ include_once '../../includes/toasts.php';
 <?php include_once '../../includes/modal_joueurs.html';
 include_once '../../includes/partials/footer_panel.html'; ?>
 <script type="text/javascript" src="../../assets/js/ajax_joueurs.js"></script>
+<script type="text/javascript" src="../../assets/js/toastr_joueurs.js"></script>
+

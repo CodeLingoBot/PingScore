@@ -1,5 +1,4 @@
 <?php
-//TODO: Bug lors de la saisie d'un nouveau joueur, après en avoir éditer un du tableau (le fond sombre reste)
 //TODO: Ajouter fonctionnalité Del User
 
 $connect = mysqli_connect("localhost", "root", "root", "PI_aspcn");
@@ -22,12 +21,6 @@ if(!empty($_POST)){
         $select_query = "SELECT * FROM players ORDER BY id ASC";
         $result = mysqli_query($connect, $select_query);
         $output .= '    
-                <!-- Material icons Google fonts-->
-                <link href="../../vendor/material-design-icons/iconfont/material-icons.css" rel="stylesheet" type="text/css">
-                <!-- Bootstrap core CSS -->
-                <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-                <!-- Datatables CSS -->
-                <link rel="stylesheet" type="text/css" href="../../vendor/DataTables/media/css/dataTables.bootstrap4.min.css"/>
                 <!-- Toastr CSS -->
                 <link rel="stylesheet" type="text/css" href="../../vendor/toastr/build/toastr.min.css"/>
                 <table id="table_joueurs" class="table table-hover table-responsive-lg">
@@ -62,18 +55,9 @@ if(!empty($_POST)){
     ';
         }
         $output .= '</table>    
-        <!-- Bootstrap core JavaScript-->
-        <script src="../../vendor/jquery/jquery.min.js"></script>
-        <script src="../../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- Datatables JS -->
-        <script type="text/javascript" src="../../vendor/DataTables/media/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="../../vendor/DataTables/media/js/dataTables.bootstrap4.min.js"></script>
-        <!-- Toastr JS -->
-        <script type="text/javascript" src="../../vendor/toastr/build/toastr.min.js"></script>
         <!-- Scripts for this page -->
         <script src="../../assets/js/dataTable_joueurs.js"></script>
-        <script type="text/javascript" src="../../assets/js/ajax_joueurs.js"></script>
-        <script type="text/javascript" src="../../assets/js/toastr_joueurs.js"></script>';
+    ';
     }
     echo $output;
 }
