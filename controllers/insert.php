@@ -22,16 +22,16 @@ if(!empty($_POST)){
         $output .= '<label class="text-success">' . $message . '</label>';
         $select_query = "SELECT * FROM players ORDER BY id ASC";
         $result = mysqli_query($connect, $select_query);
-        $output .= '    <!-- Material icons Google fonts-->
-    <link href="../../vendor/material-design-icons/iconfont/material-icons.css" rel="stylesheet" type="text/css">
-    <!-- Bootstrap core CSS -->
-    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Datatables CSS -->
-    <link rel="stylesheet" type="text/css" href="../../vendor/DataTables/media/css/dataTables.bootstrap4.min.css"/>
-    <!-- Toastr CSS -->
-    <link rel="stylesheet" type="text/css" href="../../vendor/toastr/build/toastr.min.css"/>
-    <!-- Custom styles for this template -->
-    <table id="table_joueurs" class="table table-hover table-responsive-lg">
+        $output .= '    
+                <!-- Material icons Google fonts-->
+                <link href="../../vendor/material-design-icons/iconfont/material-icons.css" rel="stylesheet" type="text/css">
+                <!-- Bootstrap core CSS -->
+                <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+                <!-- Datatables CSS -->
+                <link rel="stylesheet" type="text/css" href="../../vendor/DataTables/media/css/dataTables.bootstrap4.min.css"/>
+                <!-- Toastr CSS -->
+                <link rel="stylesheet" type="text/css" href="../../vendor/toastr/build/toastr.min.css"/>
+                <table id="table_joueurs" class="table table-hover table-responsive-lg">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -63,18 +63,18 @@ if(!empty($_POST)){
     ';
         }
         $output .= '</table>    
-    <!-- Bootstrap core JavaScript-->
-    <script src="../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../vendor/bootstrap/dist/js/bootstrap.min.js.map"></script>
-    <!-- Datatables JS -->
-    <script type="text/javascript" src="../../vendor/DataTables/media/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="../../vendor/DataTables/media/js/dataTables.bootstrap4.min.js"></script>
-    <!-- Toastr JS -->
-    <script type="text/javascript" src="../../vendor/toastr/build/toastr.min.js"></script>
-    <script type="text/javascript" src="../../vendor/toastr/nuget/content/scripts/toastr.min.js.map"></script>
-    <!-- Scripts for this page -->
-    <script src="../../assets/js/dataTable_joueurs.js"></script>';
+        <!-- Bootstrap core JavaScript-->
+        <script src="../../vendor/jquery/jquery.min.js"></script>
+        <script src="../../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../../vendor/bootstrap/dist/js/bootstrap.min.js.map"></script>
+        <!-- Datatables JS -->
+        <script type="text/javascript" src="../../vendor/DataTables/media/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="../../vendor/DataTables/media/js/dataTables.bootstrap4.min.js"></script>
+        <!-- Toastr JS -->
+        <script type="text/javascript" src="../../vendor/toastr/build/toastr.min.js"></script>
+        <script type="text/javascript" src="../../vendor/toastr/nuget/content/scripts/toastr.min.js.map"></script>
+        <!-- Scripts for this page -->
+        <script src="../../assets/js/dataTable_joueurs.js"></script>';
     }
     echo $output;
 }

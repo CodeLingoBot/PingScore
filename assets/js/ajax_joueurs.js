@@ -50,7 +50,7 @@ $(document).ready(function(){
                 $('#id').val(data.id);
                 $('#insert').val("Update");
                 $('#del').prop("type", "button");
-                $('#add_data_Modal').modal('show');
+                $('#add_data_Modal').modal('toggle');
             }
         });
     });
@@ -70,11 +70,12 @@ $(document).ready(function(){
                 method:"POST",
                 data:$('#insert_form').serialize(),
                 beforeSend:function(){
+                    $('#id').val("");
                     $('#insert').val("Inserting");
                 },
                 success:function(data){
                     $('#insert_form')[0].reset();
-                    $('#add_data_Modal').modal('hide');
+                    $('#add_data_Modal').modal('toggle');
                     $('#employee_table').html(data);
                     type = "success";
                     title = "Success";

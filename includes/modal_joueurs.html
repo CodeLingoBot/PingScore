@@ -8,13 +8,14 @@
             <div class="modal-body">
                 <form method="post" id="insert_form">
                     <label>Enter Player Surname</label>
-                    <input type="text" name="surname" id="surname" class="form-control" />
+                    <input type="text" name="surname" id="surname" class="form-control" required />
                     <br />
                     <label>Enter Employee Name</label>
-                    <input type="text" name="name" id="name" class="form-control" />
+                    <input type="text" name="name" id="name" class="form-control" required />
                     <br />
                     <label>Select Categorie</label>
-                    <select name="cat" id="cat" class="form-control">
+                    <select name="cat" id="cat" class="form-control" required>
+                        <option selected disabled>Choisir une catégorie</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -31,7 +32,7 @@
                     <input type="text" name="club" id="club" class="form-control" />
                     <br />
                     <label>Enter Classement</label>
-                    <input type="text" name="rank" id="rank" class="form-control" />
+                    <input type="number" name="rank" id="rank" class="form-control" />
                     <br />
                     <input type="hidden" name="id" id="id"/>
                     <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
