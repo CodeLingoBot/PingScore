@@ -26,7 +26,7 @@ include_once '../../includes/toasts.php';
 <div class="container">
     <div class="card border-0 shadow my-5">
         <div id="employee_table" class="container my-5">
-            <table id="table_joueurs" class="table table-hover table-responsive-lg">
+            <table id="" class="table table-hover table-responsive-lg dataTable">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -60,5 +60,5 @@ include_once '../../includes/toasts.php';
 <?php include_once '../../includes/modal_joueurs.html';
 include_once '../../includes/partials/footer_panel.html'; ?>
 <script type="text/javascript" src="../../assets/js/ajax_joueurs.js"></script>
-<script type="text/javascript" src="../../assets/js/toastr_joueurs.js"></script>
+<script type="text/javascript" src="../../assets/js/toastr.js"></script>
 

@@ -23,7 +23,7 @@ if(!empty($_POST)){
         $output .= '    
                 <!-- Toastr CSS -->
                 <link rel="stylesheet" type="text/css" href="../../vendor/toastr/build/toastr.min.css"/>
-                <table id="table_joueurs" class="table table-hover table-responsive-lg">
+                <table id="dataTable" class="table table-hover table-responsive-lg">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -56,7 +56,7 @@ if(!empty($_POST)){
         }
         $output .= '</table>    
         <!-- Scripts for this page -->
-        <script src="../../assets/js/dataTable_joueurs.js"></script>
+        <script src="../../assets/js/dataTable.js"></script>
     ';
     }
     echo $output;

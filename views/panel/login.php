@@ -16,13 +16,15 @@ if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
         $_SESSION['flash']['danger'] = 'Identifiant ou mot de passe incorrect.';
     }
 }
-/*
-$real_passwd = "root";
+
+$real_passwd = "att";
 $passwrd = password_hash($real_passwd, PASSWORD_BCRYPT);
 debug($passwrd);
 $verif = password_verify($real_passwd, $passwrd);
 debug($verif);
-*/
+
+echo ($verif) ? 'Passwd = ' . $real_passwd : 'Erreur'
+
 ?>
 <!doctype html>
 <html lang="fr">
