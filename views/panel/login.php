@@ -1,9 +1,10 @@
 <?php
 require_once "../../includes/functions.php";
-session_start();
+if (!isset($_SESSION)){
+    session_start();
+}
 if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
     require_once "../../controllers/database.php";
-    session_start();
     $req = $pdo->prepare('SELECT * FROM users WHERE username = :username');
     $req->execute(['username' => $_POST['username']]);
     if (($user = $req->fetch(PDO::FETCH_OBJ)) && password_verify($_POST['password'], $user->password)) {
