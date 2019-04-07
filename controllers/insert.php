@@ -1,6 +1,6 @@
 <?php
 //TODO: Bug lors de la saisie d'un nouveau joueur, après en avoir éditer un du tableau (le fond sombre reste)
-//TODO: Regarder pour mettre les $message(s) dans un toastr
+//TODO: Ajouter fonctionnalité Del User
 
 $connect = mysqli_connect("localhost", "root", "root", "PI_aspcn");
 if(!empty($_POST)){
@@ -19,7 +19,6 @@ if(!empty($_POST)){
         $message = $_POST['name'] . ' ' . $_POST['surname'] . '\'s Informations Inserted';
     }
     if(mysqli_query($connect, $query)){
-        $output .= '<label class="text-success">' . $message . '</label>';
         $select_query = "SELECT * FROM players ORDER BY id ASC";
         $result = mysqli_query($connect, $select_query);
         $output .= '    
