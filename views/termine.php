@@ -4,7 +4,9 @@
 
 <!--==========-->
 
-<div class="container">
+<h3 class="text-center">Tableau des matchs terminés</h3>
+
+<div class="container bg-light">
 
     <?php
         require_once ('../controllers/database.php');
@@ -48,5 +50,7 @@
             </table>
 
     <?php } ?>
+
+    <br />
 
 </div>
