@@ -5,22 +5,31 @@
 
     require_once('../../controllers/database.php') ;
 
+    #Match actif
     $ps = $pdo->prepare("SELECT * FROM matchs WHERE id=$id AND state=1") ;
     $ps->execute() ;
 
     $et = $ps -> fetch() ;
 
-
+    #Match terminé le plus récent
     if (empty($et)) {
         $ps = $pdo->prepare("SELECT * FROM matchs WHERE court=1 AND state=2 ORDER BY 'hour' DESC") ;
         $ps->execute() ;
 
         $et = $ps -> fetch() ;
 
+        #Match vide
         if (empty($et)) {
     
-            $et = [] ;
-        }
+            $et = [
+                'blue_player'=>0,
+                'red_player'=>0,
+                'hour'=>'',
+                'score'=>'{"round1": {"red": 0, "blue": 0}, "round2": {"red": 0, "blue": 0}, "round3": {"red": 0, "blue": 0}, "round4": {"red": 0, "blue": 0}, "round5": {"red": 0, "blue": 0}}',
+                'state'=>0
+            ] ;
+        }        
+        
     }
 
 ?>
@@ -87,7 +96,7 @@
         </td> 
         <!-- Fin affichage bleu -->
 
-        
+        <!-- Cadre centre -->
         <td>
 
             <!--<img src="../../assets/img/table.jpg" class="img-fluid" alt="Responsive image">-->
@@ -141,7 +150,9 @@
             <!-- Fin de partie -->
 
             <?php #Affichage etat du match
-                if ( $et['state'] == 1) {
+                if ( $et['state'] == 0 ) {
+                    echo("<h3 class='text-info text-center'>Aucun match</h3>");
+                }elseif ( $et['state'] == 1) {
                     echo("<h3 class='text-success text-center'>En cours</h3>");
                 }
                 elseif ( $et['state'] == 2) {
@@ -150,7 +161,7 @@
             ?>
 
         </td>
-
+        <!-- Fin cadre -->
 
         <!-- Affichage joueur rouge -->
         <td>

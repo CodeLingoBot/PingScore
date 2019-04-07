@@ -8,6 +8,8 @@
         <title>PingScore</title>
 
         <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
     </head>
     
     <body>
