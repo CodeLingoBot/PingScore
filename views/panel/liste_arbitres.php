@@ -28,7 +28,6 @@ include_once '../../includes/toasts.php';
             <table id="" class="table table-hover table-responsive-lg">
                 <thead>
                 <tr>
-                    <th>ID</th>
                     <th>USERNAME</th>
                     <th>PASSWORD</th>
                 </tr>
@@ -36,7 +35,6 @@ include_once '../../includes/toasts.php';
                 <tbody>
                 <?php while ($data = $ps->fetch()) { ?>
                     <tr id="<?php echo($data['id']) ?>">
-                        <td><?php echo($data['id']) ?></td>
                         <td><?php echo($data['username']) ?></td>
                         <td><?php echo($data['password']) ?></td>
                        <td><input type="button" name="edit" value="Edit" id="<?php echo $data["id"]; ?>" class="btn btn-info btn-xs edit_data" /></td>
