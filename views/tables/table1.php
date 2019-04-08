@@ -1,14 +1,23 @@
 <?php
 
-    #Recuperation id du match
-    $id = 1;
+//
+//
+//  Methode GET pour choisir la table à afficher
+//
+// 
 
     require_once('../../controllers/database.php') ;
 
-    #Match actif
+    #Recuperation donné table
+    $court = $pdo->prepare("SELECT * FROM court WHERE id=1") ;
+    $court->execute() ;
+    $court = $court->fetch() ;
+
+    $id = $court['match_id'] ;
+
+    #Match selectionné
     $ps = $pdo->prepare("SELECT * FROM matchs WHERE id=$id AND state=1") ;
     $ps->execute() ;
-
     $et = $ps -> fetch() ;
 
     #Match terminé le plus récent
@@ -99,8 +108,18 @@
         <!-- Cadre centre -->
         <td>
 
-            <!--<img src="../../assets/img/table.jpg" class="img-fluid" alt="Responsive image">-->
-            <iframe width="450" height="318" src="https://www.youtube.com/embed/SlomarPy4oo" frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            <?php 
+                if (empty($court['video'])) {
+
+                    echo('<iframe width="450" height="318" src="https://static.jeux-gratuits.com/main/swf/ping-pong.swf" frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>') ;
+
+                }else {
+                    
+                    echo('<iframe width="450" height="318" src='.$court['video'].' frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>') ;
+
+                } ;
+
+            ?>
 
             <br />
             <br />
@@ -135,7 +154,11 @@
                     <tr>
                         <th scope="row">
                             <?php echo($etRed['surname'])?>
+
+                            <!--
                             <span class="badge badge-secondary">Service</span>
+                            -->
+
                         </th>
                         <td width=10%><?php echo($json_clear->round1->red)?></td>
                         <td width=10%><?php echo($json_clear->round2->red)?></td>
