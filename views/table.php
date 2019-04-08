@@ -1,58 +1,69 @@
 <?php
 
-//
-//
-//  Methode GET pour choisir la table à afficher
-//
-// 
+    $num_table = $_GET['table'] ;
 
-    require_once('../../controllers/database.php') ;
+    require_once('../controllers/database.php') ;
 
     #Recuperation donné table
-    $court = $pdo->prepare("SELECT * FROM court WHERE id=1") ;
+    $court = $pdo->prepare("SELECT * FROM court WHERE id=$num_table") ;
     $court->execute() ;
     $court = $court->fetch() ;
 
-    $id = $court['match_id'] ;
 
-    #Match selectionné
-    $ps = $pdo->prepare("SELECT * FROM matchs WHERE id=$id AND state=1") ;
-    $ps->execute() ;
-    $et = $ps -> fetch() ;
+    if (empty($court['match_id'])) {
 
-    #Match terminé le plus récent
-    if (empty($et)) {
-        $ps = $pdo->prepare("SELECT * FROM matchs WHERE court=1 AND state=2 ORDER BY 'hour' DESC") ;
+        $et = [
+            'blue_player'=>0,
+            'red_player'=>0,
+            'hour'=>'',
+            'score'=>'{"round1": {"red": 0, "blue": 0}, "round2": {"red": 0, "blue": 0}, "round3": {"red": 0, "blue": 0}, "round4": {"red": 0, "blue": 0}, "round5": {"red": 0, "blue": 0}}',
+            'state'=>0
+        ] ;
+
+    }else{
+
+        $id = $court['match_id'] ;
+
+        #Match selectionné
+        $ps = $pdo->prepare("SELECT * FROM matchs WHERE id=$id AND state=1") ;
         $ps->execute() ;
-
         $et = $ps -> fetch() ;
 
-        #Match vide
+        #Match terminé le plus récent
         if (empty($et)) {
-    
-            $et = [
-                'blue_player'=>0,
-                'red_player'=>0,
-                'hour'=>'',
-                'score'=>'{"round1": {"red": 0, "blue": 0}, "round2": {"red": 0, "blue": 0}, "round3": {"red": 0, "blue": 0}, "round4": {"red": 0, "blue": 0}, "round5": {"red": 0, "blue": 0}}',
-                'state'=>0
-            ] ;
-        }        
+            $ps = $pdo->prepare("SELECT * FROM matchs WHERE court=$num_table AND state=2 ORDER BY 'hour' DESC") ;
+            $ps->execute() ;
+
+            $et = $ps -> fetch() ;
+
+            #Match vide
+            if (empty($et)) {
         
-    }
+                $et = [
+                    'blue_player'=>0,
+                    'red_player'=>0,
+                    'hour'=>'',
+                    'score'=>'{"round1": {"red": 0, "blue": 0}, "round2": {"red": 0, "blue": 0}, "round3": {"red": 0, "blue": 0}, "round4": {"red": 0, "blue": 0}, "round5": {"red": 0, "blue": 0}}',
+                    'state'=>0
+                ] ;
+            }        
+            
+        }
+
+    };
 
 ?>
 
 <!--==========-->
 
-<?php include("../../includes/partials/header.php") ?>
+<?php include("../includes/partials/header.php") ?>
 
 <!--==========-->
 
 <div class="container">
 
     <h3 class="text-center">
-        Table 1 - <?php echo($et['hour']) ?>
+        Table <?php echo($num_table) ?> - <?php echo($et['hour']) ?>
     </h3>
 
     
@@ -82,7 +93,7 @@
 
             <div class="card bg-primary mb-3" style="width: 18rem;">
 
-                <img src="../../assets/img/players/<?php echo($etBlue['picture'])?>" class="card-img-top" width="320" height=320 alt="">
+                <img src="../assets/img/players/<?php echo($etBlue['picture'])?>" class="card-img-top" width="320" height=320 alt="">
 
                 <div class="card-body">
                     <h5 class="card-title">
@@ -108,14 +119,14 @@
         <!-- Cadre centre -->
         <td>
 
-            <?php 
+            <?php #Case centrale 
                 if (empty($court['video'])) {
 
                     echo('<iframe width="450" height="318" src="https://static.jeux-gratuits.com/main/swf/ping-pong.swf" frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>') ;
 
                 }else {
                     
-                    echo('<iframe width="450" height="318" src='.$court['video'].' frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>') ;
+                    echo('<iframe class="embed-responsive-item" width="450" height="318" src='.$court['video'].' frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>') ;
 
                 } ;
 
@@ -129,10 +140,22 @@
 
                 <?php
 
-                    $ps = $pdo->prepare("SELECT score FROM matchs WHERE id=$id") ;
-                    $ps->execute() ;
+                    if (!empty($id)) {
 
-                    $json = $ps -> fetch() ;
+                        $ps = $pdo->prepare("SELECT score FROM matchs WHERE id=$id") ;
+                        $ps->execute() ;
+
+                        $json = $ps -> fetch() ;
+
+                    }else{
+
+                        $json = [
+                            'score'=>'{"round1": {"red": 0, "blue": 0}, "round2": {"red": 0, "blue": 0}, "round3": {"red": 0, "blue": 0}, "round4": {"red": 0, "blue": 0}, "round5": {"red": 0, "blue": 0}}',
+                        ];
+
+                    }
+
+                    
 
                     $json_clear = json_decode($json['score']) ;
                 
@@ -191,7 +214,7 @@
 
             <div class="card bg-danger mb-3" style="width: 18rem;">
 
-                <img src="../../assets/img/players/<?php echo($etRed['picture'])?>" class="card-img-top" width="320" height=320 alt="">
+                <img src="../assets/img/players/<?php echo($etRed['picture'])?>" class="card-img-top" width="320" height=320 alt="">
 
                 <div class="card-body">
                     <h5 class="card-title">
@@ -217,4 +240,3 @@
     </table>
 
 </div>
-

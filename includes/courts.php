@@ -30,7 +30,7 @@
 
             ?>
 
-            <a href="tables/table<?php echo($nb)?>.php" style="text-decoration:none" class="text-danger">
+            <a href="table.php?table=<?php echo($nb)?>" style="text-decoration:none" class="text-danger">
                 <table class="table table-info">
 
                     <thead>
