@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 05 avr. 2019 à 13:53
+-- Généré le :  lun. 08 avr. 2019 à 12:36
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -25,6 +25,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `court`
+--
+
+DROP TABLE IF EXISTS `court`;
+CREATE TABLE IF NOT EXISTS `court` (
+  `id` int(11) NOT NULL,
+  `match_id` int(11) NOT NULL,
+  `video` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `chat` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `court`
+--
+
+INSERT INTO `court` (`id`, `match_id`, `video`, `chat`) VALUES
+(1, 6, '', 0),
+(2, 4, 'https://www.youtube.com/embed/hHW1oY26kxQ', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `matchs`
 --
 
@@ -34,13 +57,12 @@ CREATE TABLE IF NOT EXISTS `matchs` (
   `blue_player` int(11) NOT NULL,
   `red_player` int(11) NOT NULL,
   `hour` time NOT NULL,
-  `court` smallint(50) NOT NULL,
+  `court` int(11) NOT NULL,
   `state` tinyint(4) NOT NULL,
   `score` json NOT NULL,
-  `cam` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `chat` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `BLUE_PLAYER` (`blue_player`,`red_player`),
+  UNIQUE KEY `court` (`court`),
   KEY `RED_PLAYER` (`red_player`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
@@ -48,13 +70,13 @@ CREATE TABLE IF NOT EXISTS `matchs` (
 -- Déchargement des données de la table `matchs`
 --
 
-INSERT INTO `matchs` (`id`, `blue_player`, `red_player`, `hour`, `court`, `state`, `score`, `cam`, `chat`) VALUES
-(1, 1, 2, '17:00:00', 2, 0, '{\"round1\": {\"red\": 0, \"blue\": 0}, \"round2\": {\"red\": 0, \"blue\": 0}, \"round3\": {\"red\": 0, \"blue\": 0}, \"round4\": {\"red\": 0, \"blue\": 0}, \"round5\": {\"red\": 0, \"blue\": 0}}', '', ''),
-(2, 3, 4, '16:30:00', 3, 1, '{\"round1\": {\"red\": 0, \"blue\": 0}, \"round2\": {\"red\": 0, \"blue\": 0}, \"round3\": {\"red\": 0, \"blue\": 0}, \"round4\": {\"red\": 0, \"blue\": 0}, \"round5\": {\"red\": 0, \"blue\": 0}}', '', ''),
-(4, 1, 4, '18:00:00', 4, 1, '{\"round1\": {\"red\": 0, \"blue\": 0}, \"round2\": {\"red\": 0, \"blue\": 0}, \"round3\": {\"red\": 0, \"blue\": 0}, \"round4\": {\"red\": 0, \"blue\": 0}, \"round5\": {\"red\": 0, \"blue\": 0}}', '', ''),
-(5, 3, 5, '15:00:00', 5, 1, '{\"round1\": {\"red\": 0, \"blue\": 0}, \"round2\": {\"red\": 0, \"blue\": 0}, \"round3\": {\"red\": 0, \"blue\": 0}, \"round4\": {\"red\": 0, \"blue\": 0}, \"round5\": {\"red\": 0, \"blue\": 0}}', '', ''),
-(6, 2, 4, '15:00:00', 5, 2, '{\"round1\": {\"red\": 0, \"blue\": 0}, \"round2\": {\"red\": 0, \"blue\": 0}, \"round3\": {\"red\": 0, \"blue\": 0}, \"round4\": {\"red\": 0, \"blue\": 0}, \"round5\": {\"red\": 0, \"blue\": 0}}', '', ''),
-(7, 3, 1, '15:30:00', 6, 2, '{\"round1\": {\"red\": 0, \"blue\": 0}, \"round2\": {\"red\": 0, \"blue\": 0}, \"round3\": {\"red\": 0, \"blue\": 0}, \"round4\": {\"red\": 0, \"blue\": 0}, \"round5\": {\"red\": 0, \"blue\": 0}}', '', '');
+INSERT INTO `matchs` (`id`, `blue_player`, `red_player`, `hour`, `court`, `state`, `score`) VALUES
+(1, 1, 2, '17:00:00', 2, 0, '{\"round1\": {\"red\": 0, \"blue\": 0}, \"round2\": {\"red\": 0, \"blue\": 0}, \"round3\": {\"red\": 0, \"blue\": 0}, \"round4\": {\"red\": 0, \"blue\": 0}, \"round5\": {\"red\": 0, \"blue\": 0}}'),
+(2, 3, 4, '16:30:00', 3, 1, '{\"round1\": {\"red\": 0, \"blue\": 0}, \"round2\": {\"red\": 0, \"blue\": 0}, \"round3\": {\"red\": 0, \"blue\": 0}, \"round4\": {\"red\": 0, \"blue\": 0}, \"round5\": {\"red\": 0, \"blue\": 0}}'),
+(4, 1, 4, '18:00:00', 4, 1, '{\"round1\": {\"red\": 0, \"blue\": 0}, \"round2\": {\"red\": 0, \"blue\": 0}, \"round3\": {\"red\": 0, \"blue\": 0}, \"round4\": {\"red\": 0, \"blue\": 0}, \"round5\": {\"red\": 0, \"blue\": 0}}'),
+(5, 3, 5, '15:00:00', 5, 1, '{\"round1\": {\"red\": 0, \"blue\": 0}, \"round2\": {\"red\": 0, \"blue\": 0}, \"round3\": {\"red\": 0, \"blue\": 0}, \"round4\": {\"red\": 0, \"blue\": 0}, \"round5\": {\"red\": 0, \"blue\": 0}}'),
+(6, 2, 4, '15:00:00', 0, 2, '{\"round1\": {\"red\": 0, \"blue\": 0}, \"round2\": {\"red\": 0, \"blue\": 0}, \"round3\": {\"red\": 0, \"blue\": 0}, \"round4\": {\"red\": 0, \"blue\": 0}, \"round5\": {\"red\": 0, \"blue\": 0}}'),
+(7, 3, 1, '15:30:00', 6, 2, '{\"round1\": {\"red\": 0, \"blue\": 0}, \"round2\": {\"red\": 0, \"blue\": 0}, \"round3\": {\"red\": 0, \"blue\": 0}, \"round4\": {\"red\": 0, \"blue\": 0}, \"round5\": {\"red\": 0, \"blue\": 0}}');
 
 -- --------------------------------------------------------
 
@@ -64,26 +86,27 @@ INSERT INTO `matchs` (`id`, `blue_player`, `red_player`, `hour`, `court`, `state
 
 DROP TABLE IF EXISTS `players`;
 CREATE TABLE IF NOT EXISTS `players` (
-  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `surname` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `cat` tinyint(50) NOT NULL,
-  `rank` smallint(6) NOT NULL,
-  `picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `club` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `rank` smallint(6) NOT NULL,
+  `picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `players`
 --
 
-INSERT INTO `players` (`id`, `surname`, `name`, `cat`, `rank`, `picture`, `club`) VALUES
-(1, 'MARTI', 'Hugo', 42, 69, 'hugo.jpg', 'ASPCN'),
-(2, 'NICOLAS', 'Luc', 2, 123, 'luc.jpg', 'ASPCN'),
-(3, 'FRANCHET', 'Matthieu', 69, 250, 'matthieu.jpg', 'PPN'),
-(4, 'MONGEOT', 'Clement', 20, 666, 'clement.jpg', 'CPC'),
-(5, 'LIMOUSIN', 'Jeremy', 5, 33, 'jeremy.jpg', 'Linux Pong Club');
+INSERT INTO `players` (`id`, `surname`, `name`, `cat`, `club`, `rank`, `picture`) VALUES
+(0, '---', '', 0, '---', 0, 'vide.png'),
+(1, 'MARTI', 'Hugo', 42, 'ASPCN', 69, 'hugo.jpg'),
+(2, 'NICOLAS', 'Luc', 2, 'ASPCN', 123, 'luc.jpg'),
+(3, 'FRANCHET', 'Matthieu', 3, 'PPN', 250, 'matthieu.jpg'),
+(4, 'MONGEOT', 'Clement', 20, 'CPC', 666, 'clement.jpg'),
+(5, 'LIMOUSIN', 'Jeremy', 5, 'Linux Pong Club', 33, 'jeremy.jpg');
 
 -- --------------------------------------------------------
 
