@@ -30,6 +30,7 @@ include_once '../../includes/toasts.php';
                 <tr>
                     <th>USERNAME</th>
                     <th>PASSWORD</th>
+                    <th>ACTION</th>
                 </tr>
                 </thead>
                 <tbody>
