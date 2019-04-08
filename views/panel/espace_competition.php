@@ -62,8 +62,11 @@
                 <!--Espace arbitre-->
                 <table>
                     <td>
-                        <div class="card border-0 shadow my-5 btn-light">
+                        <div class="card border-0 shadow my-5">
                             <div class="card-body p-5">
+
+                                <h1 class="font-weight-light text-info">Arbitre</h1>
+                                <p class="lead">Selection des matchs</p>
                                 
                                 <form class='form-inline'>
 
@@ -90,6 +93,8 @@
 
                                         </select>
                                     </div>
+
+                                    <button type="submit" class="btn btn-outline-info btn-lg">Submit</button>
 
                                 </form>
  
