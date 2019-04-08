@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="termine.php">Terminé</a>
+                    <a class="nav-link" href="/pingscore/views/termine.php">Terminé</a>
                 </li>
                 <!--
                 <li class="nav-item">
