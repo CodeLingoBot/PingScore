@@ -23,7 +23,7 @@ if(!empty($_POST)){
         $output .= '    
                 <!-- Toastr CSS -->
                 <link rel="stylesheet" type="text/css" href="../../vendor/toastr/build/toastr.min.css"/>
-                <table id="dataTable" class="table table-hover table-responsive-lg">
+                <table id="" class="table table-hover table-responsive-lg dataTable">
                 <thead>
                 <tr>
                     <th>ID</th>

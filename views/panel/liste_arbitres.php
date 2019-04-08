@@ -25,7 +25,7 @@ include_once '../../includes/toasts.php';
 <div class="container">
     <div class="card border-0 shadow my-5">
         <div id="employee_table" class="container my-5">
-            <table id="" class="table table-hover table-responsive-lg">
+            <table id="" class="table table-hover table-responsive-lg dataTable">
                 <thead>
                 <tr>
                     <th>USERNAME</th>
