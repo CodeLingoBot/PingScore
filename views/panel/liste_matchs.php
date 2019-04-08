@@ -8,6 +8,10 @@ try {
     $req = "SELECT * FROM matchs ORDER BY hour ASC";
     $ps = $pdo -> prepare($req);
     $ps -> execute();
+    $req1 = "SELECT surname FROM players";
+    $ps1 = $pdo -> prepare($req1);
+    $ps1 -> execute();
+    $data1 = $ps1 -> fetchAll();
 } catch (PDOException $e){
     $msg = 'Erreur PDO dans' . $e -> getMessage();
     die($msg);
@@ -17,7 +21,7 @@ include_once '../../includes/toasts.php';
 ?>
 <div class="jumbotron container">
     <div class="container">
-        <h1 class="display-5">Liste des joueurs :</h1>
+        <h1 class="display-5">Liste des matchs :</h1>
         <div align="right">
             <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Add</button>
         </div>
@@ -37,10 +41,10 @@ include_once '../../includes/toasts.php';
                 </tr>
                 </thead>
                 <tbody>
-                <?php while ($data = $ps->fetch()) { ?>
+                <?php while ($data = $ps->fetch()){ ?>
                     <tr id="<?php echo($data['id']) ?>">
                         <td><?php echo($data['hour']) ?></td>
-                        <td><?php echo($data['blue_player'] . ' - ' . $data['red_player']) ?></td>
+                        <td><?php echo($data1[$data['blue_player']]['surname'].' - '.$data1[$data['red_player']]['surname']) ?></td>
                         <td><?php echo($data['court']) ?></td>
                         <td><?php echo($data['state']) ?></td>
                         <td><input type="button" name="edit" value="Edit" id="<?php echo $data["id"]; ?>" class="btn btn-info btn-xs edit_data" /></td>
