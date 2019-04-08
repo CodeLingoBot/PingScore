@@ -6,7 +6,7 @@ function check_auth(){
     if (isset($_SESSION['auth'])) {
         if ($_SESSION['auth']->role!="admin"){
             $_SESSION['flash']['danger'] = "Vous n'avez pas le droit d'accéder à cette section !";
-            header('Location: tableau_arbitre.php');
+            header('Location: login.php');
             exit();
         }
     } else {

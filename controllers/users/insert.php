@@ -1,5 +1,6 @@
 <?php
 //TODO: Ajouter fonctionnalité Del Referee
+//TODO: bug datatable
 //TODO: INSERT dans la db ne fonctionne pas
 //TODO: voir pour decrypter le mot de passe des arbitre https://stackoverflow.com/questions/16600708/how-do-you-encrypt-and-decrypt-a-php-string
 

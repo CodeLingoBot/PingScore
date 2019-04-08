@@ -1,5 +1,6 @@
 <?php
 //TODO: Ajouter fonctionnalité Del User
+//TODO: bug datatable
 
 $connect = mysqli_connect("localhost", "root", "root", "PI_aspcn");
 if(!empty($_POST)){
