@@ -5,7 +5,7 @@ require_once '../../includes/functions.php';
 check_auth();
 try {
     require_once('../../controllers/database.php');
-    $req = "SELECT * FROM players ORDER BY id ASC";
+    $req = "SELECT * FROM players WHERE id != 0 ORDER BY id ASC";
     $ps = $pdo -> prepare($req);
     $ps -> execute();
 } catch (PDOException $e){

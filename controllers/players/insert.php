@@ -19,7 +19,7 @@ if(!empty($_POST)){
         $message = $_POST['name'] . ' ' . $_POST['surname'] . '\'s Informations Inserted';
     }
     if(mysqli_query($connect, $query)){
-        $select_query = "SELECT * FROM players ORDER BY id ASC";
+        $select_query = "SELECT * FROM players WHERE id != 0 ORDER BY id ASC";
         $result = mysqli_query($connect, $select_query);
         $output .= '    
                 <!-- Toastr CSS -->
