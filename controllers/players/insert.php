@@ -2,8 +2,9 @@
 //TODO: Ajouter fonctionnalité Del User
 //TODO: bug datatable
 
-$connect = mysqli_connect("localhost", "root", "root", "PI_aspcn");
-if(!empty($_POST)){
+require_once 'host_db.php';
+
+$connect = mysqli_connect($host, $user, $pass, $db);if(!empty($_POST)){
     $output = '';
     $message = '';
     $surname = mysqli_real_escape_string($connect, $_POST["surname"]);

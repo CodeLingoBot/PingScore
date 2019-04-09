@@ -4,7 +4,9 @@
 //TODO: INSERT dans la db ne fonctionne pas
 //TODO: voir pour decrypter le mot de passe des arbitre https://stackoverflow.com/questions/16600708/how-do-you-encrypt-and-decrypt-a-php-string
 
-$connect = mysqli_connect("localhost", "root", "root", "PI_aspcn");
+require_once 'host_db.php';
+
+$connect = mysqli_connect($host, $user, $pass, $db);
 if(!empty($_POST)){
     $output = '';
     $message = '';
