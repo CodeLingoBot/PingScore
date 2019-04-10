@@ -1,6 +1,4 @@
 <?php
-//TODO : Google Trad + contenu
-//TODO : rajouter les files photo dans Add et Edit
 //TODO: rajouter les scores
 
 require_once '../../includes/functions.php';

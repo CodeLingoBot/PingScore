@@ -1,6 +1,5 @@
 <?php
-//TODO: Ajouter fonctionnalité Del User
-//TODO: bug datatable
+//TODO: Ajouter fonctionnalité Del Player
 
 require_once '../host_db.php';
 

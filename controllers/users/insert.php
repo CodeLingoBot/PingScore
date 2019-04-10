@@ -1,8 +1,7 @@
 <?php
-//TODO: Ajouter fonctionnalité Del Referee
-//TODO: bug datatable
-//TODO: INSERT dans la db ne fonctionne pas
-//TODO: voir pour decrypter le mot de passe des arbitre https://stackoverflow.com/questions/16600708/how-do-you-encrypt-and-decrypt-a-php-string
+//TODO: Ajouter fonctionnalité Del User
+//TODO: voir pour le mot de passe arbitre : un seul compte arbitre avec la possibilité d'éditer le mdp si oublié
+//TODO: dans la modal users voir pour auto select le role lors d'une edition
 
 require_once '../host_db.php';
 

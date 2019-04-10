@@ -13,6 +13,7 @@ if(!empty($_POST)){
     $red_player = mysqli_real_escape_string($connect, $_POST["red_player"]);
     $court = mysqli_real_escape_string($connect, $_POST["court"]);
     $state = mysqli_real_escape_string($connect, $_POST["state"]);
+    $mappingSate = ['0'=>'À venir', '1'=>'En cours', '2'=>'Terminé'];
     if($_POST["id"] != ''){
         $query = "UPDATE matchs SET hour='$hour', blue_player='$blue_player', red_player='$red_player', court='$court', state='$state' WHERE id='".$_POST["id"]."'";
     } else {
@@ -44,7 +45,7 @@ if(!empty($_POST)){
             <td>' . $row["hour"] . '</td>
             <td>' . $row["blue_player"]." - ".$row["red_player"]. '</td>
             <td>' . $row["court"] . '</td>
-            <td>' . $row["state"] . '</td>
+            <td>' . $mappingSate[$row["state"]] . '</td>
             <td><input type="button" name="edit" value="Edit" id="'.$row["id"] .'" class="btn btn-info btn-xs edit_data" /></td>
         </tr>
     ';

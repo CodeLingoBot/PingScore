@@ -31,7 +31,7 @@ $(document).ready(function(){
             alert("Rôle is required");
         } else{
             $.ajax({
-                url:"../../controllers/users/updateReferee.php",
+                url:"../../controllers/users/insert.php",
                 method:"POST",
                 data:$('#insert_form').serialize(),
                 beforeSend:function(){

@@ -36,7 +36,7 @@ $(document).ready(function(){
             alert("Age is required");
         } else{
             $.ajax({
-                url:"../../controllers/players/updateReferee.php",
+                url:"../../controllers/players/insert.php",
                 method:"POST",
                 data:$('#insert_form').serialize(),
                 beforeSend:function(){
