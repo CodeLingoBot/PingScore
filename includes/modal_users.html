@@ -3,15 +3,22 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">PHP Ajax Update MySQL Data Through Bootstrap Modal</h4>
+                <h4 class="modal-title">Ajouter un utilisateur</h4>
             </div>
             <div class="modal-body">
                 <form method="post" id="insert_form">
-                    <label>Enter Username</label>
+                    <label>Entrer le nom d'utilisateur</label>
                     <input type="text" name="username" id="username" class="form-control" required />
                     <br />
-                    <label>Enter Password</label>
+                    <label>Entrer le mot de passe</label>
                     <input type="text" name="password" id="password" class="form-control" required />
+                    <br />
+                    <label>Selectionner le rôle</label>
+                    <select name="role" id="role" class="form-control" required>
+                        <option selected disabled>Choisir le role</option>
+                        <option value="referee">Arbitre</option>
+                        <option value="admin">Administrateur</option>
+                    </select>
                     <br />
                     <input type="hidden" name="id" id="id"/>
                     <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />

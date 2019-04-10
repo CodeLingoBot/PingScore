@@ -49,7 +49,7 @@
 
                     <td>
                         <div class="card border-0 shadow my-5 btn-light">
-                            <a href="liste_arbitres.php">
+                            <a href="liste_utilisateurs.php">
                                 <div class="card-body p-5">
                                     <h1 class="font-weight-light text-warning">Liste des utilisateurs</h1>
                                     <p class="lead">Accès à la liste des utilisateurs</p>

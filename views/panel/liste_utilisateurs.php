@@ -4,7 +4,7 @@ require_once '../../includes/functions.php';
 check_auth();
 try {
     require_once('../../controllers/database.php');
-    $req = "SELECT * FROM users ORDER BY id ASC";
+    $req = "SELECT * FROM users";
     $ps = $pdo -> prepare($req);
     $ps -> execute();
 } catch (PDOException $e){
@@ -16,7 +16,7 @@ include_once '../../includes/toasts.php';
 ?>
 <div class="jumbotron container">
     <div class="container">
-        <h1 class="display-5">Liste des arbitres :</h1>
+        <h1 class="display-5">Liste des utilisateurs :</h1>
         <div align="right">
             <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Add</button>
         </div>
@@ -30,6 +30,7 @@ include_once '../../includes/toasts.php';
                 <tr>
                     <th>USERNAME</th>
                     <th>PASSWORD</th>
+                    <th>RÔLE</th>
                     <th>ACTION</th>
                 </tr>
                 </thead>
@@ -38,7 +39,8 @@ include_once '../../includes/toasts.php';
                     <tr id="<?php echo($data['id']) ?>">
                         <td><?php echo($data['username']) ?></td>
                         <td><?php echo($data['password']) ?></td>
-                       <td><input type="button" name="edit" value="Edit" id="<?php echo $data["id"]; ?>" class="btn btn-info btn-xs edit_data" /></td>
+                        <td><?php echo($data['role']) ?></td>
+                        <td><input type="button" name="edit" value="Edit" id="<?php echo $data['id']; ?>" class="btn btn-info btn-xs edit_data" /></td>
                     </tr>
                 <?php } ?>
                 </tbody>
@@ -48,5 +50,5 @@ include_once '../../includes/toasts.php';
 </div>
 <?php include_once '../../includes/modal_users.html';
 include_once '../../includes/partials/footer_panel.html'; ?>
-<script type="text/javascript" src="../../assets/js/ajax_arbitres.js"></script>
+<script type="text/javascript" src="../../assets/js/ajax_utilisateurs.js"></script>
 <script type="text/javascript" src="../../assets/js/toastr.js"></script>

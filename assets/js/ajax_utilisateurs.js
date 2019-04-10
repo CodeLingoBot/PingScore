@@ -23,10 +23,12 @@ $(document).ready(function(){
     });
     $('#insert_form').on("submit", function(event){
         event.preventDefault();
-        if($('#username').val() == ""){
+        if($('#username').val() === ''){
             alert("Name is required");
-        } else if($('#password').val() == ''){
+        } else if($('#password').val() === ''){
             alert("Pasword is required");
+        } else if($('#role').val() === ''){
+            alert("Rôle is required");
         } else{
             $.ajax({
                 url:"../../controllers/users/insert.php",
@@ -40,7 +42,6 @@ $(document).ready(function(){
                     } else {
                         message = $('#username').val() + "\'s Informations Created";
                     }
-
                     $('#id').val("");
                     $('#insert').val("Inserting");
                 },

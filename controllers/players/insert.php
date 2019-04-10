@@ -2,7 +2,7 @@
 //TODO: Ajouter fonctionnalité Del User
 //TODO: bug datatable
 
-require_once 'host_db.php';
+require_once '../host_db.php';
 
 $connect = mysqli_connect($host, $user, $pass, $db);if(!empty($_POST)){
     $output = '';

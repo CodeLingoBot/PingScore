@@ -4,7 +4,7 @@
 //TODO: INSERT dans la db ne fonctionne pas
 //TODO: voir pour decrypter le mot de passe des arbitre https://stackoverflow.com/questions/16600708/how-do-you-encrypt-and-decrypt-a-php-string
 
-require_once 'host_db.php';
+require_once '../host_db.php';
 
 $connect = mysqli_connect($host, $user, $pass, $db);
 if(!empty($_POST)){
@@ -12,15 +12,17 @@ if(!empty($_POST)){
     $message = '';
     $username = mysqli_real_escape_string($connect, $_POST["username"]);
     $password = mysqli_real_escape_string($connect, $_POST["password"]);
+    $role = mysqli_real_escape_string($connect, $_POST["role"]);
+
     if($_POST["id"] != ''){
-        $query = "UPDATE users SET username='$username', password='$password' WHERE id='".$_POST["id"]."'";
+        $query = "UPDATE users SET username='$username', password='$password', role='$role' WHERE id='".$_POST["id"]."'";
         $message = $_POST['username'] . '\'s Informations Updated';
     } else {
-        $query = "INSERT INTO users(username, password) VALUES('$username', '$password');";
+        $query = "INSERT INTO users(username, password, role) VALUES('$username', '$password', '$role');";
         $message = $_POST['username'] . '\'s Informations Inserted';
     }
     if(mysqli_query($connect, $query)){
-        $select_query = "SELECT * FROM users ORDER BY id ASC";
+        $select_query = "SELECT * FROM users";
         $result = mysqli_query($connect, $select_query);
         $output .= '    
                 <!-- Toastr CSS -->
@@ -28,9 +30,10 @@ if(!empty($_POST)){
                 <table id="" class="table table-hover table-responsive-lg dataTable">
                 <thead>
                 <tr>
-                    <th>ID</th>
                     <th>USERNAME</th>
                     <th>PASSWORD</th>
+                    <th>RÔLE</th>
+                    <th>ACTION</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,9 +42,9 @@ if(!empty($_POST)){
         {
             $output .= '
         <tr>
-            <td>' . $row["id"] . '</td>
             <td>' . $row["username"] . '</td>
             <td>' . $row["password"] . '</td>
+            <td>' . $row["role"] . '</td>
             <td><input type="button" name="edit" value="Edit" id="'.$row["id"] .'" class="btn btn-info btn-xs edit_data" /></td>
         </tr>
     ';

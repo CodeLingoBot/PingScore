@@ -1,5 +1,5 @@
 <?php
-require_once 'host_db.php';
+require_once '../host_db.php';
 
 $connect = mysqli_connect($host, $user, $pass, $db);if(isset($_POST["id"])){
     $query = "SELECT * FROM players WHERE id = '".$_POST["id"]."'";
