@@ -7,15 +7,26 @@
             </div>
             <div class="modal-body">
                 <form method="post" id="insert_form">
-                    <label>Enter Player Surname</label>
-                    <input type="text" name="surname" id="surname" class="form-control" required />
+                    <label>Entrer l'heure du match</label>
+                    <input type="time" name="hour" id="hour" class="form-control" required />
                     <br />
-                    <label>Enter Employee Name</label>
-                    <input type="text" name="name" id="name" class="form-control" required />
+                    <label>Selectionner le nom du joueur bleu</label>
+                    <select name="blue_player" id="blue_player" class="form-control" required>
+                        <option selected disabled>Choisir un joueur</option>
+                        <option value="2">NICOLAS</option>
+                        <option value="1">MARTI</option>
+                    </select>
                     <br />
-                    <label>Select Categorie</label>
-                    <select name="cat" id="cat" class="form-control" required>
-                        <option selected disabled>Choisir une catégorie</option>
+                    <label>Selectionner le nom du joueur rouge</label>
+                    <select name="red_player" id="red_player" class="form-control" required>
+                        <option selected disabled>Choisir un joueur</option>
+                        <option value="2">NICOLAS</option>
+                        <option value="1">MARTI</option>
+                    </select>
+                    <br />
+                    <label>Selectionner la table de jeu</label>
+                    <select name="court" id="court" class="form-control" required>
+                        <option selected disabled>Choisir la table</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -26,13 +37,21 @@
                         <option value="8">8</option>
                         <option value="9">9</option>
                         <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
                     </select>
                     <br />
-                    <label>Enter Club</label>
-                    <input type="text" name="club" id="club" class="form-control" />
-                    <br />
-                    <label>Enter Classement</label>
-                    <input type="number" name="rank" id="rank" class="form-control" />
+                    <label>Selectionner l'état du match</label>
+                    <select name="state" id="state" class="form-control" required>
+                        <option disabled>Choisir un état</option>
+                        <option selected value="0">À venir</option>
+                        <option value="1">En cours</option>
+                        <option value="2">Terminé</option>
+                    </select>
                     <br />
                     <input type="hidden" name="id" id="id"/>
                     <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />

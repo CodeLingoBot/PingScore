@@ -1,11 +1,13 @@
 <?php
 //TODO : Google Trad + contenu
 //TODO : rajouter les files photo dans Add et Edit
+//TODO: rajouter les scores
+
 require_once '../../includes/functions.php';
 check_auth();
 try {
     require_once('../../controllers/database.php');
-    $req = "SELECT TIME_FORMAT(m.hour, '%H:%i') AS hour, p.surname AS blue_player, p2.surname AS red_player, m.court, m.state FROM matchs m INNER JOIN players p ON p.id = m.blue_player INNER JOIN players p2 ON p2.id = m.red_player  ORDER BY hour ASC";
+    $req = "SELECT m.id, TIME_FORMAT(m.hour, '%H:%i') AS hour, p.surname AS blue_player, p2.surname AS red_player, m.court, m.state FROM matchs m INNER JOIN players p ON p.id = m.blue_player INNER JOIN players p2 ON p2.id = m.red_player  ORDER BY hour ASC";
     $ps = $pdo -> prepare($req);
     $ps -> execute();
 } catch (PDOException $e){
@@ -46,7 +48,7 @@ include_once '../../includes/toasts.php';
                         <td><?php echo($data['blue_player'].' - '.$data['red_player']) ?></td>
                         <td><?php echo($data['court']) ?></td>
                         <td><?php echo($mappingSate[$data['state']]) ?></td>
-                        <td><input type="button" name="edit" value="Edit" id="<?php echo $data["id"]; ?>" class="btn btn-info btn-xs edit_data" /></td>
+                        <td><input type="button" name="edit" value="Edit" id="<?php echo $data['id']; ?>" class="btn btn-info btn-xs edit_data" /></td>
                     </tr>
                 <?php } ?>
                 </tbody>

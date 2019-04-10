@@ -68,7 +68,7 @@
                                 <h1 class="font-weight-light text-info">Arbitre</h1>
                                 <p class="lead">Selection des matchs</p>
                                 
-                                <form class='form-inline' method="POST" action="../../controllers/matchs/insert.php">
+                                <form class='form-inline' method="POST" action="../../controllers/updateReferee.php">
 
                                     <div class="form-group">
                                         <select class="form-control form-control-lg" name="num_table"> 

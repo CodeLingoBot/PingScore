@@ -7,16 +7,16 @@ $(document).ready(function(){
     $(document).on('click', '.edit_data', function(){
         var id = $(this).attr("id");
         $.ajax({
-            url:"../../controllers/players/fetch.php",
+            url:"../../controllers/matchs/fetch.php",
             method:"POST",
             data:{id:id},
             dataType:"json",
             success:function(data){
-                $('#surname').val(data.surname);
-                $('#name').val(data.name);
-                $('#cat').val(data.cat);
-                $('#club').val(data.club);
-                $('#rank').val(data.rank);
+                $('#hour').val(data.hour);
+                $('#blue_player').val(data.blue_player);
+                $('#red_player').val(data.red_player);
+                $('#court').val(data.court);
+                $('#state').val(data.state);
                 $('#id').val(data.id);
                 $('#insert').val("Update");
                 $('#del').prop("type", "button");
@@ -26,26 +26,17 @@ $(document).ready(function(){
     });
     $('#insert_form').on("submit", function(event){
         event.preventDefault();
-        if($('#surname').val() == ""){
-            alert("Name is required");
-        } else if($('#name').val() == ''){
-            alert("Address is required");
-        } else if($('#club').val() == ''){
-            alert("Designation is required");
-        } else if($('#rank').val() == ''){
-            alert("Age is required");
-        } else{
             $.ajax({
-                url:"../../controllers/players/insert.php",
+                url:"../../controllers/matchs/insert.php",
                 method:"POST",
                 data:$('#insert_form').serialize(),
                 beforeSend:function(){
                     type = "success";
                     title = "Success";
                     if($('#insert').val() == "Update"){
-                        message = $('#name').val() + ' ' + $('#surname').val() + "\'s Informations Updated";
+                        message = $('#blue_player').val() + ' - ' + $('#red_player').val() + " match\'s Informations Updated";
                     } else {
-                        message = $('#name').val() + ' ' + $('#surname').val() + "\'s Informations Created";
+                        message = $('#blue_player').val() + ' - ' + $('#red_player').val() + " match\'s Informations Created";
                     }
 
                     $('#id').val("");
@@ -58,6 +49,5 @@ $(document).ready(function(){
                     showToastr(type, title, message);
                 }
             });
-        }
     });
 });

@@ -1,12 +1,12 @@
 <?php
 
-$host = '192.168.8.101';
+$host = 'localhost';
 
 $db = 'PI_aspcn';
 
-$user = 'aspcn';
+$user = 'root';
 
-$pass = '456852';
+$pass = 'root';
 
-$connexion = 'mysql:host=192.168.8.101;dbname=PI_aspcn';
+$connexion = 'mysql:host=localhost;dbname=PI_aspcn';
 
