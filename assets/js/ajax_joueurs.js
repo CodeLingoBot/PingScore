@@ -1,11 +1,13 @@
 $(document).ready(function(){
     $('#add').click(function(){
+        $('#id').val("");
         $('#insert').val("Insert");
+        $('#id').val("");
         $('#del').prop("type", "hidden");
         $('#insert_form')[0].reset();
     });
     $(document).on('click', '.edit_data', function(){
-        var id = $(this).attr("id");
+        let id = $(this).attr("id");
         $.ajax({
             url:"../../controllers/players/fetch.php",
             method:"POST",
@@ -26,19 +28,10 @@ $(document).ready(function(){
     });
     $('#insert_form').on("submit", function(event){
         event.preventDefault();
-        if($('#surname').val() == ""){
-            alert("Name is required");
-        } else if($('#name').val() == ''){
-            alert("Address is required");
-        } else if($('#club').val() == ''){
-            alert("Designation is required");
-        } else if($('#rank').val() == ''){
-            alert("Age is required");
-        } else{
             $.ajax({
                 url:"../../controllers/players/insert.php",
                 method:"POST",
-                data:$('#insert_form').serialize(),
+                data: $('#insert_form').serialize(),
                 beforeSend:function(){
                     type = "success";
                     title = "Success";
@@ -47,7 +40,6 @@ $(document).ready(function(){
                     } else {
                         message = $('#name').val() + ' ' + $('#surname').val() + "\'s Informations Created";
                     }
-
                     $('#id').val("");
                     $('#insert').val("Inserting");
                 },
@@ -58,6 +50,6 @@ $(document).ready(function(){
                     showToastr(type, title, message);
                 }
             });
-        }
+
     });
 });

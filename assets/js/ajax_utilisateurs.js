@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $('#add').click(function(){
+        $('#id').val("");
         $('#insert').val("Insert");
         $('#del').prop("type", "hidden");
         $('#insert_form')[0].reset();
