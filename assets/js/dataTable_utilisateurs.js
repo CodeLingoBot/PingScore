@@ -1,5 +1,6 @@
 $(document).ready( function() {
     $('.dataTable').dataTable( {
+        "aaSorting": [[2,'asc'], [0,'asc']],
         "oLanguage":
         /**
          * French translation

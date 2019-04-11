@@ -52,7 +52,7 @@ if(!empty($_POST)){
         }
         $output .= '</table>    
         <!-- Scripts for this page -->
-        <script src="../../assets/js/dataTable.js"></script>
+        <script src="../../assets/js/dataTable_utilisateurs.js"></script>
     ';
     }
     echo $output;

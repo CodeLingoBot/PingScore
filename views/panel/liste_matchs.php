@@ -58,3 +58,4 @@ include_once '../../includes/toasts.php';
 include_once '../../includes/partials/footer_panel.html'; ?>
 <script type="text/javascript" src="../../assets/js/ajax_matchs.js"></script>
 <script type="text/javascript" src="../../assets/js/toastr.js"></script>
+<script src="../../assets/js/dataTable.js" type="text/javascript"></script>
