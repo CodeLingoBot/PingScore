@@ -29,7 +29,6 @@ include_once '../../includes/toasts.php';
                 <thead>
                 <tr>
                     <th>USERNAME</th>
-                    <th>PASSWORD</th>
                     <th>RÔLE</th>
                     <th>ACTION</th>
                 </tr>
@@ -38,7 +37,6 @@ include_once '../../includes/toasts.php';
                 <?php while ($data = $ps->fetch()) { ?>
                     <tr id="<?php echo($data['id']) ?>">
                         <td><?php echo($data['username']) ?></td>
-                        <td><?php echo($data['password']) ?></td>
                         <td><?php echo($data['role']) ?></td>
                         <td><input type="button" name="edit" value="Edit" id="<?php echo $data['id']; ?>" class="btn btn-info btn-xs edit_data" /></td>
                     </tr>

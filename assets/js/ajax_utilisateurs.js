@@ -14,7 +14,6 @@ $(document).ready(function(){
             dataType:"json",
             success:function(data){
                 $('#username').val(data.username);
-                $('#password').val(data.password);
                 $('#id').val(data.id);
                 $('#insert').val("Update");
                 $('#del').prop("type", "button");
