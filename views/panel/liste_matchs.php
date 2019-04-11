@@ -54,7 +54,7 @@ include_once '../../includes/toasts.php';
         </div>
     </div>
 </div>
-<?php include_once '../../includes/modal_matchs.html';
+<?php include_once '../../includes/modal_matchs.php';
 include_once '../../includes/partials/footer_panel.html'; ?>
 <script type="text/javascript" src="../../assets/js/ajax_matchs.js"></script>
 <script type="text/javascript" src="../../assets/js/toastr.js"></script>

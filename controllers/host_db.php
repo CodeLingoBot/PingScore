@@ -8,5 +8,4 @@ $user = 'root';
 
 $pass = 'root';
 
-$connexion = 'mysql:host=localhost;dbname=PI_aspcn';
-
+$connexion = 'mysql:host='.$host.';dbname=PI_aspcn';

@@ -1,3 +1,18 @@
+<?php
+
+    require_once('../../controllers/database.php') ;
+
+    $player_blue = $pdo->prepare("SELECT * from players WHERE id != 0");
+    $player_blue->execute();
+
+    $player_red = $pdo->prepare("SELECT * from players WHERE id != 0");
+    $player_red->execute();
+
+    $court = $pdo->prepare("SELECT * from court");
+    $court->execute();
+
+?>
+
 <div id="add_data_Modal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -13,36 +28,31 @@
                     <label>Selectionner le nom du joueur bleu</label>
                     <select name="blue_player" id="blue_player" class="form-control" required>
                         <option selected disabled>Choisir un joueur</option>
-                        <option value="2">NICOLAS</option>
-                        <option value="1">MARTI</option>
+                        <?php while($data_blue = $player_blue->fetch()) { ?>
+                            <option value="<?php echo($data_blue['id']) ?>" >
+                                <?php echo($data_blue['surname']) ?>
+                            </option>
+                        <?php } ?>
                     </select>
                     <br />
                     <label>Selectionner le nom du joueur rouge</label>
                     <select name="red_player" id="red_player" class="form-control" required>
                         <option selected disabled>Choisir un joueur</option>
-                        <option value="2">NICOLAS</option>
-                        <option value="1">MARTI</option>
+                        <?php while($data_red = $player_red->fetch()) { ?>
+                            <option value="<?php echo($data_red['id']) ?>" >
+                                <?php echo($data_red['surname']) ?>
+                            </option>
+                        <?php } ?>
                     </select>
                     <br />
                     <label>Selectionner la table de jeu</label>
                     <select name="court" id="court" class="form-control" required>
                         <option selected disabled>Choisir la table</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
+                        <?php while($data = $court->fetch()) { ?>
+                        <option value="<?php echo($data['id']) ?>" >
+                            <?php echo($data['id']) ?>
+                        </option>
+                        <?php } ?>
                     </select>
                     <br />
                     <label>Selectionner l'état du match</label>
