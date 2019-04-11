@@ -8,13 +8,27 @@
 
 <div class="container bg-light">
 
-    <!-- Partie à refresh -->
-    <?php echo("<div class='row'>")?>
+    <div class='row'>
 
-    <?php 
-        for ($i=1; $i < 17; $i++) {
+    <?php
+
+        require_once('../controllers/database.php') ;
+
+        $nb_lignes = $pdo->prepare("SELECT COUNT(*) FROM court") ;
+        $nb_lignes->execute() ;
+        $nb_lignes = $nb_lignes->fetch() ;
+
+        #var_dump($nb_lignes) ;
+
+        $nb_lignes = intval( $nb_lignes['COUNT(*)'] ) + 1 ;    
+
+    ?>
+
+    <!-- Partie à refresh -->
+    <?php
+        for ($i=1; $i < $nb_lignes ; $i++) {
             
-            $tab = array(3, 5, 8, 11, 14);
+            $tab = array(3, 5, 8, 11, 14, 17);
         
             if (in_array($i, $tab) ){
                 echo("
@@ -29,9 +43,9 @@
         } ; 
     
     ?>
-
-    <?php echo('</div>')?>
     <!-- Fin de partie à refresh -->
+
+    </div>
 
 
 </div>
