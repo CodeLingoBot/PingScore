@@ -86,7 +86,7 @@
         $etRed = $psRed -> fetch();
     ?>
 
-    <table class="table table-secondary">
+    <table class="table table-secondary shadow p-3 mb-5 rounded">
 
         <!-- Affichage joueur bleu -->
         <td>
