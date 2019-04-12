@@ -109,4 +109,3 @@
     </div>
 
 <?php include '../../includes/partials/footer_panel.html' ?>
-<script>document.getElementById("body").style.background = "url('https://cwsmgmt.corsair.com/newscripts/landing-pages/wallpaper/v4/Wallpaper-v4-1920x1200.jpg') no-repeat center center fixed";</script>

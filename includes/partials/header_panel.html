@@ -32,8 +32,30 @@
             color: #000;
         }
     </style>
+    <style>
+        #avertissement {
+            display: none;
+        }
+        @media only screen and (orientation:portrait) {
+            #wrapper {
+                display: none;
+            }
+            #avertissement {
+                display: block;
+            }
+        }
+        @media only screen and (orientation:landscape) {
+            #avertissement {
+                display: none;
+            }
+            #background {
+                background: url('https://cwsmgmt.corsair.com/newscripts/landing-pages/wallpaper/v4/Wallpaper-v4-1920x1200.jpg') no-repeat center center fixed;
+            }
+        }
+    </style>
 </head>
-<body id="body">
+<body id="background">
+<div id="wrapper">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow ">
         <div class="container">
