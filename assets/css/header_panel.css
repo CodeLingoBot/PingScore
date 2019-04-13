@@ -1,0 +1,35 @@
+body {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+a {
+    text-decoration: none;
+    cursor: default;
+    color: #000;
+}
+a:hover {
+    text-decoration: none;
+    cursor: default;
+    color: #000;
+}
+#avertissement {
+    display: none;
+}
+@media only screen and (orientation:portrait) {
+    #wrapper {
+        display: none;
+    }
+    #avertissement {
+        display: block;
+    }
+}
+@media only screen and (orientation:landscape) {
+    #avertissement {
+        display: none;
+    }
+    #background {
+        background: url('https://cwsmgmt.corsair.com/newscripts/landing-pages/wallpaper/v4/Wallpaper-v4-1920x1200.jpg') no-repeat center center fixed;
+    }
+}
