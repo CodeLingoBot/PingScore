@@ -36,7 +36,7 @@
         <table class="table table-info">
 
             <thead>
-                Table <?php echo($nb)?> - <?php echo($et[0]['hour'])?>
+                Table <?php echo($nb)?> - <?php echo( substr($et[0]['hour'],0,5) ) ?>
                 <?php if ($et[0]['cat'] == $et[1]['cat']) { 
                     $cat = $et[0]['cat'] ; 
                     echo(" - Cat. ".$cat) ; 

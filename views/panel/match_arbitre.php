@@ -18,7 +18,7 @@ $et = $et->fetch() ;
 <div class="container" max-width=75%>
 
     <h3 class="text-center shadow-none p-3 mb-4 bg-light rounded">
-        Table <?php echo($et['court']) ?> - <?php echo($et['hour']) ?>
+        Table <?php echo($et['court']) ?> - <?php echo( substr($et['hour'],0,5) ) ?>
     </h3>
 
 
@@ -49,7 +49,7 @@ $et = $et->fetch() ;
 
             <div class="card bg-primary mb-3" style="width: 18rem;">
 
-                <img src="../../assets/img/players/<?php echo($etBlue['picture'])?>" class="card-img-top" width="320" height=320 alt="">
+                <img src="../../assets/img/players/<?php echo($etBlue['picture'])?>" class="card-img-top" width=320 height=320 alt="">
 
                 <div class="card-body">
                     <h5 class="card-title">
@@ -174,7 +174,7 @@ $et = $et->fetch() ;
 
             <div class="card bg-danger mb-3" style="width: 18rem;">
 
-                <img src="../../assets/img/players/<?php echo($etRed['picture'])?>" class="card-img-top" width="320" height=320 alt="">
+                <img src="../../assets/img/players/<?php echo($etRed['picture'])?>" class="card-img-top" width=320 height=320 alt="">
 
                 <div class="card-body">
                     <h5 class="card-title">

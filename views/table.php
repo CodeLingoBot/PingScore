@@ -63,7 +63,7 @@
 <div class="container">
 
     <h3 class="text-center">
-        Table <?php echo($num_table) ?> - <?php echo($et['hour']) ?>
+        Table <?php echo($num_table) ?> - <?php echo( substr($et['hour'],0,5) ) ?>
     </h3>
 
     
