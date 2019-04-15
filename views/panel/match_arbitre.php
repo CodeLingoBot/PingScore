@@ -5,7 +5,7 @@ include_once '../../includes/toasts.php';
 ?>
 
 <div class="container" max-width=75%>
-    <h3 class="text-center">
+    <h3 class="text-center shadow-none p-3 mb-4 bg-light rounded">
         Table 1 - 17:00
     </h3>
     <table class="table table-secondary">
