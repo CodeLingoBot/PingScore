@@ -46,7 +46,7 @@ include_once '../../includes/toasts.php';
                         <td><?php echo($data['blue_player'].' - '.$data['red_player']) ?></td>
                         <td><?php echo($data['court']) ?></td>
                         <td><?php echo($mappingSate[$data['state']]) ?></td>
-                        <td><input type="button" name="edit" value="Edit" id="<?php echo $data['id']; ?>" class="btn btn-info btn-xs edit_data" /> <input type="button" name="see" value="See" class="btn btn-success btn-xs" /></td>
+                        <td><input type="button" name="edit" value="Edit" id="<?php echo $data['id']; ?>" class="btn btn-info btn-xs edit_data" /> <a href="match_arbitre.php?match=<?php echo($data['id'])?>" type="button" name="see" class="btn btn-success btn-xs">See</a></td>
                     </tr>
                 <?php } ?>
                 </tbody>
