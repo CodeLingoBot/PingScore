@@ -59,51 +59,6 @@
                     </td>
                 </table>
 
-                <!--Espace arbitre-->
-                <table>
-                    <td>
-                        <div class="card border-0 shadow my-5">
-                            <div class="card-body p-5">
-
-                                <h1 class="font-weight-light text-info">Arbitre</h1>
-                                <p class="lead">Selection des matchs</p>
-                                
-                                <form class='form-inline' method="POST" action="../../controllers/updateReferee.php">
-
-                                    <div class="form-group">
-                                        <select class="form-control form-control-lg" name="num_table"> 
-
-                                            <?php while($data = $court->fetch()) { ?>
-                                                <option value="<?php echo($data['id']) ?>" >
-                                                    <?php echo("Table ".$data['id']) ?>
-                                                </option>
-                                            <?php } ?>
-
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <select class="form-control form-control-lg" name="num_match">
-                                            
-                                            <?php while($data = $matchs->fetch()) { ?>
-                                                <option value="<?php echo($data['id']) ?>" >
-                                                    <?php echo($data['hour']." - ".$data['blue_player']." - ".$data['red_player']) ?>
-                                                </option>
-                                            <?php } ?>
-
-                                        </select>
-                                    </div>
-
-                                    <button type="submit" class="btn btn-outline-info btn-lg">Submit</button>
-
-                                </form>
- 
-                            </div>
-                        </div>
-                    </td>
-                </table>
-                <!-- Fin espace arbitre-->
-
             </div>
         </div>
     </div>
