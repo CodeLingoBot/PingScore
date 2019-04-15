@@ -1,52 +1,118 @@
 <?php
-
 include_once '../../includes/partials/header_panel.html';
 include_once '../../includes/toasts.php';
 ?>
 
+<?php
+
+$num_match = $_GET['match'] ;
+
+require_once('../../controllers/database.php') ;
+
+$et = $pdo->prepare("SELECT * FROM matchs WHERE id=$num_match") ;
+$et->execute() ;
+$et = $et->fetch() ;
+
+?>
+
 <div class="container" max-width=75%>
+
     <h3 class="text-center shadow-none p-3 mb-4 bg-light rounded">
-        Table 1 - 17:00
+        Table <?php echo($et['court']) ?> - <?php echo($et['hour']) ?>
     </h3>
+
+
+    <?php #Infos joueurs
+
+        $blue = $et['blue_player'];
+
+        $psBlue = $pdo->prepare("SELECT * FROM players WHERE id=$blue") ;
+        $psBlue->execute() ;
+
+        $etBlue = $psBlue -> fetch() ;
+
+        ######################
+
+        $red = $et['red_player'];
+
+        $psRed = $pdo->prepare("SELECT * FROM players WHERE id=$red") ;
+        $psRed->execute() ;
+
+        $etRed = $psRed -> fetch();
+    ?>
+
+
     <table class="table table-secondary">
+
         <!-- Affichage joueur bleu -->
         <td>
-            <div class="card bg-primary mb-3">
-                <img src="../../assets/img/players" class="card-img-top" width="320" height=320 alt="">
-                <div class="card-body">
 
-                    <h5 class="card-title">Hugo MARTI</h5>
+            <div class="card bg-primary mb-3" style="width: 18rem;">
+
+                <img src="../../assets/img/players/<?php echo($etBlue['picture'])?>" class="card-img-top" width="320" height=320 alt="">
+
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <?php echo($etBlue['name']) ?>
+                        <?php echo($etBlue['surname']) ?>
+                    </h5>
                 </div>
+
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cat. 1</li>
-                    <li class="list-group-item">ASPCN</li>
+                    <li class="list-group-item">
+                        Cat. <?php echo($etBlue['cat']) ?>
+                    </li>
+                    <li class="list-group-item">
+                        <?php echo($etBlue['club']) ?>
+                    </li>
                 </ul>
+                    
             </div>
-        </td>
+
+        </td> 
         <!-- Fin affichage bleu -->
 
         <!-- Cadre centre -->
         <td>
+
             <table class="table table-warning table-bordered">
+
+                <?php 
+
+                    $json = $et['score'] ;
+                    $json_clear = json_decode($json) ;
+
+                ?>
+
                 <tbody>
-                <tr>
-                    <th scope="row" width=50%>MARTI</th>
-                    <td width=10% class="text-muted">11</td>
-                    <td width=10%>2</td>
-                    <td width=10%>0</td>
-                    <td width=10%>0</td>
-                    <td width=10%>0</td>
-                </tr>
-                <tr>
-                    <th scope="row" width=50%>NICOLAS</th>
-                    <td width=10% class="text-muted">8</td>
-                    <td width=10%>4</td>
-                    <td width=10%>0</td>
-                    <td width=10%>0</td>
-                    <td width=10%>0</td>
-                </tr>
+
+                    <tr>
+                        <th scope="row">
+                            <?php echo($etBlue['surname'])?>
+                        </th>
+                        <td width=10%><?php echo($json_clear->round1->blue)?></td>
+                        <td width=10%><?php echo($json_clear->round2->blue)?></td>
+                        <td width=10%><?php echo($json_clear->round3->blue)?></td>
+                        <td width=10%><?php echo($json_clear->round4->blue)?></td>
+                        <td width=10%><?php echo($json_clear->round5->blue)?></td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            <?php echo($etRed['surname'])?>
+                        </th>
+                        <td width=10%><?php echo($json_clear->round1->red)?></td>
+                        <td width=10%><?php echo($json_clear->round2->red)?></td>
+                        <td width=10%><?php echo($json_clear->round3->red)?></td>
+                        <td width=10%><?php echo($json_clear->round4->red)?></td>
+                        <td width=10%><?php echo($json_clear->round5->red)?></td>
+                    </tr>
+
                 </tbody>
+
             </table>
+
+
             <table class="table table-borderless text-center">
                 <tr>
                     <td width=50%>
@@ -98,30 +164,41 @@ include_once '../../includes/toasts.php';
                     </td>
                 </tr>
             </table>
+
+
         </td>
         <!-- Fin cadre -->
 
         <!-- Affichage joueur rouge -->
         <td>
-            <div class="card bg-danger mb-3">
-                <img src="../../assets/img/players" class="card-img-top" width="320" height=320 alt="">
+
+            <div class="card bg-danger mb-3" style="width: 18rem;">
+
+                <img src="../../assets/img/players/<?php echo($etRed['picture'])?>" class="card-img-top" width="320" height=320 alt="">
+
                 <div class="card-body">
                     <h5 class="card-title">
-                        Luc NICOLAS
+                        <?php echo($etRed['name']) ?>
+                        <?php echo($etRed['surname']) ?>
                     </h5>
                 </div>
+
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        Cat. 8
+                        Cat. <?php echo($etRed['cat']) ?>
                     </li>
                     <li class="list-group-item">
-                        ASPCN
+                        <?php echo($etRed['club']) ?>
                     </li>
                 </ul>
+                        
             </div>
+
         </td>
         <!-- Fin affichage rouge -->
+
     </table>
+
 </div>
 
 <?php
