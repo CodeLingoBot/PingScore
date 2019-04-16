@@ -6,7 +6,7 @@
 
 <h3 class="text-center">Tableau des matchs en cours</h3>
 
-<div class="container bg-light">
+<div class="container shadow p-3 mb-5 bg-light rounded">
 
     <div class='row'>
 
@@ -28,7 +28,8 @@
     <?php
         for ($i=1; $i < $nb_lignes ; $i++) {
             
-            $tab = array(3, 5, 8, 11, 14, 17);
+            #$tab = array(3, 5, 8, 11, 14, 17);
+            $tab = array(3, 5, 7, 9, 11, 13, 15, 17);
         
             if (in_array($i, $tab) ){
                 echo("

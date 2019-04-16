@@ -167,11 +167,11 @@
                         <th scope="row">
                             <?php echo($etBlue['surname'])?>
                         </th>
-                        <td width=10%><?php echo($json_clear->round1->blue)?></td>
-                        <td width=10%><?php echo($json_clear->round2->blue)?></td>
-                        <td width=10%><?php echo($json_clear->round3->blue)?></td>
-                        <td width=10%><?php echo($json_clear->round4->blue)?></td>
-                        <td width=10%><?php echo($json_clear->round5->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round1->state == "1") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round1->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round2->state == "1") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round2->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round3->state == "1") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round3->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round4->state == "1") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round4->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round5->state == "1") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round5->blue)?></td>
                     </tr>
 
                     <tr>
@@ -183,11 +183,11 @@
                             -->
 
                         </th>
-                        <td width=10%><?php echo($json_clear->round1->red)?></td>
-                        <td width=10%><?php echo($json_clear->round2->red)?></td>
-                        <td width=10%><?php echo($json_clear->round3->red)?></td>
-                        <td width=10%><?php echo($json_clear->round4->red)?></td>
-                        <td width=10%><?php echo($json_clear->round5->red)?></td>
+                        <td width=10% <?php if ($json_clear->round1->state == "1") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round1->red)?></td>
+                        <td width=10% <?php if ($json_clear->round2->state == "1") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round2->red)?></td>
+                        <td width=10% <?php if ($json_clear->round3->state == "1") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round3->red)?></td>
+                        <td width=10% <?php if ($json_clear->round4->state == "1") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round4->red)?></td>
+                        <td width=10% <?php if ($json_clear->round5->state == "1") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round5->red)?></td>
                     </tr>
 
                 </tbody>
