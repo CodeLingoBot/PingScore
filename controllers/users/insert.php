@@ -1,6 +1,5 @@
 <?php
 //TODO: Ajouter fonctionnalité Del User
-//TODO: voir pour le mot de passe arbitre : un seul compte arbitre avec la possibilité d'éditer le mdp si oublié
 //TODO: dans la modal users voir pour auto select le role lors d'une edition
 
 require_once '../host_db.php';

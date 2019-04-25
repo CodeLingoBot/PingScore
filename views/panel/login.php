@@ -64,11 +64,6 @@ echo ($verif) ? 'Passwd = ' . $real_passwd : 'Erreur'
             <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required autofocus>
              <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-            <div class="checkbox mb-3">
-                <label>
-                <input type="checkbox" value="remember-me"> Remember me
-                </label>
-            </div>
             <button class="btn btn-lg btn-secondary btn-block" type="submit">Sign in</button>
         </form>
     </div>
