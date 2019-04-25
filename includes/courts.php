@@ -4,32 +4,31 @@
 
         require_once('../controllers/database.php') ;
 
-        $ps = $pdo->prepare("SELECT m.court, j.name, j.surname, j.cat, m.hour, m.score FROM matchs m INNER JOIN players j ON (j.id = m.blue_player OR j.id = m.red_player) AND m.court=$nb AND m.state=1") ;
+        $ps = $pdo->prepare("SELECT m.*, c.match_id, j1.surname AS j1_surname, j1.name AS j1_name, j1.cat AS j1_cat, j2.surname AS j2_surname, j2.name AS j2_name, j2.cat AS j2_cat FROM matchs m INNER JOIN court c INNER JOIN players j1 ON (j1.id = m.blue_player) INNER JOIN players j2 ON (j2.id = m.red_player) WHERE m.id=c.match_id AND c.id=$nb") ;
         $result = $ps->execute() ;
-        $et = $ps -> fetchAll() ;
+        $et = $ps -> fetch() ;
         
         if (empty($et)) {
             $et= [
-                [ 
-                    'name'=>'',
-                    'surname'=>'',
-                    'cat'=>'*',
-                    'hour'=>'**:**',
-                    'score'=>'{"round1": {"red": 0, "blue": 0, "state" : 0}, "round2": {"red": 0, "blue": 0, "state" : 0}, "round3": {"red": 0, "blue": 0, "state" : 0}, "round4": {"red": 0, "blue": 0, "state" : 0}, "round5": {"red": 0, "blue": 0, "state" : 0}}'
-                ],
-                [
-                    'name'=>'',
-                    'surname'=>'',
-                    'cat'=>'*',
-                    'hour'=>'**:**',
-                ]
+            
+                'hour'=>'**:**',
+                'score'=>'{"round1": {"red": 0, "blue": 0, "state" : 0}, "round2": {"red": 0, "blue": 0, "state" : 0}, "round3": {"red": 0, "blue": 0, "state" : 0}, "round4": {"red": 0, "blue": 0, "state" : 0}, "round5": {"red": 0, "blue": 0, "state" : 0}}',
+
+                'j1_name'=>'',
+                'j1_surname'=>'',
+                'j1_cat'=>'*',
+              
+                'j2_name'=>'',
+                'j2_surname'=>'',
+                'j2_cat'=>'*',
+                
                 ] ;
         }
 
 
         ######################
 
-        $json = json_decode($et[0]['score']);
+        $json = json_decode($et['score']);
 
     ?>
 
@@ -38,9 +37,9 @@
             <table class="table table-info">
 
                 <thead>
-                    Table <?php echo($nb)?> - <?php echo( substr($et[0]['hour'],0,5) ) ?>
-                    <?php if ($et[0]['cat'] == $et[1]['cat']) { 
-                        $cat = $et[0]['cat'] ; 
+                    Table <?php echo($nb)?> - <?php echo( substr($et['hour'],0,5) ) ?>
+                    <?php if ($et['j1_cat'] == $et['j2_cat']) { 
+                        $cat = $et['j1_cat'] ; 
                         echo(" - Cat. ".$cat) ; 
                     } ?>
                 </thead>
@@ -48,7 +47,7 @@
                 <tbody>
                     <tr>
                         <th scope="row">
-                            <?php echo($et[0]['name']." ".$et[0]['surname'])?>
+                            <?php echo($et['j1_name']." ".$et['j1_surname'])?>
                             <?php #if ($et[0]['cat'] != $et[1]['cat']) { $cat = $et[0]['cat']; echo( "  Cat. ".$cat); } ?>
                         </th>
                         <td width=10% <?php if ($json->round1->state == "1") { echo("class='text-danger'"); }?>> <?php echo($json->round1->blue)?></td>
@@ -59,7 +58,7 @@
                     </tr>
                     <tr>
                         <th scope="row">
-                            <?php echo($et[1]['name']." ".$et[1]['surname'])?>
+                            <?php echo($et['j2_name']." ".$et['j2_surname'])?>
                             <?php #if ($et[0]['cat'] != $et[1]['cat']) { $cat = $et[1]['cat']; echo( "  Cat. ".$cat); } ?>
                         </th>
                         <td width=10% <?php if ($json->round1->state == "1") { echo("class='text-danger'"); }?>><?php echo($json->round1->red)?></td>
