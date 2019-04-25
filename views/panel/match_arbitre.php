@@ -137,7 +137,7 @@ $et = $et->fetch() ;
                         </div>
                     </td>
                     <td width=50%>
-                            <a href="plusun.php?match=<?php echo $num_match ?>&player=red&action=p" >
+                            <a href="plusunrouge.php?match=<?php echo $num_match ?>&player=red&action=p" >
                         <div type="button" class="card bg-danger btn btn-light">
                             <h1>+</h1>
                         </div>
@@ -151,6 +151,7 @@ $et = $et->fetch() ;
                         </div>
                     </td>
                     <td width=50%>
+                    <a href="moinsunrouge.php?match=<?php echo $num_match ?>&player=red&action=p" >
                         <div type="button" class="card bg-danger btn btn-light">
                             <h1>-</h1>
                         </div>
