@@ -10,13 +10,19 @@
     $court = $court->fetch() ;
 
 
-    if (empty($court['match_id'])) {
+    if ($court['match_id'] === null) {
 
         $et = [
             'blue_player'=>0,
             'red_player'=>0,
             'hour'=>'',
-            'score'=>'{"round1": {"red": 0, "blue": 0}, "round2": {"red": 0, "blue": 0}, "round3": {"red": 0, "blue": 0}, "round4": {"red": 0, "blue": 0}, "round5": {"red": 0, "blue": 0}}',
+            'score'=>'{
+                    "round1" : { "blue" : 0, "red" : 0, "state" : 1 },
+                    "round2" : { "blue" : 0, "red" : 0, "state" : 0 },
+                    "round3" : { "blue" : 0, "red" : 0, "state" : 0 },
+                    "round4" : { "blue" : 0, "red" : 0, "state" : 0 },
+                    "round5" : { "blue" : 0, "red" : 0, "state" : 0 }
+                }',
             'state'=>0
         ] ;
 
@@ -25,30 +31,9 @@
         $id = $court['match_id'] ;
 
         #Match selectionné
-        $ps = $pdo->prepare("SELECT * FROM matchs WHERE id=$id AND state=1") ;
+        $ps = $pdo->prepare("SELECT * FROM matchs WHERE id=$id") ;
         $ps->execute() ;
-        $et = $ps -> fetch() ;
-
-        #Match terminé le plus récent
-        if (empty($et)) {
-            $ps = $pdo->prepare("SELECT * FROM matchs WHERE court=$num_table AND state=2 ORDER BY 'hour' DESC") ;
-            $ps->execute() ;
-
-            $et = $ps -> fetch() ;
-
-            #Match vide
-            if (empty($et)) {
-        
-                $et = [
-                    'blue_player'=>0,
-                    'red_player'=>0,
-                    'hour'=>'',
-                    'score'=>'{"round1": {"red": 0, "blue": 0}, "round2": {"red": 0, "blue": 0}, "round3": {"red": 0, "blue": 0}, "round4": {"red": 0, "blue": 0}, "round5": {"red": 0, "blue": 0}}',
-                    'state'=>0
-                ] ;
-            }        
-            
-        }
+        $et = $ps -> fetch() ;    
 
     };
 
@@ -150,7 +135,13 @@
                     }else{
 
                         $json = [
-                            'score'=>'{"round1": {"red": 0, "blue": 0}, "round2": {"red": 0, "blue": 0}, "round3": {"red": 0, "blue": 0}, "round4": {"red": 0, "blue": 0}, "round5": {"red": 0, "blue": 0}}',
+                            'score'=>'{
+                                "round1" : { "blue" : 0, "red" : 0, "state" : 1 },
+                                "round2" : { "blue" : 0, "red" : 0, "state" : 0 },
+                                "round3" : { "blue" : 0, "red" : 0, "state" : 0 },
+                                "round4" : { "blue" : 0, "red" : 0, "state" : 0 },
+                                "round5" : { "blue" : 0, "red" : 0, "state" : 0 }
+                            }',
                         ];
 
                     }

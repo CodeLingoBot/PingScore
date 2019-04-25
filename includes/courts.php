@@ -12,7 +12,13 @@
             $et= [
             
                 'hour'=>'**:**',
-                'score'=>'{"round1": {"red": 0, "blue": 0, "state" : 0}, "round2": {"red": 0, "blue": 0, "state" : 0}, "round3": {"red": 0, "blue": 0, "state" : 0}, "round4": {"red": 0, "blue": 0, "state" : 0}, "round5": {"red": 0, "blue": 0, "state" : 0}}',
+                'score'=>'{
+                            "round1": {"red": 0, "blue": 0, "state" : 0}, 
+                            "round2": {"red": 0, "blue": 0, "state" : 0}, 
+                            "round3": {"red": 0, "blue": 0, "state" : 0}, 
+                            "round4": {"red": 0, "blue": 0, "state" : 0}, 
+                            "round5": {"red": 0, "blue": 0, "state" : 0}
+                        }',
 
                 'j1_name'=>'',
                 'j1_surname'=>'',
