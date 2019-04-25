@@ -2,7 +2,8 @@
 //TODO : Google Trad + contenu
 //TODO : rajouter les files photo dans Add et Edit
 require_once '../../includes/functions.php';
-check_auth();
+administration();
+
 try {
     require_once('../../controllers/database.php');
     $req = "SELECT * FROM players WHERE id != 0 ORDER BY id ASC";

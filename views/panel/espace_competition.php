@@ -1,6 +1,6 @@
 <?php
     require_once '../../includes/functions.php';
-    check_auth();
+check_auth();
 
     /* Section arbitre */
 

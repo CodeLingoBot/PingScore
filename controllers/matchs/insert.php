@@ -1,6 +1,5 @@
 <?php
 //TODO: Ajouter fonctionnalité Del Match
-//TODO: rajouter les scores
 
 require_once '../host_db.php';
 

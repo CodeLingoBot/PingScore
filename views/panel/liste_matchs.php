@@ -1,8 +1,7 @@
 <?php
-//TODO: rajouter les scores
 
 require_once '../../includes/functions.php';
-check_auth();
+arbitration();
 try {
     require_once('../../controllers/database.php');
     $req = "SELECT m.id, TIME_FORMAT(m.hour, '%H:%i') AS hour, p.surname AS blue_player, p2.surname AS red_player, m.court, m.state FROM matchs m INNER JOIN players p ON p.id = m.blue_player INNER JOIN players p2 ON p2.id = m.red_player  ORDER BY hour ASC";

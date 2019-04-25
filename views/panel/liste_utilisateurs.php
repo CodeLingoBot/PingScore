@@ -1,7 +1,7 @@
 <?php
 //TODO : toastr ne pop pas lorsqu'un autre est actif : voir pour réduire le temps du tostr ou autre
 require_once '../../includes/functions.php';
-check_auth();
+administration();
 try {
     require_once('../../controllers/database.php');
     $req = "SELECT * FROM users";
