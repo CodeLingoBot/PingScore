@@ -4,7 +4,7 @@ require_once '../../includes/functions.php';
 arbitration();
 try {
     require_once('../../controllers/database.php');
-    $req = "SELECT m.id, TIME_FORMAT(m.hour, '%H:%i') AS hour, p.surname AS blue_player, p2.surname AS red_player, m.court, m.state FROM matchs m INNER JOIN players p ON p.id = m.blue_player INNER JOIN players p2 ON p2.id = m.red_player  ORDER BY hour ASC";
+    $req = "SELECT m.id, TIME_FORMAT(m.hour, '%H:%i') AS hour, p.surname AS blue_player, p2.surname AS red_player, m.state FROM matchs m INNER JOIN players p ON p.id = m.blue_player INNER JOIN players p2 ON p2.id = m.red_player  ORDER BY hour ASC";
     $ps = $pdo -> prepare($req);
     $ps -> execute();
 } catch (PDOException $e){
@@ -33,7 +33,6 @@ include_once '../../includes/toasts.php';
                 <tr>
                     <th>HEURE</th>
                     <th>MATCH</th>
-                    <th>N° TABLE</th>
                     <th>ETAT</th>
                     <th>ACTION</th>
                 </tr>
@@ -43,7 +42,6 @@ include_once '../../includes/toasts.php';
                     <tr id="<?php echo($data['id']) ?>">
                         <td><?php echo($data['hour']) ?></td>
                         <td><?php echo($data['blue_player'].' - '.$data['red_player']) ?></td>
-                        <td><?php echo($data['court']) ?></td>
                         <td><?php echo($mappingSate[$data['state']]) ?></td>
                         <td><input type="button" name="edit" value="Edit" id="<?php echo $data['id']; ?>" class="btn btn-info btn-xs edit_data" /> <a href="match_arbitre.php?match=<?php echo($data['id'])?>" type="button" name="see" class="btn btn-success btn-xs">See</a></td>
                     </tr>

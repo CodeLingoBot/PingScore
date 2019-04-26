@@ -45,16 +45,6 @@
                         <?php } ?>
                     </select>
                     <br />
-                    <label>Selectionner la table de jeu</label>
-                    <select name="court" id="court" class="form-control" required>
-                        <option selected disabled>Choisir la table</option>
-                        <?php while($data = $court->fetch()) { ?>
-                        <option value="<?php echo($data['id']) ?>" >
-                            <?php echo($data['id']) ?>
-                        </option>
-                        <?php } ?>
-                    </select>
-                    <br />
                     <label>Selectionner l'état du match</label>
                     <select name="state" id="state" class="form-control" required>
                         <option disabled>Choisir un état</option>
