@@ -1,12 +1,12 @@
 <!--==========-->
 
-<?php include("../../includes/partials/header.html") ?>
+<?php include_once '../../includes/partials/header_panel.html'; ?>
 
 <!--==========-->
 
-<h3 class="text-center">Tableau des matchs en cours</h3>
-
 <div class="container shadow p-3 mb-5 bg-light rounded">
+
+    <h3 class="card text-white bg-info mb-3 text-center">Tableau des matchs en cours</h3>
 
     <div class='row'>
 
@@ -39,7 +39,7 @@
             };
 
             $nb = $i;
-            require("../../includes/courts.php");
+            require("../../includes/courts_referee.php");
 
         } ; 
     
