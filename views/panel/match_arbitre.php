@@ -11,14 +11,18 @@ require_once('../../controllers/database.php') ;
 
 $et = $pdo->prepare("SELECT * FROM matchs WHERE id=?") ;
 $et->execute(array($num_match));
-$et = $et->fetch() ;
+$et = $et->fetch();
+
+$table = $pdo->prepare("SELECT id FROM court WHERE match_id=?") ;
+$table->execute(array($num_match));
+$table = $table->fetch();
 
 ?>
 
 <div class="container" max-width=75%>
 
     <h3 class="text-center shadow-none p-3 mb-4 bg-light rounded">
-        Table <?php echo($num_match) ?> - <?php echo( substr($et['hour'],0,5) ) ?>
+        Table <?php echo $table['id'] ?> - <?php echo( substr($et['hour'],0,5) ) ?>
     </h3>
 
 
