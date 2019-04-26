@@ -38,7 +38,7 @@
 
     ?>
 
-        <a href="table.php?table=<?php echo($nb)?>" style="text-decoration:none" class="text-danger">
+        <a href="../../controllers/arbitration/select_match.php?table=<?php echo($nb)?>" style="text-decoration:none" class="text-danger">
 
             <table class="table table-info">
 
