@@ -5,8 +5,8 @@
     require_once('../controllers/database.php') ;
 
     #Recuperation donné table
-    $court = $pdo->prepare("SELECT * FROM court WHERE id=$num_table") ;
-    $court->execute() ;
+    $court = $pdo->prepare("SELECT * FROM court WHERE id=?") ;
+    $court->execute(array($num_table)) ;
     $court = $court->fetch() ;
 
 
@@ -31,8 +31,8 @@
         $id = $court['match_id'] ;
 
         #Match selectionné
-        $ps = $pdo->prepare("SELECT * FROM matchs WHERE id=$id") ;
-        $ps->execute() ;
+        $ps = $pdo->prepare("SELECT * FROM matchs WHERE id=?") ;
+        $ps->execute(array($id)) ;
         $et = $ps -> fetch() ;    
 
     };
@@ -56,8 +56,8 @@
 
         $blue = $et['blue_player'];
 
-        $psBlue = $pdo->prepare("SELECT * FROM players WHERE id=$blue") ;
-        $psBlue->execute() ;
+        $psBlue = $pdo->prepare("SELECT * FROM players WHERE id=?") ;
+        $psBlue->execute(array($blue)) ;
 
         $etBlue = $psBlue -> fetch() ;
 
@@ -65,8 +65,8 @@
 
         $red = $et['red_player'];
 
-        $psRed = $pdo->prepare("SELECT * FROM players WHERE id=$red") ;
-        $psRed->execute() ;
+        $psRed = $pdo->prepare("SELECT * FROM players WHERE id=?") ;
+        $psRed->execute(array($red)) ;
 
         $etRed = $psRed -> fetch();
     ?>
@@ -127,8 +127,8 @@
 
                     if (!empty($id)) {
 
-                        $ps = $pdo->prepare("SELECT score FROM matchs WHERE id=$id") ;
-                        $ps->execute() ;
+                        $ps = $pdo->prepare("SELECT score FROM matchs WHERE id=?") ;
+                        $ps->execute(array($id)) ;
 
                         $json = $ps -> fetch() ;
 

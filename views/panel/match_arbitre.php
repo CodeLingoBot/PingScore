@@ -9,8 +9,8 @@ $num_match = $_GET['match'] ;
 
 require_once('../../controllers/database.php') ;
 
-$et = $pdo->prepare("SELECT * FROM matchs WHERE id=$num_match") ;
-$et->execute() ;
+$et = $pdo->prepare("SELECT * FROM matchs WHERE id=?") ;
+$et->execute(array($num_match));
 $et = $et->fetch() ;
 
 ?>
@@ -18,7 +18,7 @@ $et = $et->fetch() ;
 <div class="container" max-width=75%>
 
     <h3 class="text-center shadow-none p-3 mb-4 bg-light rounded">
-        Table <?php echo($et['court']) ?> - <?php echo( substr($et['hour'],0,5) ) ?>
+        Table <?php echo($num_match) ?> - <?php echo( substr($et['hour'],0,5) ) ?>
     </h3>
 
 
@@ -26,8 +26,8 @@ $et = $et->fetch() ;
 
         $blue = $et['blue_player'];
 
-        $psBlue = $pdo->prepare("SELECT * FROM players WHERE id=$blue") ;
-        $psBlue->execute() ;
+        $psBlue = $pdo->prepare("SELECT * FROM players WHERE id=?") ;
+        $psBlue->execute(array($blue)) ;
 
         $etBlue = $psBlue -> fetch() ;
 
@@ -35,8 +35,8 @@ $et = $et->fetch() ;
 
         $red = $et['red_player'];
 
-        $psRed = $pdo->prepare("SELECT * FROM players WHERE id=$red") ;
-        $psRed->execute() ;
+        $psRed = $pdo->prepare("SELECT * FROM players WHERE id=?") ;
+        $psRed->execute(array($red)) ;
 
         $etRed = $psRed -> fetch();
     ?>
