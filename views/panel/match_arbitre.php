@@ -136,12 +136,14 @@ $table = $table->fetch();
                 <tr>
                 <tr>
                     <td width=50%>
+                        <a href="evo_score.php?match=<?php echo $num_match ?>&player=blue&action=plus" >
                         <div type="button" class="card bg-primary btn btn-light">
                             <h1>+</h1>
                         </div>
+                        </a>
                     </td>
                     <td width=50%>
-                            <a href="plusunrouge.php?match=<?php echo $num_match ?>&player=red&action=p" >
+                        <a href="evo_score.php?match=<?php echo $num_match ?>&player=red&action=plus" >
                         <div type="button" class="card bg-danger btn btn-light">
                             <h1>+</h1>
                         </div>
@@ -150,22 +152,27 @@ $table = $table->fetch();
                 </tr>
                 <tr>
                     <td width=50%>
+                        <a href="evo_score.php?match=<?php echo $num_match ?>&player=blue&action=less" >
                         <div type="button" class="card bg-primary btn btn-light">
                             <h1>-</h1>
                         </div>
+                        </a>
                     </td>
                     <td width=50%>
-                    <a href="moinsunrouge.php?match=<?php echo $num_match ?>&player=red&action=p" >
+                        <a href="evo_score.php?match=<?php echo $num_match ?>&player=red&action=less" >
                         <div type="button" class="card bg-danger btn btn-light">
                             <h1>-</h1>
                         </div>
+                        </a>
                     </td>
                 </tr>
                 <tr>
                     <td width=50%>
+                        <a href="evo_round.php?match=<?php echo $num_match ?>" >
                         <div type="button" class="card bg-dark btn btn-light">
                             <h1 class="text-white">Set</h1>
                         </div>
+                        </a>
                     </td>
                     <td width=50%>
                         <div type="button" class="card bg-success btn btn-light disabled">
