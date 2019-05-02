@@ -175,9 +175,11 @@ $table = $table->fetch();
                         </a>
                     </td>
                     <td width=50%>
+                        <a href="state_match.php?match=<?php echo $num_match ?>" >
                         <div type="button" class="card bg-success btn btn-light disabled">
                             <h1>Match</h1>
                         </div>
+                        </a>
                     </td>
                 </tr>
             </table>

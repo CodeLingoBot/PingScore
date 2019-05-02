@@ -25,7 +25,7 @@ $score = $json_clear->$round->$player;
 if ($action === 'plus') {
     $json_clear->$round->$player++;
 } elseif ($action === 'less') {
-    $json_clear->round1->$player--;
+    $json_clear->$round->$player--;
 } else {
     $_SESSION['flash']['danger'] = "Erreur dans la saisie"; //TODO : faire le toast erreur
     header("Location: match_arbitre.php?match=$num_match");
