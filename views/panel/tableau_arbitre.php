@@ -24,15 +24,15 @@
 
     ?> 
 
-        <form>
+        <form method="get" action="../../controllers/arbitration/start_match.php" id="asso">
             <div class="form-row">
 
                 <!--Affichage tables libres-->
                 <div class="col">
-                    <select class="form-control form-control-lg" id="table">
+                    <select class="form-control form-control-lg" form="asso" name="table">
 
                         <?php while( $data = $table -> fetch() ) { ?>
-                            <option><?php echo('Table '.$data['id'])?></option>
+                            <option value= <?php echo($data['id'])?> ><?php echo('Table '.$data['id'])?></option>
                         <?php } ?>
 
                     </select>
@@ -41,10 +41,10 @@
 
                 <!--Affichage match à venir-->
                 <div class="col">
-                    <select class="form-control form-control-lg" id="match">
+                    <select class="form-control form-control-lg" form="asso" name="match">
 
                         <?php while( $data = $match -> fetch() ) { ?>
-                            <option><?php echo($data['hour'].' - '.$data['blue_player'].' - '.$data['red_player'])?></option>
+                            <option value=<?php echo($data['id'])?>><?php echo($data['hour'].' - '.$data['blue_player'].' - '.$data['red_player'])?></option>
                         <?php } ?>
 
                     </select>
