@@ -11,7 +11,7 @@ if(!empty($_POST)){
     $blue_player = mysqli_real_escape_string($connect, $_POST["blue_player"]);
     $red_player = mysqli_real_escape_string($connect, $_POST["red_player"]);
     $state = mysqli_real_escape_string($connect, $_POST["state"]);
-    $scoreJson = '{"round1":{"blue":0,"red":0,"state" : 1},"round2":{"blue":0,"red":0,"state" : 0},"round3":{"blue":0,"red":0,"state" : 0},"round4":{"blue":0,"red":0,"state" : 0},"round5":{"blue":0,"red":0,"state" : 0}}';
+    $scoreJson = '{"round1":{"blue":0,"red":0,"state" : 0},"round2":{"blue":0,"red":0,"state" : 0},"round3":{"blue":0,"red":0,"state" : 0},"round4":{"blue":0,"red":0,"state" : 0},"round5":{"blue":0,"red":0,"state" : 0}}';
     $score = mysqli_real_escape_string($connect, $scoreJson);
 
     $mappingSate = ['0'=>'À venir', '1'=>'En cours', '2'=>'Terminé'];
