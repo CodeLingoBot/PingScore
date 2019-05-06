@@ -79,6 +79,7 @@ $table = $table->fetch();
         <!-- Cadre centre -->
         <td>
 
+            <!-- Affichage score -->
             <table class="table table-warning table-bordered">
 
                 <?php 
@@ -94,32 +95,30 @@ $table = $table->fetch();
                         <th scope="row">
                             <?php echo($etBlue['surname'])?>
                         </th>
-                        <td width=10%><?php echo($json_clear->round1->blue)?></td>
-                        <td width=10%><?php echo($json_clear->round2->blue)?></td>
-                        <td width=10%><?php echo($json_clear->round3->blue)?></td>
-                        <td width=10%><?php echo($json_clear->round4->blue)?></td>
-                        <td width=10%><?php echo($json_clear->round5->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round1->state == "2") { echo("class='text-muted'"); }?>><?php echo($json_clear->round1->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round2->state == "2") { echo("class='text-muted'"); }?>><?php echo($json_clear->round2->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round3->state == "2") { echo("class='text-muted'"); }?>><?php echo($json_clear->round3->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round4->state == "2") { echo("class='text-muted'"); }?>><?php echo($json_clear->round4->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round5->state == "2") { echo("class='text-muted'"); }?>><?php echo($json_clear->round5->blue)?></td>
                     </tr>
 
                     <tr>
                         <th scope="row">
                             <?php echo($etRed['surname'])?>
                         </th>
-                        <td width=10%><?php echo($json_clear->round1->red)?></td>
-                        <td width=10%><?php echo($json_clear->round2->red)?></td>
-                        <td width=10%><?php echo($json_clear->round3->red)?></td>
-                        <td width=10%><?php echo($json_clear->round4->red)?></td>
-                        <td width=10%><?php echo($json_clear->round5->red)?></td>
+                        <td width=10% <?php if ($json_clear->round1->state == "2") { echo("class='text-muted'"); }?>><?php echo($json_clear->round1->red)?></td>
+                        <td width=10% <?php if ($json_clear->round2->state == "2") { echo("class='text-muted'"); }?>><?php echo($json_clear->round2->red)?></td>
+                        <td width=10% <?php if ($json_clear->round3->state == "2") { echo("class='text-muted'"); }?>><?php echo($json_clear->round3->red)?></td>
+                        <td width=10% <?php if ($json_clear->round4->state == "2") { echo("class='text-muted'"); }?>><?php echo($json_clear->round4->red)?></td>
+                        <td width=10% <?php if ($json_clear->round5->state == "2") { echo("class='text-muted'"); }?>><?php echo($json_clear->round5->red)?></td>
                     </tr>
 
                 </tbody>
-                <?php
 
-                
-                ?>
             </table>
+            <!-- Fin affichage score -->
 
-
+            <!-- Boutons -->
             <table class="table table-borderless text-center">
                 <tr>
                     <td width=50%>
@@ -183,7 +182,18 @@ $table = $table->fetch();
                     </td>
                 </tr>
             </table>
+            <!-- Fin boutons -->
 
+            <?php #Affichage etat du match
+                if ( $et['state'] == 0 ) {
+                    echo("<h3 class='text-info text-center'>Aucun match</h3>");
+                }elseif ( $et['state'] == 1) {
+                    echo("<h3 class='text-success text-center'>En cours</h3>");
+                }
+                elseif ( $et['state'] == 2) {
+                    echo("<h3 class='text-danger text-center'>Terminé</h3>");
+                }
+            ?>
 
         </td>
         <!-- Fin cadre -->
