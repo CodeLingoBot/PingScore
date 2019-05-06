@@ -76,6 +76,7 @@ $table = $table->fetch();
         </td> 
         <!-- Fin affichage bleu -->
 
+
         <!-- Cadre centre -->
         <td>
 
@@ -186,7 +187,7 @@ $table = $table->fetch();
 
             <?php #Affichage etat du match
                 if ( $et['state'] == 0 ) {
-                    echo("<h3 class='text-info text-center'>Aucun match</h3>");
+                    echo("<h3 class='text-info text-center'>Non attribué</h3>");
                 }elseif ( $et['state'] == 1) {
                     echo("<h3 class='text-success text-center'>En cours</h3>");
                 }
@@ -197,6 +198,7 @@ $table = $table->fetch();
 
         </td>
         <!-- Fin cadre -->
+
 
         <!-- Affichage joueur rouge -->
         <td>
