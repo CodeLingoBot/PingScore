@@ -9,7 +9,6 @@ echo($table."   ".$match) ;
 ?>
 
 <?php
-    require_once('../host_db.php');
     require_once('../database.php');
 
     $ps = $pdo->prepare("UPDATE `matchs` SET `state` = '1', 'court'=$table WHERE `matchs`.`id` = $match;") ;

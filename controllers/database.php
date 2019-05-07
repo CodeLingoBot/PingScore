@@ -1,6 +1,6 @@
 <?php
 
-require_once 'host_db.php';
+require_once 'login_id.php';
 
 try {
     $strConnexion = $connexion ;
