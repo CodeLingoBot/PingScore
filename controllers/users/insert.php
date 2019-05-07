@@ -35,7 +35,6 @@ if(!empty($_POST)){
         $select_query->execute();
         $output .= '    
                 <!-- Toastr CSS -->
-                <link rel="stylesheet" type="text/css" href="../../vendor/toastr/build/toastr.min.css"/>
                 <table id="" class="table table-hover table-responsive-lg dataTable">
                 <thead>
                 <tr>

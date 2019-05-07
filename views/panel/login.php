@@ -35,7 +35,7 @@ echo ($verif) ? 'Passwd = ' . $real_passwd : 'Erreur'
     <meta name="author" content="Luc NICOLAS">
     <title>Login · Ping Score</title>
     <!-- Bootstrap core CSS -->
-    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../../assets/css/signin.css" rel="stylesheet">
     <style>
@@ -69,7 +69,7 @@ echo ($verif) ? 'Passwd = ' . $real_passwd : 'Erreur'
     </div>
 <!-- Bootstrap core JavaScript-->
 <script src="../../vendor/jquery/jquery.min.js"></script>
-<script src="../../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         $(document).ready( function () {
             $('.toast').toast("show")

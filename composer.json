@@ -1,0 +1,10 @@
+{
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.6",
+        "twbs/bootstrap": "^4.3",
+        "datatables/datatables": "^1.10",
+        "fortawesome/font-awesome": "^5.8",
+        "mervick/material-design-icons": "^2.2",
+        "grimmlink/toastr": "^2.1"
+    }
+}

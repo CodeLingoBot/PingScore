@@ -1,23 +1,23 @@
-[submodule "vendor/bootstrap"]
-	path = vendor/bootstrap
-	url = https://github.com/twbs/bootstrap.git
-
-[submodule "vendor/DataTables"]
-	path = vendor/DataTables
+[submodule "vendor/datatables/datatables"]
+	path = vendor/datatables/datatables
 	url = https://github.com/DataTables/DataTables.git
 
-[submodule "vendor/material-design-icons"]
-    path = vendor/material-design-icons
-    url = https://github.com/google/material-design-icons.git
-
-[submodule "vendor/toastr"]
-	path = vendor/toastr
-	url = https://github.com/CodeSeven/toastr.git
-
-[submodule "vendor/Font-Awesome"]
-	path = vendor/Font-Awesome
+[submodule "vendor/fortawesome/font-awesome"]
+	path = vendor/fortawesome/font-awesome
 	url = https://github.com/FortAwesome/Font-Awesome.git
 
-[submodule "vendor/PhpSpreadsheet"]
-	path = vendor/PhpSpreadsheet
+[submodule "vendor/grimmlink/toastr"]
+	path = vendor/grimmlink/toastr
+	url = https://github.com/grimmlink/toastr.git
+
+[submodule "vendor/mervick/material-design-icons"]
+    path = vendor/mervick/material-design-icons
+    url = https://github.com/mervick/material-design-icons.git
+
+[submodule "vendor/phpoffice/phpspreadsheet"]
+	path = vendor/phpoffice/phpspreadsheet
 	url = https://github.com/PHPOffice/PhpSpreadsheet.git
+
+[submodule "vendor/twbs/bootstrap"]
+    path = vendor/twbs/bootstrap
+    url = https://github.com/twbs/bootstrap.git
