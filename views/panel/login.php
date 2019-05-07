@@ -59,12 +59,12 @@ echo ($verif) ? 'Passwd = ' . $real_passwd : 'Erreur'
     <div class="container text-center">
         <form method="post" action="" enctype="multipart/form-data" class="form-signin">
             <img class="mb-4" src="../../assets/img/logo_projet.png" alt="" width="100">
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
             <label for="inputUsername" class="sr-only">Username</label>
-            <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required autofocus>
+            <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Identifiant" required autofocus>
              <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-            <button class="btn btn-lg btn-secondary btn-block" type="submit">Sign in</button>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Mot de passe" required>
+            <button class="btn btn-lg btn-secondary btn-block" type="submit">Se connecter</button>
         </form>
     </div>
 <!-- Bootstrap core JavaScript-->
