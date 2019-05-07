@@ -19,6 +19,5 @@
 	url = https://github.com/PHPOffice/PhpSpreadsheet.git
 
 [submodule "vendor/twbs/bootstrap"]
-	path = vendor/twbs/bootstrap
-	url = https://github.com/twbs/bootstrap.git
-
+    path = vendor/twbs/bootstrap
+    url = https://github.com/twbs/bootstrap.git
