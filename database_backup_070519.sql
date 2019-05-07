@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `court`
 --
 
-CREATE TABLE `court` (
+CREATE TABLE `courts` (
   `id` int(11) NOT NULL,
   `match_id` int(11) DEFAULT NULL,
   `video` varchar(255) COLLATE utf8_unicode_ci NOT NULL
@@ -38,7 +38,7 @@ CREATE TABLE `court` (
 -- Dumping data for table `court`
 --
 
-INSERT INTO `court` (`id`, `match_id`, `video`) VALUES
+INSERT INTO `courts` (`id`, `match_id`, `video`) VALUES
 (1, 8, 'https://www.youtube.com/embed/hHW1oY26kxQ'),
 (2, 5, ''),
 (3, 6, 'https://www.youtube.com/embed/hHW1oY26kxQ'),
@@ -119,7 +119,7 @@ INSERT INTO `players` (`id`, `surname`, `name`, `cat`, `club`, `rank`, `picture`
 (9, 'BAKHOUCHE', 'Sofiane', 1, 'La Caravane du Pongiste', 47, NULL),
 (10, 'MONGEOT', 'Clément', 2, 'Absent', 6, 'clement.jpg'),
 (11, 'CAMBET PETIT-JEAN', 'Carole', 1, 'St Dio Ping', 52, NULL),
-(12, 'TALAVERA', 'Jean-Michel', 6, 'IN\'TECH Ping', 75, NULL);
+(12, 'TALAVERA', 'Jean-Michel', 6, 'INTECH Ping', 75, NULL);
 
 -- --------------------------------------------------------
 
