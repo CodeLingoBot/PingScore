@@ -16,7 +16,7 @@
 
     <?php #Récupération matchs à venir
 
-        $match = $pdo->prepare("SELECT id, blue_player, red_player, hour FROM matchs WHERE state=0") ;
+        $match = $pdo->prepare("SELECT m.id, TIME_FORMAT(m.hour, '%H:%i') AS hour, p.surname AS blue_player, p2.surname AS red_player FROM matchs m INNER JOIN players p ON p.id = m.blue_player INNER JOIN players p2 ON p2.id = m.red_player WHERE state=0") ;
         $match->execute() ;
 
         $table = $pdo->prepare("SELECT id FROM court") ;
@@ -104,3 +104,5 @@
     <!--Fin affichage match en cours sur table-->
 
 </div>
+
+<?php include_once "../../includes/partials/footer_panel.html" ?>
