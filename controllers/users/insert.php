@@ -40,7 +40,7 @@ if(!empty($_POST)){
         <tr>
             <td>' . $row["username"] . '</td>
             <td>' . $row["role"] . '</td>
-            <td><input type="button" name="edit" value="Edit" id="'.$row["id"] .'" class="btn btn-info btn-xs edit_data" /></td>
+            <td><input type="button" name="edit" value="Editer" id="'.$row["id"] .'" class="btn btn-info btn-xs edit_data" /></td>
         </tr>
     ';
         }

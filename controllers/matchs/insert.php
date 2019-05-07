@@ -45,7 +45,7 @@ if(!empty($_POST)){
             <td>' . $row["hour"] . '</td>
             <td>' . $row["blue_player"]." - ".$row["red_player"]. '</td>
             <td>' . $mappingSate[$row["state"]] . '</td>
-            <td><input type="button" name="edit" value="Edit" id="'.$row["id"] .'" class="btn btn-info btn-xs edit_data" /> <a href="match_arbitre.php?match='.$row["id"] .'" type="button" name="see" class="btn btn-success btn-xs">See</a></td>
+            <td><input type="button" name="edit" value="Editer" id="'.$row["id"] .'" class="btn btn-info btn-xs edit_data" /> <a href="match_arbitre.php?match='.$row["id"] .'" type="button" name="see" class="btn btn-success btn-xs">Voir</a></td>
         </tr>
     ';
         }

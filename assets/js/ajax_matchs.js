@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('#add').click(function(){
         $('#id').val("");
-        $('#insert').val("Insert");
+        $('#insert').val("Ajouter");
         $('#del').prop("type", "hidden");
         $('#insert_form')[0].reset();
     });
@@ -19,7 +19,7 @@ $(document).ready(function(){
                 $('#court').val(data.court);
                 $('#state').val(data.state);
                 $('#id').val(data.id);
-                $('#insert').val("Update");
+                $('#insert').val("Mettre à jour");
                 $('#del').prop("type", "button");
                 $('#add_data_Modal').modal('toggle');
             }
@@ -33,15 +33,15 @@ $(document).ready(function(){
                 data:$('#insert_form').serialize(),
                 beforeSend:function(){
                     type = "success";
-                    title = "Success";
-                    if($('#insert').val() == "Update"){
-                        message = $('#blue_player').val() + ' - ' + $('#red_player').val() + " match\'s Informations Updated";
+                    title = "Succès";
+                    if($('#insert').val() == "Mettre à jour"){
+                        message = 'Les informations du match : ' + $('#blue_player').val() + ' - ' + $('#red_player').val() + " ont été mises à jour";
                     } else {
-                        message = $('#blue_player').val() + ' - ' + $('#red_player').val() + " match\'s Informations Created";
+                        message = 'Le match : ' + $('#blue_player').val() + ' - ' + $('#red_player').val() + " a été créé";
                     }
 
                     $('#id').val("");
-                    $('#insert').val("Inserting");
+                    $('#insert').val("Ajout...");
                 },
                 success:function(data){
                     $('#insert_form')[0].reset();

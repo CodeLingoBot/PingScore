@@ -21,7 +21,7 @@ include_once '../../includes/toasts.php';
     <div class="container">
         <h1 class="display-5">Liste des matchs :</h1>
         <div align="right">
-            <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Add</button>
+            <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Ajouter</button>
         </div>
     </div>
 </div>
@@ -43,7 +43,7 @@ include_once '../../includes/toasts.php';
                         <td><?php echo($data['hour']) ?></td>
                         <td><?php echo($data['blue_player'].' - '.$data['red_player']) ?></td>
                         <td><?php echo($mappingSate[$data['state']]) ?></td>
-                        <td><input type="button" name="edit" value="Edit" id="<?php echo $data['id']; ?>" class="btn btn-info btn-xs edit_data" /> <a href="match_arbitre.php?match=<?php echo($data['id'])?>" type="button" name="see" class="btn btn-success btn-xs">See</a></td>
+                        <td><input type="button" name="edit" value="Editer" id="<?php echo $data['id']; ?>" class="btn btn-info btn-xs edit_data" /> <a href="match_arbitre.php?match=<?php echo($data['id'])?>" type="button" name="see" class="btn btn-success btn-xs">Voir</a></td>
                     </tr>
                 <?php } ?>
                 </tbody>

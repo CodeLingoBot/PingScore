@@ -20,7 +20,7 @@ include_once '../../includes/toasts.php';
     <div class="container">
         <h1 class="display-5">Liste des joueurs :</h1>
         <div align="right">
-            <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Add</button>
+            <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Ajouter</button>
         </div>
     </div>
 </div>
@@ -50,7 +50,7 @@ include_once '../../includes/toasts.php';
                         <td><?php echo($data['club']) ?></td>
                         <td><?php echo($data['rank']) ?></td>
                         <td><?php echo((!empty($data['picture'])) ? "<i class=\"material-icons\">check_box</i>" : "<i class=\"material-icons\">check_box_outline_blank</i>"); ?></td>
-                        <td><input type="button" name="edit" value="Edit" id="<?php echo $data["id"]; ?>" class="btn btn-info btn-xs edit_data" /></td>
+                        <td><input type="button" name="edit" value="Editer" id="<?php echo $data["id"]; ?>" class="btn btn-info btn-xs edit_data" /></td>
                     </tr>
                 <?php } ?>
                 </tbody>

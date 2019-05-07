@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('#add').click(function(){
         $('#id').val("");
-        $('#insert').val("Insert");
+        $('#insert').val("Ajouter");
         $('#del').prop("type", "hidden");
         $('#insert_form')[0].reset();
     });
@@ -15,7 +15,7 @@ $(document).ready(function(){
             success:function(data){
                 $('#username').val(data.username);
                 $('#id').val(data.id);
-                $('#insert').val("Update");
+                $('#insert').val("Mettre à jour");
                 $('#del').prop("type", "button");
                 $('#add_data_Modal').modal('toggle');
             }
@@ -36,14 +36,14 @@ $(document).ready(function(){
                 data:$('#insert_form').serialize(),
                 beforeSend:function(){
                     type = "success";
-                    title = "Success";
-                    if($('#insert').val() == "Update"){
-                        message = $('#username').val() + "\'s Informations Updated";
+                    title = "Succès";
+                    if($('#insert').val() == "Mettre à jour"){
+                        message = $('#username').val() + " a été mis à jour";
                     } else {
-                        message = $('#username').val() + "\'s Informations Created";
+                        message = $('#username').val() + " a été créé";
                     }
                     $('#id').val("");
-                    $('#insert').val("Inserting");
+                    $('#insert').val("Ajout...");
                 },
                 success:function(data){
                     $('#insert_form')[0].reset();
