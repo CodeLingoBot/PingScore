@@ -3,6 +3,9 @@ body {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+
+
+    
 }
 a {
     text-decoration: none;
@@ -30,5 +33,6 @@ a:hover {
         display: none;
     }
     #background {
+        background : url(../img/wallpaper.jpg) no-repeat center center fixed;
     }
 }

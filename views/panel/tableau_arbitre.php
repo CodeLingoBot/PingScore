@@ -14,7 +14,7 @@
     
     <div class="card mb-3"> 
 
-    <?php #Récupération matchs à venir
+    <?php #Récupération matchs à venir et tables
 
         $match = $pdo->prepare("SELECT m.id, TIME_FORMAT(m.hour, '%H:%i') AS hour, p.surname AS blue_player, p2.surname AS red_player FROM matchs m INNER JOIN players p ON p.id = m.blue_player INNER JOIN players p2 ON p2.id = m.red_player WHERE state=0") ;
         $match->execute() ;
