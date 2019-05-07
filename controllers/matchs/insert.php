@@ -1,28 +1,41 @@
 <?php
 //TODO: Ajouter fonctionnalité Del Match
 
-require_once '../host_db.php';
+require_once '../database.php';
 
-$connect = mysqli_connect($host, $user, $pass, $db);
 if(!empty($_POST)){
     $output = '';
     $message = '';
-    $hour = mysqli_real_escape_string($connect, $_POST["hour"]);
-    $blue_player = mysqli_real_escape_string($connect, $_POST["blue_player"]);
-    $red_player = mysqli_real_escape_string($connect, $_POST["red_player"]);
-    $state = mysqli_real_escape_string($connect, $_POST["state"]);
-    $scoreJson = '{"round1":{"blue":0,"red":0,"state" : 0},"round2":{"blue":0,"red":0,"state" : 0},"round3":{"blue":0,"red":0,"state" : 0},"round4":{"blue":0,"red":0,"state" : 0},"round5":{"blue":0,"red":0,"state" : 0}}';
-    $score = mysqli_real_escape_string($connect, $scoreJson);
-
+    $hour = $_POST["hour"];
+    $blue_player = $_POST["blue_player"];
+    $red_player = $_POST["red_player"];
+    $state = $_POST["state"];
+    $score = '{"round1":{"blue":0,"red":0,"state" : 0},"round2":{"blue":0,"red":0,"state" : 0},"round3":{"blue":0,"red":0,"state" : 0},"round4":{"blue":0,"red":0,"state" : 0},"round5":{"blue":0,"red":0,"state" : 0}}';
+    $id = $_POST["id"];
     $mappingSate = ['0'=>'À venir', '1'=>'En cours', '2'=>'Terminé'];
-    if($_POST["id"] != ''){
-        $query = "UPDATE matchs SET hour='$hour', blue_player='$blue_player', red_player='$red_player', state='$state' WHERE id='".$_POST["id"]."'";
+    if($_POST["id"] !== ''){
+        $reqQuery = 'UPDATE matchs SET hour=:hour, blue_player=:blue_player, red_player=:red_player, state=:state WHERE id=:id;';
+        $query = $pdo->prepare($reqQuery);
+        $query->bindValue(":hour", $hour);
+        $query->bindValue(":blue_player", $blue_player);
+        $query->bindValue(":red_player", $red_player);
+        $query->bindValue(":state", $state);
+        $query->bindValue(":id", $id);
+        $query->execute();
     } else {
-        $query = "INSERT INTO matchs(hour, blue_player, red_player, state, score) VALUES('$hour', '$blue_player', '$red_player', '$state', '$score');";
+        $query = "INSERT INTO matchs(hour, blue_player, red_player, state, score) VALUES(:hour, :blue_player, :red_player, :state, :score);";
+        $query = $pdo->prepare($reqQuery);
+        $query->bindValue(":hour", $hour);
+        $query->bindValue(":blue_player", $blue_player);
+        $query->bindValue(":red_player", $red_player);
+        $query->bindValue(":state", $state);
+        $query->bindValue(":score", $score);
+        $query->execute();
     }
-    if(mysqli_query($connect, $query)){
-        $select_query = "SELECT m.id, TIME_FORMAT(m.hour, '%H:%i') AS hour, p.surname AS blue_player, p2.surname AS red_player, m.state FROM matchs m INNER JOIN players p ON p.id = m.blue_player INNER JOIN players p2 ON p2.id = m.red_player  ORDER BY hour ASC";
-        $result = mysqli_query($connect, $select_query);
+    if(isset($query)){
+        $reqSelect = "SELECT m.id, TIME_FORMAT(m.hour, '%H:%i') AS hour, p.surname AS blue_player, p2.surname AS red_player, m.state FROM matchs m INNER JOIN players p ON p.id = m.blue_player INNER JOIN players p2 ON p2.id = m.red_player  ORDER BY hour ASC";
+        $select_query = $pdo->query($reqSelect);
+        $select_query->execute();
         $output .= '    
                 <!-- Toastr CSS -->
                 <link rel="stylesheet" type="text/css" href="../../vendor/toastr/build/toastr.min.css"/>
@@ -37,7 +50,7 @@ if(!empty($_POST)){
                 </thead>
                 <tbody>
     ';
-        while($row = mysqli_fetch_array($result))
+        while($row = $select_query->fetch())
         {
             $picture = (!empty($row['picture'])) ? "<i class=\"material-icons\">check_box</i>" : "<i class=\"material-icons\">check_box_outline_blank</i>";
             $output .= '

@@ -1,9 +1,12 @@
 <?php
-require_once '../host_db.php';
+require_once '../database.php';
 
-$connect = mysqli_connect($host, $user, $pass, $db);if(isset($_POST["id"])){
-    $query = "SELECT * FROM matchs WHERE id = '".$_POST["id"]."'";
-    $result = mysqli_query($connect, $query);
-    $row = mysqli_fetch_array($result);
+$id = $_POST["id"];
+
+if(isset($id)){
+    $req = "SELECT * FROM matchs WHERE id=?";
+    $result = $pdo->prepare($req);
+    $result->execute(array($id));
+    $row = $result->fetch();
     echo json_encode($row);
 }

@@ -1,11 +1,12 @@
 <?php
+require_once '../database.php';
 
-require_once '../host_db.php';
+$id = $_POST["id"];
 
-$connect = mysqli_connect($host, $user, $pass, $db);
-if(isset($_POST["id"])){
-    $query = "SELECT * FROM users WHERE id = '".$_POST["id"]."'";
-    $result = mysqli_query($connect, $query);
-    $row = mysqli_fetch_array($result);
+if(isset($id)){
+    $req = "SELECT * FROM users WHERE id=?";
+    $result = $pdo->prepare($req);
+    $result->execute(array($id));
+    $row = $result->fetch();
     echo json_encode($row);
 }

@@ -15,8 +15,8 @@ if(!empty($_POST)){
     /* $namePicture = $_FILES['picture']['name'];
      $fileTempo = $_FILES['picture']['tmp_name'];
      move_uploaded_file($fileTempo, '../images/'.$namePicture); */
-    if($id != ''){
-        $reqQuery = "UPDATE players SET surname=:surname, name=:name, cat=:cat, club=:club, rank=:rank WHERE id=:id;";
+    if($id !== ''){
+        $reqQuery = 'UPDATE players SET surname=:surname, name=:name, cat=:cat, club=:club, rank=:rank WHERE id=:id;';
         $query = $pdo->prepare($reqQuery);
         $arrayQuery = array(
             'surname' => $surname,
@@ -27,7 +27,7 @@ if(!empty($_POST)){
             'id' => $id);
         $query->execute($arrayQuery);
     } else {
-        $reqQuery = "INSERT INTO players(surname, name, cat, club, rank) VALUES(:surname, :name, :cat, :club, :rank);";
+        $reqQuery = 'INSERT INTO players(surname, name, cat, club, rank) VALUES(:surname, :name, :cat, :club, :rank);';
         $query = $pdo->prepare($reqQuery);
         $query->bindValue(":surname", $surname);
         $query->bindValue(":name", $name);
@@ -37,10 +37,11 @@ if(!empty($_POST)){
         $query->execute();
         $query = "";
     }
-    $reqSelect = "SELECT * FROM players WHERE id != 0 ORDER BY id ASC";
-    $select_query = $pdo->query($reqSelect);
-    $select_query->execute();
-    $output .= '    
+    if(isset($query)) {
+        $reqSelect = "SELECT * FROM players WHERE id != 0 ORDER BY id ASC";
+        $select_query = $pdo->query($reqSelect);
+        $select_query->execute();
+        $output .= '    
                 <!-- Toastr CSS -->
                 <link rel="stylesheet" type="text/css" href="../../vendor/toastr/build/toastr.min.css"/>
                 <table id="" class="table table-hover table-responsive-lg dataTable">
@@ -57,11 +58,10 @@ if(!empty($_POST)){
                 </tr>
                 </thead>
                 <tbody>
-    ';
-    while($row = $select_query->fetch())
-    {
-        $picture = (!empty($row['picture'])) ? "<i class=\"material-icons\">check_box</i>" : "<i class=\"material-icons\">check_box_outline_blank</i>";
-        $output .= '
+        ';
+        while ($row = $select_query->fetch()) {
+            $picture = (!empty($row['picture'])) ? "<i class=\"material-icons\">check_box</i>" : "<i class=\"material-icons\">check_box_outline_blank</i>";
+            $output .= '
         <tr>
             <td>' . $row["id"] . '</td>
             <td>' . $row["surname"] . '</td>
@@ -70,14 +70,14 @@ if(!empty($_POST)){
             <td>' . $row["club"] . '</td>
             <td>' . $row["rank"] . '</td>
             <td>' . $picture . '</td>
-            <td><input type="button" name="edit" value="Edit" id="'.$row["id"] .'" class="btn btn-info btn-xs edit_data" /></td>
+            <td><input type="button" name="edit" value="Edit" id="' . $row["id"] . '" class="btn btn-info btn-xs edit_data" /></td>
         </tr>
-    ';
-    }
-    $output .= '</table>    
+        ';
+        }
+        $output .= '</table>    
         <!-- Scripts for this page -->
         <script src="../../assets/js/dataTable.js"></script>
-    ';
-
+        ';
+    }
     echo $output;
 }
