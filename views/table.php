@@ -78,7 +78,7 @@
 
             <div class="card bg-primary mb-3" style="width: 18rem;">
 
-                <img src="../assets/img/players/<?php echo($etBlue['picture'])?>" class="card-img-top" width="320" height=320 alt="">
+                <img src="../assets/img/players/<?php if (empty($etBlue['picture'])) { echo('vide.png') ;}else { echo($etBlue['picture']) ; } ; ?>" class="card-img-top" width="320" height=320 alt="">
 
                 <div class="card-body">
                     <h5 class="card-title">
@@ -107,7 +107,7 @@
             <?php #Case centrale 
                 if (empty($court['video'])) {
 
-                    echo('<iframe width="450" height="318" src="https://static.jeux-gratuits.com/main/swf/ping-pong.swf" frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>') ;
+                    echo('<iframe width="450" height="318" src="https://www.youtube.com/embed/nadxO6ZnDDA" frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>') ;
 
                 }else {
                     
@@ -205,7 +205,7 @@
 
             <div class="card bg-danger mb-3" style="width: 18rem;">
 
-                <img src="../assets/img/players/<?php echo($etRed['picture'])?>" class="card-img-top" width="320" height=320 alt="">
+            <img src="../assets/img/players/<?php if (empty($etRed['picture'])) { echo('vide.png') ;}else { echo($etRed['picture']) ; } ; ?>" class="card-img-top" width="320" height=320 alt="">
 
                 <div class="card-body">
                     <h5 class="card-title">
