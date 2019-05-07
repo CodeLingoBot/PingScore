@@ -1,28 +1,46 @@
 <?php
 //TODO: Ajouter fonctionnalité Del Player
 
-require_once '../host_db.php';
+require_once '../database.php';
 
-$connect = mysqli_connect($host, $user, $pass, $db);
 if(!empty($_POST)){
     $output = '';
     $message = '';
-    $surname = mysqli_real_escape_string($connect, $_POST["surname"]);
-    $name = mysqli_real_escape_string($connect, $_POST["name"]);
-    $cat = mysqli_real_escape_string($connect, $_POST["cat"]);
-    $club = mysqli_real_escape_string($connect, $_POST["club"]);
-    $rank = mysqli_real_escape_string($connect, $_POST["rank"]);
-    if($_POST["id"] != ''){
-        $query = "UPDATE players SET surname='$surname', name='$name', cat='$cat', club = '$club', rank = '$rank' WHERE id='".$_POST["id"]."'";
-        $message = $_POST['name'] . ' ' . $_POST['surname'] . '\'s Informations Updated';
+    $id = $_POST["id"];
+    $surname = $_POST["surname"];
+    $name = $_POST["name"];
+    $cat = $_POST["cat"];
+    $club = $_POST["club"];
+    $rank = $_POST["rank"];
+    /* $namePicture = $_FILES['picture']['name'];
+     $fileTempo = $_FILES['picture']['tmp_name'];
+     move_uploaded_file($fileTempo, '../images/'.$namePicture); */
+    if($id != ''){
+        $reqQuery = "UPDATE players SET surname=:surname, name=:name, cat=:cat, club=:club, rank=:rank WHERE id=:id;";
+        $query = $pdo->prepare($reqQuery);
+        $arrayQuery = array(
+            'surname' => $surname,
+            'name' => $name,
+            'cat' => $cat,
+            'club' => $club,
+            'rank' => $rank,
+            'id' => $id);
+        $query->execute($arrayQuery);
     } else {
-        $query = "INSERT INTO players(surname, name, cat, club, rank) VALUES('$surname', '$name', '$cat', '$club', '$rank');";
-        $message = $_POST['name'] . ' ' . $_POST['surname'] . '\'s Informations Inserted';
+        $reqQuery = "INSERT INTO players(surname, name, cat, club, rank) VALUES(:surname, :name, :cat, :club, :rank);";
+        $query = $pdo->prepare($reqQuery);
+        $query->bindValue(":surname", $surname);
+        $query->bindValue(":name", $name);
+        $query->bindValue(":cat", $cat);
+        $query->bindValue(":club", $club);
+        $query->bindValue(":rank", $rank);
+        $query->execute();
+        $query = "";
     }
-    if(mysqli_query($connect, $query)){
-        $select_query = "SELECT * FROM players WHERE id != 0 ORDER BY id ASC";
-        $result = mysqli_query($connect, $select_query);
-        $output .= '    
+    $reqSelect = "SELECT * FROM players WHERE id != 0 ORDER BY id ASC";
+    $select_query = $pdo->query($reqSelect);
+    $select_query->execute();
+    $output .= '    
                 <!-- Toastr CSS -->
                 <link rel="stylesheet" type="text/css" href="../../vendor/toastr/build/toastr.min.css"/>
                 <table id="" class="table table-hover table-responsive-lg dataTable">
@@ -40,10 +58,10 @@ if(!empty($_POST)){
                 </thead>
                 <tbody>
     ';
-        while($row = mysqli_fetch_array($result))
-        {
-            $picture = (!empty($row['picture'])) ? "<i class=\"material-icons\">check_box</i>" : "<i class=\"material-icons\">check_box_outline_blank</i>";
-            $output .= '
+    while($row = $select_query->fetch())
+    {
+        $picture = (!empty($row['picture'])) ? "<i class=\"material-icons\">check_box</i>" : "<i class=\"material-icons\">check_box_outline_blank</i>";
+        $output .= '
         <tr>
             <td>' . $row["id"] . '</td>
             <td>' . $row["surname"] . '</td>
@@ -52,14 +70,14 @@ if(!empty($_POST)){
             <td>' . $row["club"] . '</td>
             <td>' . $row["rank"] . '</td>
             <td>' . $picture . '</td>
-            <td><input type="button" name="edit" value="Editer" id="'.$row["id"] .'" class="btn btn-info btn-xs edit_data" /></td>
+            <td><input type="button" name="edit" value="Edit" id="'.$row["id"] .'" class="btn btn-info btn-xs edit_data" /></td>
         </tr>
     ';
-        }
-        $output .= '</table>    
+    }
+    $output .= '</table>    
         <!-- Scripts for this page -->
         <script src="../../assets/js/dataTable.js"></script>
     ';
-    }
+
     echo $output;
 }
