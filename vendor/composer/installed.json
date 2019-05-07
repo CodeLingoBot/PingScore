@@ -26,20 +26,20 @@
     },
     {
         "name": "fortawesome/font-awesome",
-        "version": "5.8.1",
-        "version_normalized": "5.8.1.0",
+        "version": "5.8.2",
+        "version_normalized": "5.8.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/FortAwesome/Font-Awesome.git",
-            "reference": "299abb1fb101f4e1cfd1d2fccc461782ff84b13d"
+            "reference": "e05a1219784935ff5beb6bfb17cdc86bc848d0bb"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/299abb1fb101f4e1cfd1d2fccc461782ff84b13d",
-            "reference": "299abb1fb101f4e1cfd1d2fccc461782ff84b13d",
+            "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/e05a1219784935ff5beb6bfb17cdc86bc848d0bb",
+            "reference": "e05a1219784935ff5beb6bfb17cdc86bc848d0bb",
             "shasum": ""
         },
-        "time": "2019-03-21T21:50:43+00:00",
+        "time": "2019-05-07T17:37:12+00:00",
         "type": "library",
         "installation-source": "dist",
         "notification-url": "https://packagist.org/downloads/",
