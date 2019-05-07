@@ -6,7 +6,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Reader\Csv;
 
 $courts = $_POST['courts'];
-$i = 0;
+$i = 1;
 
 $file_mimes = array('text/x-comma-separated-values', 'text/comma-separated-values', 'application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'text/plain', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 
@@ -37,9 +37,9 @@ if(isset($_FILES['file']['name']) && in_array($_FILES['file']['type'], $file_mim
 
 
     while ($i < $courts) {
-        $reqCourt = "INSERT INTO `court` (`match_id`, `video`) VALUES (NULL, '')";
+        $reqCourt = "INSERT INTO `court` (`id`, `match_id`, `video`) VALUES (?, NULL, '')";
         $insertCourt = $pdo->prepare($reqCourt);
-        $insertCourt->execute();
+        $insertCourt->execute(array($i));
         $insertCourt->closeCursor();
         $i++;
     }

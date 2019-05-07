@@ -29,6 +29,7 @@ check_auth();
     <div class="container">
         <div class="card border-0 shadow my-5">
             <div class="card-body p-5">
+                <a href="../../controllers/reset.php"><button type="button" class="btn btn-outline-danger" style="float: right;">Danger</button></a>
                 <h1 class="font-weight-light text-primary">ESPACE COMPETITION</h1>
                 <p class="lead">Voici l'espace de gestion de la compétition, ici vous pouvez accéder aux différents espace matchs, joueurs et arbitres</p>
 
@@ -82,8 +83,8 @@ check_auth();
 
                 <form method="post" enctype="multipart/form-data" action="../../controllers/readfile.php">
                     <div class="form-group col-md-4 mb-3">
-                        <input type="text" name="courts" class="form-control" id="aaa">
                         <label for="aaa">Nombre de table</label>
+                        <input type="text" name="courts" class="form-control" id="aaa">
                     </div>
                     <div class="custom-file col-md-4 mb-3">
                         <input type="file" name="file" class="custom-file-input" id="InputFile">
