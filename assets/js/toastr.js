@@ -1,5 +1,4 @@
 function showToastr(type, title, message) {
-    toastr.remove();
     let body;
     toastr.options = {
         "closeButton": true,
@@ -10,7 +9,7 @@ function showToastr(type, title, message) {
         "preventDuplicates": true,
         "showDuration": "300",
         "hideDuration": "1000",
-        "timeOut": 5500,
+        "timeOut": 3500,
         "onclick": null,
         "onCloseClick": null,
         "extendedTimeOut": 0,

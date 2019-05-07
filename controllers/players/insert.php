@@ -70,7 +70,7 @@ if(!empty($_POST)){
             <td>' . $row["club"] . '</td>
             <td>' . $row["rank"] . '</td>
             <td>' . $picture . '</td>
-            <td><input type="button" name="edit" value="Edit" id="' . $row["id"] . '" class="btn btn-info btn-xs edit_data" /></td>
+            <td><input type="button" name="edit" value="Editer" id="' . $row["id"] . '" class="btn btn-info btn-xs edit_data" /></td>
         </tr>
         ';
         }
