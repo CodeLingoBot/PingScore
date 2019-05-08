@@ -47,15 +47,15 @@ include_once '../../includes/toasts.php';
                             <input type="button" name="edit" value="Editer" id="<?php echo $data['id']; ?>" class="btn btn-info btn-xs edit_data" />
                             <a href="match_arbitre.php?match=<?php echo($data['id'])?>" type="button" name="see" class="btn btn-success btn-xs">Voir</a>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#user_<?php echo $data['id']; ?>">
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#match_<?php echo $data['id']; ?>">
                                 Supprimer
                             </button>
                             <!-- Modal -->
-                            <div class="modal fade" id="user_<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="resetModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="match_<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                                            <h5 class="modal-title" id="ModalLabel">Confirmation</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>

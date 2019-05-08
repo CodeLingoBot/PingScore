@@ -53,11 +53,11 @@ include_once '../../includes/toasts.php';
                         <td>
                             <input type="button" name="edit" value="Editer" id="<?php echo $data["id"]; ?>" class="btn btn-info btn-xs edit_data" />
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#user_<?php echo $data['id']; ?>">
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#player_<?php echo $data['id']; ?>">
                                 &times;
                             </button>
                             <!-- Modal -->
-                            <div class="modal fade" id="user_<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="resetModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="player_<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="resetModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -71,7 +71,7 @@ include_once '../../includes/toasts.php';
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                            <a href="../../controllers/users/del.php?id=<?php echo($data['id'])?>"><button type="button" class="btn btn-danger" >Confirmer</button></a>
+                                            <a href="../../controllers/players/del.php?id=<?php echo($data['id'])?>"><button type="button" class="btn btn-danger" >Confirmer</button></a>
                                         </div>
                                     </div>
                                 </div>
