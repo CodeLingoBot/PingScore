@@ -14,10 +14,10 @@ if(!empty($_POST)){
     $rank = $_POST["rank"];
     $namePicture = $_FILES['picture']['name'];
     $fileTempo = $_FILES['picture']['tmp_name'];
-    move_uploaded_file($fileTempo, '../../assets/img/'.$namePicture);
+    move_uploaded_file($fileTempo, '../../assets/img/players/'.$namePicture);
 
     if($id !== ''){
-        $reqQuery = 'UPDATE players SET surname=:surname, name=:name, cat=:cat, club=:club, rank=:rank picture=:picture WHERE id=:id;';
+        $reqQuery = 'UPDATE players SET surname=:surname, name=:name, cat=:cat, club=:club, rank=:rank, picture=:picture WHERE id=:id;';
         $query = $pdo->prepare($reqQuery);
         $arrayQuery = array(
             'surname' => $surname,
