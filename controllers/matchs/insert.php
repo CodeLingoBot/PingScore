@@ -23,7 +23,7 @@ if(!empty($_POST)){
         $query->bindValue(":id", $id);
         $query->execute();
     } else {
-        $query = "INSERT INTO matchs(hour, blue_player, red_player, state, score) VALUES(:hour, :blue_player, :red_player, :state, :score);";
+        $reqQuery = "INSERT INTO matchs(hour, blue_player, red_player, state, score) VALUES(:hour, :blue_player, :red_player, :state, :score);";
         $query = $pdo->prepare($reqQuery);
         $query->bindValue(":hour", $hour);
         $query->bindValue(":blue_player", $blue_player);
