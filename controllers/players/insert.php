@@ -12,11 +12,12 @@ if(!empty($_POST)){
     $cat = $_POST["cat"];
     $club = $_POST["club"];
     $rank = $_POST["rank"];
-    /* $namePicture = $_FILES['picture']['name'];
-     $fileTempo = $_FILES['picture']['tmp_name'];
-     move_uploaded_file($fileTempo, '../images/'.$namePicture); */
+    $namePicture = $_FILES['picture']['name'];
+    $fileTempo = $_FILES['picture']['tmp_name'];
+    move_uploaded_file($fileTempo, '../../assets/img/'.$namePicture);
+
     if($id !== ''){
-        $reqQuery = 'UPDATE players SET surname=:surname, name=:name, cat=:cat, club=:club, rank=:rank WHERE id=:id;';
+        $reqQuery = 'UPDATE players SET surname=:surname, name=:name, cat=:cat, club=:club, rank=:rank picture=:picture WHERE id=:id;';
         $query = $pdo->prepare($reqQuery);
         $arrayQuery = array(
             'surname' => $surname,
@@ -24,16 +25,18 @@ if(!empty($_POST)){
             'cat' => $cat,
             'club' => $club,
             'rank' => $rank,
+            'picture' => $namePicture,
             'id' => $id);
         $query->execute($arrayQuery);
     } else {
-        $reqQuery = 'INSERT INTO players(surname, name, cat, club, rank) VALUES(:surname, :name, :cat, :club, :rank);';
+        $reqQuery = 'INSERT INTO players(surname, name, cat, club, rank, picture) VALUES(:surname, :name, :cat, :club, :rank, :picture);';
         $query = $pdo->prepare($reqQuery);
         $query->bindValue(":surname", $surname);
         $query->bindValue(":name", $name);
         $query->bindValue(":cat", $cat);
         $query->bindValue(":club", $club);
         $query->bindValue(":rank", $rank);
+        $query->bindValue(":picture", $namePicture);
         $query->execute();
         $query = "";
     }

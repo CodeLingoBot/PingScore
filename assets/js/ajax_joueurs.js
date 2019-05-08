@@ -28,10 +28,14 @@ $(document).ready(function(){
     });
     $('#insert_form').on("submit", function(event){
         event.preventDefault();
+        let formData = new FormData(this); //$('#insert_form').serialize()
             $.ajax({
                 url:"../../controllers/players/insert.php",
                 method:"POST",
-                data: $('#insert_form').serialize(),
+                data: formData,
+                cache:false,
+                contentType: false,
+                processData: false,
                 beforeSend:function(){
                     type = "success";
                     title = "Succès";
