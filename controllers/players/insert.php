@@ -69,7 +69,33 @@ if(!empty($_POST)){
             <td>' . $row["club"] . '</td>
             <td>' . $row["rank"] . '</td>
             <td>' . $picture . '</td>
-            <td><input type="button" name="edit" value="Editer" id="' . $row["id"] . '" class="btn btn-info btn-xs edit_data" /></td>
+            <td>
+                <input type="button" name="edit" value="Editer" id="' . $row["id"] . '" class="btn btn-info btn-xs edit_data" />
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#user_' . $row["id"] . '">
+                    &times;
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="user_' . $row["id"] . '" tabindex="-1" role="dialog" aria-labelledby="resetModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Êtes-vous sûr de vouloir supprimer ' . $row["surname"] . ' ' . $row["name"] . ' ?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                <a href="../../controllers/users/del.php?id=' . $row["id"] . '"><button type="button" class="btn btn-danger" >Confirmer</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
         </tr>
         ';
         }
