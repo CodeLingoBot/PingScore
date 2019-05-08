@@ -21,7 +21,11 @@
     <div class="container">
         <div class="card border-0 shadow my-5">
             <div class="card-body p-5">
-                <a href="../../controllers/reset.php"><button type="button" class="btn btn-outline-danger" style="float: right;">Danger</button></a>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#resetModal" style="float: right;">
+                        Réinitialiser la compétition
+                    </button>
                 <h1 class="font-weight-light text-primary">ESPACE COMPETITION</h1>
                 <p class="lead">Voici l'espace de gestion de la compétition, ici vous pouvez accéder aux différents espace matchs, joueurs et arbitres</p>
 
@@ -83,7 +87,7 @@
                         <label class="custom-file-label" for="InputFile">Importer la base de donnée</label>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Valider</button>
                 </form>
             </div>
         </div>
@@ -91,4 +95,6 @@
 
 <?php endif; ?>
 
-<?php include '../../includes/partials/footer_panel.html' ?>
+<?php include '../../includes/modal_rest.html' ?>
+
+<?php include_once '../../includes/partials/footer_panel.html' ?>
