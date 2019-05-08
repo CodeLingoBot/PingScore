@@ -18,7 +18,7 @@ echo($table.'  '.$match) ;
 
 ##########
 
-$ps = $pdo->prepare("SELECT m.state, c.id, c.match_id FROM matchs m INNER JOIN court c WHERE m.id=c.match_id AND c.id=?") ;
+$ps = $pdo->prepare("SELECT m.state, c.id, c.match_id FROM matchs m INNER JOIN courts c WHERE m.id=c.match_id AND c.id=?") ;
 $et = $ps->execute(array($table)) ;
 $et = $ps -> fetch() ;
 
@@ -29,7 +29,7 @@ if ($etat == 1) {
 }else{
 
     #Update num match sur table x
-    $data = $pdo->prepare("UPDATE court SET match_id=? WHERE id=?") ;
+    $data = $pdo->prepare("UPDATE courts SET match_id=? WHERE id=?") ;
     $data->execute(array($match,$table)) ;
 
     #Update état match x

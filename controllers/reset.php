@@ -4,7 +4,7 @@ require_once 'database.php';
 
 $req = '
     SET FOREIGN_KEY_CHECKS=0;
-    TRUNCATE `lucnicol_aspcn`.`court`; 
+    TRUNCATE `lucnicol_aspcn`.`courts`; 
     TRUNCATE `lucnicol_aspcn`.`matchs`; 
     TRUNCATE `lucnicol_aspcn`.`players`; 
     TRUNCATE `lucnicol_aspcn`.`users`;

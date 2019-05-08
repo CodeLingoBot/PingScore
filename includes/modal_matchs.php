@@ -8,7 +8,7 @@
     $player_red = $pdo->prepare("SELECT * from players WHERE id != 0");
     $player_red->execute();
 
-    $court = $pdo->prepare("SELECT * from court");
+    $court = $pdo->prepare("SELECT * from courts");
     $court->execute();
 
 ?>

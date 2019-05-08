@@ -5,7 +5,7 @@
     require_once('../../controllers/database.php') ;
 
     try {
-        $court = $pdo->query("SELECT * FROM court") ;
+        $court = $pdo->query("SELECT * FROM courts") ;
     } catch (Exception $e){
         echo 'Message: ' .$e->getMessage();
     }

@@ -14,7 +14,7 @@
 
         require_once('../controllers/database.php') ;
 
-        $nb_lignes = $pdo->prepare("SELECT COUNT(*) FROM court") ;
+        $nb_lignes = $pdo->prepare("SELECT COUNT(*) FROM courts") ;
         $nb_lignes->execute() ;
         $nb_lignes = $nb_lignes->fetch() ;
 

@@ -4,7 +4,7 @@
 
         require_once('../../controllers/database.php') ;
 
-        $ps = $pdo->prepare("SELECT m.*, c.match_id, j1.surname AS j1_surname, j1.name AS j1_name, j1.cat AS j1_cat, j2.surname AS j2_surname, j2.name AS j2_name, j2.cat AS j2_cat FROM matchs m INNER JOIN court c INNER JOIN players j1 ON (j1.id = m.blue_player) INNER JOIN players j2 ON (j2.id = m.red_player) WHERE m.id=c.match_id AND c.id=$nb") ;
+        $ps = $pdo->prepare("SELECT m.*, c.match_id, j1.surname AS j1_surname, j1.name AS j1_name, j1.cat AS j1_cat, j2.surname AS j2_surname, j2.name AS j2_name, j2.cat AS j2_cat FROM matchs m INNER JOIN courts c INNER JOIN players j1 ON (j1.id = m.blue_player) INNER JOIN players j2 ON (j2.id = m.red_player) WHERE m.id=c.match_id AND c.id=$nb") ;
         $et = $ps->execute() ;
         $et = $ps -> fetch() ;
         

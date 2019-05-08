@@ -27,7 +27,7 @@ if(isset($_FILES['file']['name']) && in_array($_FILES['file']['type'], $file_mim
     require_once 'database.php';
 
     $reqBase = "
-            TRUNCATE `lucnicol_aspcn`.`court`;
+            TRUNCATE `lucnicol_aspcn`.`courts`;
             TRUNCATE `lucnicol_aspcn`.`players`;
             TRUNCATE `lucnicol_aspcn`.`matchs`;
             ";
@@ -37,7 +37,7 @@ if(isset($_FILES['file']['name']) && in_array($_FILES['file']['type'], $file_mim
 
 
     while ($i <= $courts) {
-        $reqCourt = "INSERT INTO `court` (`id`, `match_id`, `video`) VALUES (?, NULL, '')";
+        $reqCourt = "INSERT INTO `courts` (`id`, `match_id`, `video`) VALUES (?, NULL, '')";
         $insertCourt = $pdo->prepare($reqCourt);
         $insertCourt->execute(array($i));
         $insertCourt->closeCursor();

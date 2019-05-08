@@ -5,7 +5,7 @@
     require_once('../controllers/database.php') ;
 
     #Recuperation donné table
-    $court = $pdo->prepare("SELECT * FROM court WHERE id=?") ;
+    $court = $pdo->prepare("SELECT * FROM courts WHERE id=?") ;
     $court->execute(array($num_table)) ;
     $court = $court->fetch() ;
 

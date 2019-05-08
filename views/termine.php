@@ -23,7 +23,7 @@
             <table class="table table-secondary">
 
                 <thead>
-                    <!--Table <?php #echo($et['court'])?> - --><?php echo($et['hour'])?>
+                    <!--Table <?php #echo($et['courts'])?> - --><?php echo($et['hour'])?>
                     <?php if ($et['j1_cat'] == $et['j2_cat']) { 
                         $cat = $et['j1_cat'] ; 
                         echo(" - Cat. ".$cat) ; 

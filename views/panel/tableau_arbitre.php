@@ -19,7 +19,7 @@
         $match = $pdo->prepare("SELECT m.id, TIME_FORMAT(m.hour, '%H:%i') AS hour, p.surname AS blue_player, p2.surname AS red_player FROM matchs m INNER JOIN players p ON p.id = m.blue_player INNER JOIN players p2 ON p2.id = m.red_player WHERE state=0") ;
         $match->execute() ;
 
-        $table = $pdo->prepare("SELECT id FROM court") ;
+        $table = $pdo->prepare("SELECT id FROM courts") ;
         $table->execute() ;
 
     ?> 
@@ -68,7 +68,7 @@
 
         <?php
 
-            $nb_lignes = $pdo->prepare("SELECT COUNT(*) FROM court") ;
+            $nb_lignes = $pdo->prepare("SELECT COUNT(*) FROM courts") ;
             $nb_lignes->execute() ;
             $nb_lignes = $nb_lignes->fetch() ;
 

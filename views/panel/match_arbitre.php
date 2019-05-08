@@ -13,7 +13,7 @@ $et = $pdo->prepare("SELECT * FROM matchs WHERE id=?") ;
 $et->execute(array($num_match));
 $et = $et->fetch();
 
-$table = $pdo->prepare("SELECT id FROM court WHERE match_id=?") ;
+$table = $pdo->prepare("SELECT id FROM courts WHERE match_id=?") ;
 $table->execute(array($num_match));
 $table = $table->fetch();
 
