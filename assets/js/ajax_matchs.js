@@ -35,9 +35,9 @@ $(document).ready(function(){
                     type = "success";
                     title = "Succès";
                     if($('#insert').val() == "Mettre à jour"){
-                        message = 'Les informations du match : ' + $('#blue_player').val() + ' - ' + $('#red_player').val() + " ont été mises à jour";
+                        message = 'Le match n°' + $('#id').val() + ' a été mis à jour';
                     } else {
-                        message = 'Le match : ' + $('#blue_player').val() + ' - ' + $('#red_player').val() + " a été créé";
+                        message = 'Le match n°' + $('#id').val() + ' a été créé';
                     }
 
                     $('#id').val("");
