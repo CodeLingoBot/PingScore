@@ -38,7 +38,33 @@ include_once '../../includes/toasts.php';
                     <tr id="<?php echo($data['id']) ?>">
                         <td><?php echo($data['username']) ?></td>
                         <td><?php echo($data['role']) ?></td>
-                        <td><input type="button" name="edit" value="Editer" id="<?php echo $data['id']; ?>" class="btn btn-info btn-xs edit_data" /></td>
+                        <td>
+                            <input type="button" name="edit" value="Editer" id="<?php echo $data['id']; ?>" class="btn btn-info btn-xs edit_data" />
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#user_<?php echo $data['id']; ?>">
+                                Supprimer
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="user_<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="resetModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Êtes-vous sûr de vouloir supprimer l'utilisateur <i><?php echo($data['username']) ?></i>?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                            <a href="../../controllers/users/del.php?id=<?php echo($data['id'])?>"><button type="button" class="btn btn-danger" >Confirmer</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                 <?php } ?>
                 </tbody>
@@ -46,6 +72,10 @@ include_once '../../includes/toasts.php';
         </div>
     </div>
 </div>
+
+
+
+
 <?php include_once '../../includes/modal_users.html';
 include_once '../../includes/partials/footer_panel.html'; ?>
 <script type="text/javascript" src="../../assets/js/ajax_utilisateurs.js"></script>
