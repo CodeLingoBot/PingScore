@@ -1,8 +1,6 @@
 <?php
     require_once '../../includes/functions.php';
-check_auth();
-
-    /* Section arbitre */
+    administration();
 
     require_once('../../controllers/database.php') ;
 
@@ -11,12 +9,6 @@ check_auth();
     } catch (Exception $e){
         echo 'Message: ' .$e->getMessage();
     }
-
-
-    $matchs = $pdo->prepare("SELECT * FROM matchs WHERE state=0 ORDER BY hour ASC") ;
-    $matchs->execute() ;
-
-    /* Fin section arbitre */
 
     include_once '../../includes/partials/header_panel.html';
     include_once '../../includes/toasts.php';

@@ -12,7 +12,7 @@ function administration() {
     check_auth();
     if ($_SESSION['auth']->role==="referee"){
         $_SESSION['flash']['danger'] = "Vous n'avez pas les droits pour accéder à cette section !";
-        header('Location: espace_competition.php');
+        header('Location: tableau_arbitre.php');
         exit();
     }
     if (!isset($_SESSION['auth']->role)){
@@ -26,7 +26,7 @@ function arbitration() {
     check_auth();
     if ($_SESSION['auth']->role==="referee"){
         $_SESSION['flash']['danger'] = "Vous n'avez pas les droits pour accéder à cette section !";
-        header('Location: espace_competition.php');
+        header('Location: tableau_arbitre.php');
         exit();
     }
     if (!isset($_SESSION['auth']->role)){
