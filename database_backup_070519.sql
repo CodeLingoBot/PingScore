@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `court`
+-- Table structure for table `courts`
 --
 
 CREATE TABLE `courts` (
@@ -35,7 +35,7 @@ CREATE TABLE `courts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `court`
+-- Dumping data for table `courts`
 --
 
 INSERT INTO `courts` (`id`, `match_id`, `video`) VALUES
@@ -147,9 +147,9 @@ INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
 --
 
 --
--- Indexes for table `court`
+-- Indexes for table `courts`
 --
-ALTER TABLE `court`
+ALTER TABLE `courts`
   ADD PRIMARY KEY (`id`);
 
 --
