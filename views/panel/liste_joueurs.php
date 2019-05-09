@@ -49,7 +49,14 @@ include_once '../../includes/toasts.php';
                         <td><?php echo($data['cat']) ?></td>
                         <td><?php echo($data['club']) ?></td>
                         <td><?php echo($data['rank']) ?></td>
-                        <td><?php echo((!empty($data['picture'])) ? "<i class=\"material-icons\">check_box</i>" : "<i class=\"material-icons\">check_box_outline_blank</i>"); ?></td>
+                        <td><?php if (!empty($data['picture'])) {
+                                echo("<img src='../../assets/img/players/hugo.jpg' width=40px height=40px>") ;
+                            }else{
+                                echo("<img src='../../assets/img/players/vide.png' width=40px height=40px>") ;
+                            }
+                        
+                        ?></td>
+                        
                         <td>
                             <input type="button" name="edit" value="Editer" id="<?php echo $data["id"]; ?>" class="btn btn-info btn-xs edit_data" />
                             <!-- Button trigger modal -->
