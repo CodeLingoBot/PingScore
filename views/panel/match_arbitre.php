@@ -19,7 +19,7 @@ $table = $table->fetch();
 
 ?>
 
-<div class="container" max-width=75%>
+<div class="container" style='border: solid red;'>
 
     <h3 class="text-center shadow-none p-3 mb-4 bg-light rounded">
         Table <?php echo $table['id'] ?> - <?php echo( substr($et['hour'],0,5) ) ?>
@@ -46,7 +46,7 @@ $table = $table->fetch();
     ?>
 
 
-    <table class="table table-secondary">
+    <table class="table table-secondary table-responsive">
 
         <!-- Affichage joueur bleu -->
         <td>
