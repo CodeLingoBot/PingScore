@@ -40,7 +40,7 @@
 
         <a href="../../controllers/arbitration/select_match.php?table=<?php echo($nb)?>" style="text-decoration:none" class="text-danger">
 
-            <table class="table table-info">
+            <table class="table table-dark" id="joliecouleur">
 
                 <thead>
                     Table <?php echo($nb)?> - <?php echo( substr($et['hour'],0,5) ) ?>
