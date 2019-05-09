@@ -1,27 +1,26 @@
-## Proposed changes
+## Changements proposés
 
-Describe the big picture of your changes here to communicate to the maintainers why we should accept this pull request. If it fixes a bug or resolves a feature request, be sure to link to that issue.
+Décrivez ici le gros de vos modifications pour expliquer pourquoi nous devrions accepter ce pull request. S'il résout un bug ou une feature request, veillez à créer un lien vers ce problème.
 
-## Types of changes
+## Types de changements
 
-What types of changes does your code introduce to Appium?
-_Put an `x` in the boxes that apply_
+Quels types de modifications votre code introduit-il dans >PingScore?
 
-- [ ] Bugfix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+_Mettez un `x` dans les cases qui s'appliquent_
+
+- [ ] Bugfix (non-breaking changement qui résout un problème/issue)
+- [ ] New feature (non-breaking changement qui ajoute des fonctionnalités)
+- [ ] Breaking change (correction ou nouvelle fonctionnalité qui pourrait faire que les fonctionnalités existantes ne fonctionneraient pas comme prévu)
 
 ## Checklist
 
-_Put an `x` in the boxes that apply. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code._
+_Mettez un «x» dans les cases appropriées. Vous pouvez également les remplir après avoir créé le PR. Si vous n'êtes pas sûr de l'un d'entre eux, n'hésitez pas à demander. Nous sommes là pour vous aider! Ceci est simplement un rappel de ce que nous allons rechercher avant de fusionner votre code._
 
-- [ ] I have read the [CONTRIBUTING](https://github.com/appium/appium/blob/master/CONTRIBUTING.md) doc
-- [ ] I have signed the [CLA](https://cla.js.foundation/appium/appium)
-- [ ] Lint and unit tests pass locally with my changes
-- [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] I have added necessary documentation (if appropriate)
-- [ ] Any dependent changes have been merged and published in downstream modules
+- [ ] Les test lint et les tests unitaires passent localement avec mes modifications
+- [ ] J'ai ajouté des tests qui prouvent que mon correctif est efficace ou que ma fonctionnalité fonctionne
+- [ ] J'ai ajouté la documentation nécessaire (le cas échéant)
+- [ ] Toutes les modifications dépendantes ont été fusionnées et publiées dans des modules en aval
 
-## Further comments
+## Autres commentaires
 
-If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...
+S'il s'agit d'un changement relativement important ou complexe, lancez la discussion en expliquant pourquoi vous avez choisi la solution que vous avez choisie et quelles alternatives vous avez envisagées, etc...

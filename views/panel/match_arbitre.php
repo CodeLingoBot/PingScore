@@ -1,21 +1,21 @@
 <?php
-include_once '../../includes/partials/header_panel.html';
-include_once '../../includes/toasts.php';
+    include_once '../../includes/partials/header_panel.html';
+    include_once '../../includes/toasts.php';
 ?>
 
 <?php
 
-$num_match = $_GET['match'] ;
+    $num_match = $_GET['match'] ;
 
-require_once('../../controllers/database.php') ;
+    require_once('../../controllers/database.php') ;
 
-$et = $pdo->prepare("SELECT * FROM matchs WHERE id=?") ;
-$et->execute(array($num_match));
-$et = $et->fetch();
+    $et = $pdo->prepare("SELECT * FROM matchs WHERE id=?") ;
+    $et->execute(array($num_match));
+    $et = $et->fetch();
 
-$table = $pdo->prepare("SELECT id FROM courts WHERE match_id=?") ;
-$table->execute(array($num_match));
-$table = $table->fetch();
+    $table = $pdo->prepare("SELECT id FROM courts WHERE match_id=?") ;
+    $table->execute(array($num_match));
+    $table = $table->fetch();
 
 ?>
 

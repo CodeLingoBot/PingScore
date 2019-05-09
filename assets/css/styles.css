@@ -1,1 +1,7 @@
-Un fichier qui a du style
+#joliecouleur{
+    background-color: rgb(23, 162, 184);
+}
+
+#joliecouleur:hover{
+    background: rgb(19, 129, 146);
+}
