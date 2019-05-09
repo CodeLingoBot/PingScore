@@ -29,9 +29,10 @@
                 <h1 class="font-weight-light text-primary">ESPACE COMPETITION</h1>
                 <p class="lead">Voici l'espace de gestion de la compétition, ici vous pouvez accéder aux différents espace matchs, joueurs et arbitres</p>
 
-                <table>
-                    <td>
-                        <div class="card border-0 shadow my-5 btn-light">
+                <div class="row">
+
+                    <div class="col-sm">
+                        <div class="card border-0 shadow my-5 btn-light" style="height: 275px;">
                             <a href="liste_matchs.php">
                                 <div class="card-body p-5">
                                     <h1 class="font-weight-light text-success">Liste des matchs</h1>
@@ -39,10 +40,10 @@
                                 </div>
                             </a>
                         </div>
-                    </td>
+                    </div>
 
-                    <td>
-                        <div class="card border-0 shadow my-5 btn-light">
+                    <div class="col-sm">
+                        <div class="card border-0 shadow my-5 btn-light" style="height: 275px;">
                             <a href="liste_joueurs.php">
                                 <div class="card-body p-5">
                                     <h1 class="font-weight-light text-danger">Liste des joueurs</h1>
@@ -50,10 +51,10 @@
                                 </div>
                             </a>
                         </div>
-                    </td>
+                    </div>
 
-                    <td>
-                        <div class="card border-0 shadow my-5 btn-light">
+                    <div class="col-sm">
+                        <div class="card border-0 shadow my-5 btn-light" style="height: 275px;"  >
                             <a href="liste_utilisateurs.php">
                                 <div class="card-body p-5">
                                     <h1 class="font-weight-light text-warning">Liste des utilisateurs</h1>
@@ -61,8 +62,9 @@
                                 </div>
                             </a>
                         </div>
-                    </td>
-                </table>
+                    </div>
+
+                </div>
 
             </div>
         </div>
