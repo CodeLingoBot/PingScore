@@ -1,6 +1,6 @@
 <!--==========-->
 
-<?php include("../includes/partials/header.html") ?>
+<?php include("../includes/partials/header.php") ?>
 
 <!--==========-->
 

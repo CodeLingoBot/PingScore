@@ -10,7 +10,7 @@
         <script src="../vendor/twbs/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
         <link href="../assets/css/styles.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
+        <?php session_start() ;?>
     </head>
     
     <body>
@@ -24,13 +24,18 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                        <a class="nav-link" href="tableau.php">Tableau <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="tableau.php">Tableau <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="termine.php">Terminé</a>
+                            <a class="nav-link" href="termine.php">Terminé</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="panel/espace_competition.php">Espace compétition</a>
+                        <?php if(empty($_SESSION['auth'])){
+                            echo('<a class="nav-link" href="panel/login.php">Connexion</a>') ;
+                        }else{
+                            echo('<a class="nav-link" href="panel/espace_competition.php">Espace compétition</a>') ;
+                        } ?>
+                            
                         </li>
                     </ul>
                     <span class="navbar-text">Un live-scoring de qualité par In'tech</span>
