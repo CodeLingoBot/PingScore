@@ -4,9 +4,11 @@
 
 <!--==========-->
 
-<h3 class="text-center">Tableau des matchs terminés</h3>
+<h3 class="text-center">Live scoring : *nom de la compétition*</h3>
 
-<div class="container bg-light">
+<div class="container shadow p-3 mb-5 bg-light rounded">
+
+<h3 class="card text-white bg-info mb-3 text-center">Tableau des matchs terminés</h3>
 
     <?php
         require_once ('../controllers/database.php');
