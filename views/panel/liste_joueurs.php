@@ -50,7 +50,7 @@ include_once '../../includes/toasts.php';
                         <td><?php echo($data['club']) ?></td>
                         <td><?php echo($data['rank']) ?></td>
                         <td><?php if (!empty($data['picture'])) {
-                                echo("<img src='../../assets/img/players/hugo.jpg' width=40px height=40px>") ;
+                                echo("<img src='../../assets/img/players/".$data['picture']."' width=40px height=40px>") ;
                             }else{
                                 echo("<img src='../../assets/img/players/vide.png' width=40px height=40px>") ;
                             }

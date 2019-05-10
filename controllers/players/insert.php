@@ -61,8 +61,12 @@ if(!empty($_POST)){
                 </thead>
                 <tbody>
         ';
-        while ($row = $select_query->fetch()) {
-            $picture = (!empty($row['picture'])) ? "<i class=\"material-icons\">check_box</i>" : "<i class=\"material-icons\">check_box_outline_blank</i>";
+        while ($row = $select_query->fetch()) {            
+            if (!empty($row['picture'])) {
+                $picture = "<img src='../../assets/img/players/".$row['picture']."' width=40px height=40px>" ;
+            }else{
+                $picture = "<img src='../../assets/img/players/vide.png' width=40px height=40px>" ;
+            }
             $output .= '
         <tr>
             <td>' . $row["id"] . '</td>
