@@ -50,16 +50,21 @@ if(!empty($_POST)){
                 <tbody>
     ';
         while($row = $select_query->fetch())
-        {
-            $picture = (!empty($row['picture'])) ? "<i class=\"material-icons\">check_box</i>" : "<i class=\"material-icons\">check_box_outline_blank</i>";
+        {         
+            if ($row['state'] == 1) {
+                $button = "<a href='match_arbitre.php?match=".$row['id']."' type='button' name='see' class='btn btn-success btn-xs'>Arbitrer</a>" ;
+            }else{
+                $button = "<a class='btn btn-secondary btn-xs' disabled>Arbitrer</a>" ;
+            }
             $output .= '
         <tr>
             <td>' . $row["hour"] . '</td>
             <td>' . $row["blue_player"]." - ".$row["red_player"]. '</td>
             <td>' . $mappingSate[$row["state"]] . '</td>
             <td>
+                '.$button.'
                 <input type="button" name="edit" value="Editer" id="'.$row["id"] .'" class="btn btn-info btn-xs edit_data" />
-                <a href="match_arbitre.php?match='.$row["id"] .'" type="button" name="see" class="btn btn-success btn-xs">Voir</a>
+    
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#user_' . $row["id"] . '">
                     Supprimer

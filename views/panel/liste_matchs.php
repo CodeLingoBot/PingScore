@@ -44,8 +44,16 @@ include_once '../../includes/toasts.php';
                         <td><?php echo($data['blue_player'].' - '.$data['red_player']) ?></td>
                         <td><?php echo($mappingSate[$data['state']]) ?></td>
                         <td>
+                            <?php
+                                if ($data['state'] == 1) {
+                                    echo("<a href='match_arbitre.php?match=".$data['id']."' type='button' name='see' class='btn btn-success btn-xs'>Arbitrer</a>") ;
+                                }else{
+                                    echo("<a class='btn btn-secondary btn-xs' disabled>Arbitrer</a>") ;
+                                }
+                            ?>
                             <input type="button" name="edit" value="Editer" id="<?php echo $data['id']; ?>" class="btn btn-info btn-xs edit_data" />
-                            <a href="match_arbitre.php?match=<?php echo($data['id'])?>" type="button" name="see" class="btn btn-success btn-xs">Voir</a>
+
+                            
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#match_<?php echo $data['id']; ?>">
                                 Supprimer
