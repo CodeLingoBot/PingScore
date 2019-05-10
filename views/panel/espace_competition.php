@@ -27,7 +27,7 @@
                         Réinitialiser la compétition
                     </button>
                 <h1 class="font-weight-light text-primary">ESPACE COMPETITION</h1>
-                <p class="lead">Voici l'espace de gestion de la compétition, ici vous pouvez accéder aux différents espace matchs, joueurs et arbitres</p>
+                <p class="lead">Voici l'espace de gestion de la compétition, ici vous pouvez accéder aux différents espaces matchs, joueurs et utilisateurs</p>
 
                 <div class="row">
 
