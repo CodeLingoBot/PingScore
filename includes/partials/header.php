@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>PingScore</title>
+        <title>>PingScore</title>
         <!--favicon-->
         <link rel="icon" href="../assets/img/logo_ping_score.png" sizes="32x32" type="image/png">
         <link rel="apple-touch-icon" href="../assets/img/logo_ping_score.png"/>

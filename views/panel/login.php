@@ -33,7 +33,9 @@ echo ($verif) ? 'Passwd = ' . $real_passwd : 'Erreur'
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Luc NICOLAS">
-    <title>Login · Ping Score</title>
+    <title>Login · >Ping Score</title>
+    <link rel="icon" href="../../assets/img/logo_ping_score.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="../../assets/img/logo_ping_score.png"/>
     <!-- Bootstrap core CSS -->
     <link href="../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
