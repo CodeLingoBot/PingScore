@@ -65,6 +65,7 @@ echo ($verif) ? 'Passwd = ' . $real_passwd : 'Erreur'
              <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Mot de passe" required>
             <button class="btn btn-lg btn-secondary btn-block" type="submit">Se connecter</button>
+            <a class="btn btn-lg btn-secondary btn-block" href="../">Retour à l'accueil</a>
         </form>
     </div>
 <!-- Bootstrap core JavaScript-->
