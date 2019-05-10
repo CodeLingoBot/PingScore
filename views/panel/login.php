@@ -62,7 +62,7 @@ echo ($verif) ? 'Passwd = ' . $real_passwd : 'Erreur'
             <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
             <label for="inputUsername" class="sr-only">Username</label>
             <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Identifiant" required autofocus>
-             <label for="inputPassword" class="sr-only">Password</label>
+                <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Mot de passe" required>
             <button class="btn btn-lg btn-secondary btn-block" type="submit">Se connecter</button>
             <a class="btn btn-lg btn-secondary btn-block" href="../">Retour à l'accueil</a>
