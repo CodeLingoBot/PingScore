@@ -58,7 +58,7 @@ echo ($verif) ? 'Passwd = ' . $real_passwd : 'Erreur'
 <?php include_once '../../includes/toasts.php'; ?>
     <div class="container text-center">
         <form method="post" action="" enctype="multipart/form-data" class="form-signin">
-            <img class="mb-4" src="../../assets/img/logo_projet.png" alt="" width="100">
+            <img class="mb-4" src="../../assets/img/logo_ping_score.svg" alt="" width="300">
             <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
             <label for="inputUsername" class="sr-only">Username</label>
             <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Identifiant" required autofocus>
