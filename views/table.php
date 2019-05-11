@@ -107,18 +107,15 @@
             <?php #Case centrale 
                 if (empty($court['video'])) {
 
-                    echo('<iframe width="450" height="318" src="https://www.youtube.com/embed/nadxO6ZnDDA" frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>') ;
+                    echo('<div class="text-center mb-4"><img src="../assets/img/Affiche.png" class="rounded" id="affiche"></div>') ;
 
                 }else {
                     
-                    echo('<iframe class="embed-responsive-item" width="450" height="318" src='.$court['video'].' frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>') ;
+                    echo('<iframe class="embed-responsive-item mb-3" width="450" height="318" src='.$court['video'].' frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>') ;
 
                 } ;
 
             ?>
-
-            <br />
-            <br />
 
             <!-- Partie à refresh -->
             <table class="table table-dark table-borderless" id="match">
@@ -203,9 +200,9 @@
         <!-- Affichage joueur rouge -->
         <td>
 
-        <div class="card mb-3" id=card-red>
+            <div class="card mb-3" id=card-red>
 
-            <img src="../assets/img/players/<?php if (empty($etRed['picture'])) { echo('vide.png') ;}else { echo($etRed['picture']) ; } ; ?>" class="card-img-top" width="320" height=320 alt="">
+                <img src="../assets/img/players/<?php if (empty($etRed['picture'])) { echo('vide.png') ;}else { echo($etRed['picture']) ; } ; ?>" class="card-img-top" width="320" height=320 alt="">
 
                 <div class="card-body">
                     <h5 class="card-title">
