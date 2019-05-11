@@ -123,62 +123,62 @@
             <table class="table table-borderless text-center">
                 <tr>
                     <td width=50%>
-                        <div type="button" class="card bg-dark btn btn-light disabled">
-                            <h1 class="text-white">Service</h1>
-                        </div>
+                        <button type="button" class="btn btn-dark btn-lg btn-block" hidden>
+                            Service
+                        </button>
                     </td>
 
                     <td width=50%>
-                        <div type="button" class="card bg-dark btn btn-light">
-                            <h1 class="text-white">Service</h1>
-                        </div>
+                        <button type="button" class="btn btn-dark btn-lg btn-block">
+                            Service
+                        </button>
                     </td>
                 <tr>
                 <tr>
                     <td width=50%>
                         <a href="../../controllers/arbitration/evo_score.php?match=<?php echo $num_match ?>&player=blue&action=plus" >
-                        <div type="button" class="card bg-primary btn btn-light">
-                            <h1>+</h1>
-                        </div>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">
+                                +
+                            </button>
                         </a>
                     </td>
                     <td width=50%>
                         <a href="../../controllers/arbitration/evo_score.php?match=<?php echo $num_match ?>&player=red&action=plus" >
-                        <div type="button" class="card bg-danger btn btn-light">
-                            <h1>+</h1>
-                        </div>
+                            <button type="button" class="btn btn-danger btn-lg btn-block">
+                                +
+                            </button>
                         </a>
                     </td>
                 </tr>
                 <tr>
                     <td width=50%>
                         <a href="../../controllers/arbitration/evo_score.php?match=<?php echo $num_match ?>&player=blue&action=less" >
-                        <div type="button" class="card bg-primary btn btn-light">
-                            <h1>-</h1>
-                        </div>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">
+                                -
+                            </button>
                         </a>
                     </td>
                     <td width=50%>
                         <a href="../../controllers/arbitration/evo_score.php?match=<?php echo $num_match ?>&player=red&action=less" >
-                        <div type="button" class="card bg-danger btn btn-light">
-                            <h1>-</h1>
-                        </div>
+                            <button type="button" class="btn btn-danger btn-lg btn-block">
+                                -
+                            </button>
                         </a>
                     </td>
                 </tr>
                 <tr>
                     <td width=50%>
                         <a href="../../controllers/arbitration/evo_round.php?match=<?php echo $num_match ?>" >
-                        <div type="button" class="card bg-dark btn btn-light">
-                            <h1 class="text-white">Set</h1>
-                        </div>
+                            <button type="button" class="btn btn-dark btn-lg btn-block">
+                                SET
+                            </button>
                         </a>
                     </td>
                     <td width=50%>
                         <a href="../../controllers/arbitration/state_match.php?match=<?php echo $num_match ?>" >
-                        <div type="button" class="card bg-success btn btn-light disabled">
-                            <h1>Match</h1>
-                        </div>
+                            <button type="button" class="btn btn-success btn-lg btn-block">
+                                MATCH
+                            </button>
                         </a>
                     </td>
                 </tr>
