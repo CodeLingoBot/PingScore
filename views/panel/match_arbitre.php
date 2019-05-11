@@ -21,7 +21,7 @@
 
 <div class="container" style='border: solid red;'>
 
-    <h3 class="text-center shadow-none p-3 mb-4 bg-light rounded">
+    <h3 class="card text-center" id="match-arbitre">
         Table <?php echo $table['id'] ?> - <?php echo( substr($et['hour'],0,5) ) ?>
     </h3>
 
@@ -46,7 +46,7 @@
     ?>
 
 
-    <table class="table table-secondary table-responsive">
+    <table class="table table-responsive" id="match-arbitre">
 
         <!-- Affichage joueur bleu -->
         <td>
