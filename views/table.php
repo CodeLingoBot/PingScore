@@ -111,7 +111,7 @@
 
                 }else {
                     
-                    echo('<iframe class="embed-responsive-item mb-3" width="450" height="318" src='.$court['video'].' frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>') ;
+                    echo('<iframe class="embed-responsive-item mb-3" width="450" height="318" src='.$court['video'].'?amp&autoplay=1 frameborder="2" autoplay; encrypted-media; picture-in-picture"></iframe>') ;
 
                 } ;
 
