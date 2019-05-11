@@ -28,6 +28,8 @@ require_once('../controllers/database.php') ;
                 <h1 class="display-4"><?php echo($challenge['name']) ?></h1>
                 <p class="lead"><?php echo($challenge['description']) ?></p>
             </div>
+            <hr class="my-4 ml-3">
+            <a class="btn btn-primary btn-lg ml-3" href="../views/tableau.php" role="button">Tableau</a>
         </div>
     </th>
 </table>
