@@ -27,6 +27,8 @@
                 'j2_name'=>'',
                 'j2_surname'=>'',
                 'j2_cat'=>'*',
+
+                'vide'=>1, 
                 
                 ] ;
         }
@@ -38,7 +40,13 @@
 
     ?>
 
-        <a href="../../controllers/arbitration/select_match.php?table=<?php echo($nb)?>" style="text-decoration:none" class="text-danger">
+    <?php 
+    if (isset($et['vide'])) {
+        echo("<a href='' style='text-decoration:none' class='text-danger'>") ;
+    }else{
+        echo("<a href='../../controllers/arbitration/select_match.php?table=".intval($nb)."' style='text-decoration:none' class='text-danger'>") ;
+    }
+    ?>
 
             <table class="table table-dark table-borderless" id="tableau">
 
