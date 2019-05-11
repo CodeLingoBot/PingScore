@@ -55,7 +55,6 @@
                     <br />
                     <input type="hidden" name="id" id="id"/>
                     <input type="submit" name="insert" id="insert" value="Ajouter" class="btn btn-success" />
-                    <input type="hidden" name="del" id="del" value="Supprimer" class="btn btn-danger" />
                 </form>
             </div>
         </div>
