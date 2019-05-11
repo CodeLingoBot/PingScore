@@ -2,16 +2,35 @@
 
 <?php 
 include("../includes/partials/header.php") ;
+
 if (!isset($_SESSION)){
     session_start();
 }
+
+require_once('../controllers/database.php') ;
+
+    $challenge = $pdo->prepare("SELECT * FROM challenge") ;
+    $challenge->execute() ;
+    $challenge = $challenge->fetch() ;
 ?>
 
 <!--==========-->
 
-<div class="container">
+<div class="container shadow p-3 mb-5 bg-light rounded">
 
-    <img src="../assets/img/logo_ping_score.svg" class="img-fluid" alt="Responsive image">
+<table>
+    <th>   
+        <img src="../assets/img/<?php echo($challenge['poster']) ?>" class="img-fluid shadow rounded" alt="Responsive image">
+    </th>
+    <th width=70%>
+        <div class="jumbotron jumbotron-fluid shadow rounded">
+            <div class="container">
+                <h1 class="display-4"><?php echo($challenge['name']) ?></h1>
+                <p class="lead"><?php echo($challenge['description']) ?></p>
+            </div>
+        </div>
+    </th>
+</table>
 
 </div>
 
