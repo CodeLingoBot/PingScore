@@ -1,9 +1,33 @@
-#joliecouleur{
+#tableau{
     background-color: rgb(23, 162, 184);
     
     border-radius: 10px;
 }
 
-#joliecouleur:hover{
+#tableau:hover{
     background: rgb(19, 129, 146);
+}
+
+#match{
+    background-color: rgb(209, 172, 5);
+    
+    border-radius: 10px;
+}
+
+#termine{
+    background-color: rgb(151, 150, 150);
+    
+    border-radius: 10px;
+}
+
+#card-blue{
+    background: rgb(0, 100, 200);
+
+    width: 18rem;
+}
+
+#card-red{
+    background: rgb(170, 40, 50);
+
+    width: 18rem;
 }

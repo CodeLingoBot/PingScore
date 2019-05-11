@@ -76,7 +76,7 @@
         <!-- Affichage joueur bleu -->
         <td>
 
-            <div class="card bg-primary mb-3" style="width: 18rem;">
+            <div class="card mb-3" id=card-blue>
 
                 <img src="../assets/img/players/<?php if (empty($etBlue['picture'])) { echo('vide.png') ;}else { echo($etBlue['picture']) ; } ; ?>" class="card-img-top" width="320" height=320 alt="">
 
@@ -121,7 +121,7 @@
             <br />
 
             <!-- Partie à refresh -->
-            <table class="table table-warning table-bordered">
+            <table class="table table-dark table-borderless" id="match">
 
                 <?php
 
@@ -158,11 +158,11 @@
                         <th scope="row">
                             <?php echo($etBlue['surname'])?>
                         </th>
-                        <td width=10% <?php if ($json_clear->round1->state == "2") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round1->blue)?></td>
-                        <td width=10% <?php if ($json_clear->round2->state == "2") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round2->blue)?></td>
-                        <td width=10% <?php if ($json_clear->round3->state == "2") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round3->blue)?></td>
-                        <td width=10% <?php if ($json_clear->round4->state == "2") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round4->blue)?></td>
-                        <td width=10% <?php if ($json_clear->round5->state == "2") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round5->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round1->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round1->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round2->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round2->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round3->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round3->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round4->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round4->blue)?></td>
+                        <td width=10% <?php if ($json_clear->round5->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round5->blue)?></td>
                     </tr>
 
                     <tr>
@@ -174,17 +174,17 @@
                             -->
 
                         </th>
-                        <td width=10% <?php if ($json_clear->round1->state == "2") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round1->red)?></td>
-                        <td width=10% <?php if ($json_clear->round2->state == "2") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round2->red)?></td>
-                        <td width=10% <?php if ($json_clear->round3->state == "2") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round3->red)?></td>
-                        <td width=10% <?php if ($json_clear->round4->state == "2") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round4->red)?></td>
-                        <td width=10% <?php if ($json_clear->round5->state == "2") { echo("class='text-secondary'"); }?>> <?php echo($json_clear->round5->red)?></td>
+                        <td width=10% <?php if ($json_clear->round1->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round1->red)?></td>
+                        <td width=10% <?php if ($json_clear->round2->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round2->red)?></td>
+                        <td width=10% <?php if ($json_clear->round3->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round3->red)?></td>
+                        <td width=10% <?php if ($json_clear->round4->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round4->red)?></td>
+                        <td width=10% <?php if ($json_clear->round5->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round5->red)?></td>
                     </tr>
 
                 </tbody>
 
             </table>
-            <!-- Fin de partie -->
+            <!-- Fin de partie à refresh-->
 
             <?php #Affichage etat du match
                 if ( $et['state'] == 0 ) {
@@ -203,7 +203,7 @@
         <!-- Affichage joueur rouge -->
         <td>
 
-            <div class="card bg-danger mb-3" style="width: 18rem;">
+        <div class="card mb-3" id=card-red>
 
             <img src="../assets/img/players/<?php if (empty($etRed['picture'])) { echo('vide.png') ;}else { echo($etRed['picture']) ; } ; ?>" class="card-img-top" width="320" height=320 alt="">
 

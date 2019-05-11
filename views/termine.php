@@ -22,7 +22,7 @@
 
     ?>
 
-            <table class="table table-secondary">
+            <table class="table table-dark table-borderless" id="termine">
 
                 <thead>
                     <!--Table <?php #echo($et['courts'])?> - --><?php echo($et['hour'])?>
