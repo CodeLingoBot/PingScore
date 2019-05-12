@@ -20,6 +20,18 @@
 
             $json = json_decode($et['score']);
 
+            $set_blue = 0 ;
+            $set_red = 0 ;
+            for ($j=1; $j <=5 ; $j++) { 
+                $round = "round".$j ;
+                if ($json->$round->state == "2") {
+                    if ($json->$round->red > $json->$round->blue) {
+                        $set_red++ ;
+                    }else{
+                        $set_blue++ ;
+                    }
+                }
+            }
     ?>
 
             <table class="table table-dark table-borderless" id="termine">
@@ -37,6 +49,7 @@
                             <?php echo($et['j1_name'].' '.$et['j1_surname'])?>
                             <?php if ($et['j1_cat'] != $et['j2_cat']) { $cat = $et['j1_cat']; echo( "  Cat. ".$cat); } ?>
                         </th>
+                        <td width=10% class="font-weight-bold" id="set"><?php echo($set_blue) ?></td>
                         <td width=10%><?php echo($json->round1->blue)?></td>
                         <td width=10%><?php echo($json->round2->blue)?></td>
                         <td width=10%><?php echo($json->round3->blue)?></td>
@@ -48,6 +61,7 @@
                         <?php echo($et['j2_name'].' '.$et['j2_surname'])?>
                         <?php if ($et['j1_cat'] != $et['j2_cat']) { $cat = $et['j2_cat']; echo( "  Cat. ".$cat); } ?>
                         </th>
+                        <td width=10% class="font-weight-bold" id="set"><?php echo($set_blue) ?></td>
                         <td width=10%><?php echo($json->round1->red)?></td>
                         <td width=10%><?php echo($json->round2->red)?></td>
                         <td width=10%><?php echo($json->round3->red)?></td>

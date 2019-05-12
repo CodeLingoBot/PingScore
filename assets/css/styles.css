@@ -41,3 +41,10 @@
 #affiche{
     height: 20em;
 }
+
+#set{
+    border-right-style: solid; 
+    border-left-style: solid; 
+    border-width: 2px; 
+    border-color: white;
+}

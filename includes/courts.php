@@ -36,6 +36,19 @@
 
         $json = json_decode($et['score']);
 
+        $set_blue = 0 ;
+        $set_red = 0 ;
+        for ($j=1; $j <=5 ; $j++) { 
+            $round = "round".$j ;
+            if ($json->$round->state == "2") {
+                if ($json->$round->red > $json->$round->blue) {
+                    $set_red++ ;
+                }else{
+                    $set_blue++ ;
+                }
+            }
+        }
+
     ?>
 
         <a href="table.php?table=<?php echo($nb)?>" class="text-danger text-decoration-none">
@@ -55,8 +68,8 @@
                         <tr>
                             <th scope="row">
                                 <?php echo($et['j1_name']." ".$et['j1_surname'])?>
-                                <?php #if ($et[0]['cat'] != $et[1]['cat']) { $cat = $et[0]['cat']; echo( "  Cat. ".$cat); } ?>
                             </th>
+                            <td width=10% class="font-weight-bold" id="set"><?php echo($set_blue) ?></td>
                             <td width=10% <?php if ($json->round1->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json->round1->blue)?></td>
                             <td width=10% <?php if ($json->round2->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json->round2->blue)?></td>
                             <td width=10% <?php if ($json->round3->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json->round3->blue)?></td>
@@ -66,8 +79,8 @@
                         <tr>
                             <th scope="row">
                                 <?php echo($et['j2_name']." ".$et['j2_surname'])?>
-                                <?php #if ($et[0]['cat'] != $et[1]['cat']) { $cat = $et[1]['cat']; echo( "  Cat. ".$cat); } ?>
                             </th>
+                            <td width=10% class="font-weight-bold" id="set"><?php echo($set_blue) ?></td>
                             <td width=10% <?php if ($json->round1->state == "2") { echo("class='text-dark'"); }?>><?php echo($json->round1->red)?></td>
                             <td width=10% <?php if ($json->round2->state == "2") { echo("class='text-dark'"); }?>><?php echo($json->round2->red)?></td>
                             <td width=10% <?php if ($json->round3->state == "2") { echo("class='text-dark'"); }?>><?php echo($json->round3->red)?></td>
