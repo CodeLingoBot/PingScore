@@ -2,15 +2,15 @@
 
 <div align="center">
 
-  # ✨ [Ping Score App](https://pingscore.ouiheberg.fr) ✨
-  #### Projet Informatique Semestre 2 [IN'TECH NÎMES](https://www.intechinfo.fr/) en collaboration avec l'[ASPC Nîmes](http://www.aspcn.fr/)
+  # :ping_pong: [Ping Score](https://pingscore.ouiheberg.fr) :ping_pong:
+  #### Projet Informatique Semestre 2 [IN'TECH NÎMES](https://www.intechinfo.fr/) en collaboration avec l'[ASPC Nîmes](http://www.aspcn.fr/)  [![GitHub version](https://badge.fury.io/gh/Lacaravaneducodeur%2FPingScore.svg)](https://badge.fury.io/gh/Lacaravaneducodeur%2FPingScore)
   ___
   > ##### Création d'une Application Web de Livescoring pour les Championnats de France Handisport de Tennis de Table des 14/15/16 juin 2019 à Nîmes. 
   ___
-  [![Greenkeeper badge](https://badges.greenkeeper.io/mntnr/name-your-contributors.svg)](https://greenkeeper.io/)
-  [![npm version](https://badge.fury.io/js/name-your-contributors.svg)](https://badge.fury.io/js/name-your-contributors)
-  [![Build Status](https://travis-ci.org/mntnr/name-your-contributors.svg?branch=master)](https://travis-ci.org/mntnr/name-your-contributors)
-  [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+  [![GitHub issues](https://img.shields.io/github/issues/Lacaravaneducodeur/PingScore.svg)](https://github.com/Lacaravaneducodeur/PingScore/issues)
+  [![GitHub stars](https://img.shields.io/github/stars/Lacaravaneducodeur/PingScore.svg)](https://github.com/Lacaravaneducodeur/PingScore/stargazers)
+  [![GitHub license](https://img.shields.io/github/license/Lacaravaneducodeur/PingScore.svg)](https://github.com/Lacaravaneducodeur/PingScore/blob/master/LICENSE)
+[![Build Status](https://travis-ci.com/Lacaravaneducodeur/PingScore.svg?branch=master)](https://travis-ci.com/Lacaravaneducodeur/PingScore)
 
 </div>
 
