@@ -44,7 +44,7 @@
                     <select class="form-control form-control-lg" form="asso" name="match">
 
                         <?php while( $data = $match -> fetch() ) { ?>
-                            <option value=<?php echo($data['id'])?>><?php echo($data['hour'].' - '.$data['blue_player_surname'].' '.$data['blue_player_name'].' - '.$data['red_player_surname'].' '.$data['red_player_name'])?></option>
+                            <option value=<?php echo($data['id'])?>><?php echo($data['hour'].' - '.$data['blue_player_name'].' '.$data['blue_player_surname'].' - '.$data['red_player_name'].' '.$data['red_player_surname'])?></option>
                         <?php } ?>
 
                     </select>
