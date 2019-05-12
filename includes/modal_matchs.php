@@ -30,7 +30,7 @@
                         <option selected disabled>Choisir un joueur</option>
                         <?php while($data_blue = $player_blue->fetch()) { ?>
                             <option value="<?php echo($data_blue['id']) ?>" >
-                                <?php echo($data_blue['surname']) ?>
+                                <?php echo($data_blue['surname'].' '.$data_blue['name']) ?>
                             </option>
                         <?php } ?>
                     </select>
@@ -40,7 +40,7 @@
                         <option selected disabled>Choisir un joueur</option>
                         <?php while($data_red = $player_red->fetch()) { ?>
                             <option value="<?php echo($data_red['id']) ?>" >
-                                <?php echo($data_red['surname']) ?>
+                                <?php echo($data_red['surname'].' '.$data_red['name']) ?>
                             </option>
                         <?php } ?>
                     </select>

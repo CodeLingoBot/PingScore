@@ -16,8 +16,8 @@
 
         <?php #Récupération matchs à venir et tables
 
-            $match = $pdo->prepare("SELECT m.id, TIME_FORMAT(m.hour, '%H:%i') AS hour, p.surname AS blue_player, p2.surname AS red_player FROM matchs m INNER JOIN players p ON p.id = m.blue_player INNER JOIN players p2 ON p2.id = m.red_player WHERE state=0") ;
-            $match->execute() ;
+        $match = $pdo->prepare("SELECT m.id AS id, TIME_FORMAT(m.hour, '%H:%i') AS hour, p.surname AS blue_player_surname, p.name AS blue_player_name, p2.surname AS red_player_surname, p2.name AS red_player_name, m.state FROM matchs m INNER JOIN players p ON p.id = m.blue_player INNER JOIN players p2 ON p2.id = m.red_player WHERE state=0");
+        $match->execute() ;
 
             $table = $pdo->prepare("SELECT id FROM courts") ;
             $table->execute() ;
@@ -40,11 +40,11 @@
                 <!--Fin affichage tables libres-->
 
                 <!--Affichage match à venir-->
-                <div class="col">
+                <div class="col-auto">
                     <select class="form-control form-control-lg" form="asso" name="match">
 
                         <?php while( $data = $match -> fetch() ) { ?>
-                            <option value=<?php echo($data['id'])?>><?php echo($data['hour'].' - '.$data['blue_player'].' - '.$data['red_player'])?></option>
+                            <option value=<?php echo($data['id'])?>><?php echo($data['hour'].' - '.$data['blue_player_surname'].' '.$data['blue_player_name'].' - '.$data['red_player_surname'].' '.$data['red_player_name'])?></option>
                         <?php } ?>
 
                     </select>
