@@ -1,17 +1,21 @@
-<!--==========-->
+<?php
 
-<?php 
-include("../includes/partials/header.php") ;
+include_once("../includes/functions.php") ;
 
-if (!isset($_SESSION)){
-    session_start();
-}
+start();
 
 require_once('../controllers/database.php') ;
 
     $challenge = $pdo->prepare("SELECT * FROM challenge") ;
     $challenge->execute() ;
     $challenge = $challenge->fetch() ;
+
+    debug($_SESSION);
+
+include("../includes/partials/header.php") ;
+include_once ("../includes/toasts.php");
+
+
 ?>
 
 <!--==========-->

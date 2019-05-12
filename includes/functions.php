@@ -1,15 +1,24 @@
 <?php
-function check_auth(){
+
+function start(){
     if(session_status() == PHP_SESSION_NONE){
         session_start();
-    } else {
+    }
+}
+
+function logged(){
+    if(session_status() == PHP_SESSION_NONE){
+        session_start();
+    }
+    if (!isset($_SESSION['auth'])) {
         $_SESSION['flash']['danger'] = "Vous n'avez pas le droit d'accéder à cette section car vous n'êtes pas connecté !";
         header('Location: login.php');
         exit();
     }
 }
+
 function administration() {
-    check_auth();
+    logged();
     if ($_SESSION['auth']->role==="referee"){
         $_SESSION['flash']['danger'] = "Vous n'avez pas les droits pour accéder à cette section !";
         header('Location: tableau_arbitre.php');
@@ -23,7 +32,7 @@ function administration() {
 }
 
 function arbitration() {
-    check_auth();
+    logged();
     if ($_SESSION['auth']->role==="referee"){
         $_SESSION['flash']['danger'] = "Vous n'avez pas les droits pour accéder à cette section !";
         header('Location: tableau_arbitre.php');

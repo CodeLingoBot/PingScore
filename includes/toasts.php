@@ -7,9 +7,9 @@
                 <!-- Then put toasts within -->
                 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="min-width: 350px; background-color: white;">
                     <div class="toast-header">
-                        <img src="../../assets/img/logo_projet.png" class="rounded mr-2" alt="..." style="width: 20px;">
-                        <strong class="mr-auto"><span class="badge badge-<?= $type; ?>" style="font-size: 13px">Message d'information</span></strong>
-                        <small class="text-muted">just now</small>
+                        <img src="../../assets/img/logo_ping_score.png" class="rounded mr-2" alt="..." style="width: 20px;">
+                        <strong class="mr-auto"><span class="p-1 mb-1 bg-<?= $type; ?> text-white rounded" style="font-size: 13px">Message d'information</span></strong>
+                        <small class="text-muted">à l'instant</small>
                         <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
