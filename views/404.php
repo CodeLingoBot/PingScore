@@ -11,7 +11,7 @@ include("../includes/partials/header.php") ;
             <img src="../assets/img/logo_ping_score.svg" class="img-fluid" alt="Responsive image">
         </th>
         <th width=50%>
-            <div class="jumbotron jumbotron-fluid bg-light rounded">
+            <div class="jumbotron jumbotron-fluid bg-light">
                 <div class="container">
                     <h1 class="display-4">Oups, mauvais revers</h1>
                     <p class="lead">Cliquez ici pour revenir en jeu, euh... A l'accueil !</p>

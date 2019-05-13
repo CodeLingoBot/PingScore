@@ -1,3 +1,15 @@
+@media (max-width: 768px) {
+    #affiche{
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) { 
+    #container-tableau{
+        max-width: 539px;
+    }
+ }
+
 #tableau{
     background-color: rgb(23, 162, 184);
     
@@ -38,9 +50,6 @@
     width: 18rem;
 }
 
-#affiche{
-    height: 20em;
-}
 
 #set{
     border-right-style: solid; 
