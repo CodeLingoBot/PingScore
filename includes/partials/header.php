@@ -9,9 +9,7 @@
         <!--favicon-->
         <link rel="icon" href="../assets/img/logo_ping_score.png" sizes="32x32" type="image/png">
         <link rel="apple-touch-icon" href="../assets/img/logo_ping_score.png"/>
-
         <link href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="../vendor/twbs/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
         <link href="../assets/css/styles.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>

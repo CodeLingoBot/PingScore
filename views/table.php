@@ -48,7 +48,7 @@
 <div class="container">
 
     <h3 class="text-center shadow-none p-3 mb-4 bg-light rounded">
-        Table <?php echo($num_table) ?> - <?php echo( substr($et['hour'],0,5) ) ?>
+        Table <div id="num_table"><?php echo($num_table) ?></div> - <?php echo( substr($et['hour'],0,5) ) ?>
     </h3>
 
     
@@ -118,56 +118,9 @@
             ?>
 
             <!-- Partie à refresh -->
-            <table class="table table-dark table-borderless" id="match">
-
-                <?php #Traitement du score + comptage des sets
-
-                    $json_clear = json_decode($et['score']) ;
-
-                    $set_blue = 0 ;
-                    $set_red = 0 ;
-                    for ($i=1; $i <=5 ; $i++) { 
-                        $round = "round".$i ;
-                        if ($json_clear->$round->state == "2") {
-                            if ($json_clear->$round->red > $json_clear->$round->blue) {
-                                $set_red++ ;
-                            }else{
-                                $set_blue++ ;
-                            }
-                        }
-                    }
-                
-                ?>
-
-                <tbody>
-
-                    <tr>
-                        <th scope="row">
-                            <?php echo($etBlue['surname'])?>
-                        </th>
-                        <td width=10% class="font-weight-bold" id="set"><?php echo($set_blue) ?></td>
-                        <td width=10% <?php if ($json_clear->round1->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round1->blue)?></td>
-                        <td width=10% <?php if ($json_clear->round2->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round2->blue)?></td>
-                        <td width=10% <?php if ($json_clear->round3->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round3->blue)?></td>
-                        <td width=10% <?php if ($json_clear->round4->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round4->blue)?></td>
-                        <td width=10% <?php if ($json_clear->round5->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round5->blue)?></td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">
-                            <?php echo($etRed['surname'])?>
-                        </th>
-                        <td width=10% class="font-weight-bold" id="set"><?php echo($set_red) ?></td>
-                        <td width=10% <?php if ($json_clear->round1->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round1->red)?></td>
-                        <td width=10% <?php if ($json_clear->round2->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round2->red)?></td>
-                        <td width=10% <?php if ($json_clear->round3->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round3->red)?></td>
-                        <td width=10% <?php if ($json_clear->round4->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round4->red)?></td>
-                        <td width=10% <?php if ($json_clear->round5->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json_clear->round5->red)?></td>
-                    </tr>
-
-                </tbody>
-
-            </table>
+            <div id="reload_match">
+                <?php include '../includes/match_reload.php' ?>
+            </div>
             <!-- Fin de partie à refresh-->
 
             <?php #Affichage etat du match
@@ -215,3 +168,5 @@
     </table>
 
 </div>
+
+<?php include("../includes/partials/footer.html") ?>

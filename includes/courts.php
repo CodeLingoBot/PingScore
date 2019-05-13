@@ -54,7 +54,7 @@
         <a href="table.php?table=<?php echo($nb)?>" class="text-danger text-decoration-none">
 
             <div>
-                <table class="table table-dark table-borderless" id="tableau">
+                <table class="table table-dark table-borderless">
 
                     <thead>
                         Table <?php echo($nb)?> - <?php echo( substr($et['hour'],0,5) ) ?>

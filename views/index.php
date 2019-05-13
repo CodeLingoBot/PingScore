@@ -41,6 +41,7 @@ include_once ("../includes/toasts.php");
 </div>
 
 <?php include_once '../includes/toasts.php'; ?>
+<?php include("../includes/partials/footer.html") ?>
 <script>
     $(document).ready( function () {
         $('.toast').toast("show")
