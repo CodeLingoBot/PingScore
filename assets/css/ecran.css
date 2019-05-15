@@ -1,0 +1,29 @@
+#container-tableau{
+    background: black;
+} 
+
+#tableau{
+    background-color: rgb(42, 144, 202);
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+#titre{
+    color: rgb(197, 173, 35);
+    font-style: Arial;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+#set{
+    border-right-style: solid; 
+    border-left-style: solid; 
+    border-width: 2px; 
+    border-color: white;
+}
+
+td{
+    text-align: center;
+}

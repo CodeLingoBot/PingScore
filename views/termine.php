@@ -40,14 +40,16 @@
                     <!--Table <?php #echo($et['courts'])?> - --><?php echo($et['hour'])?>
                     <?php if ($et['j1_cat'] == $et['j2_cat']) { 
                         $cat = $et['j1_cat'] ; 
-                        echo(" - Cat. ".$cat) ; 
+                        echo(" - Cl. ".$cat) ; 
+                    }else{
+                        $cat = $et['j1_cat']."&".$et['j2_cat'] ;
+                        echo(" - CL. ".$cat) ;
                     } ?>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">
                             <?php echo($et['j1_name'].' '.$et['j1_surname'])?>
-                            <?php if ($et['j1_cat'] != $et['j2_cat']) { $cat = $et['j1_cat']; echo( "  Cat. ".$cat); } ?>
                         </th>
                         <td width=10% class="font-weight-bold" id="set"><?php echo($set_blue) ?></td>
                         <td width=10%><?php echo($json->round1->blue)?></td>
@@ -59,7 +61,6 @@
                     <tr>
                         <th scope="row">
                         <?php echo($et['j2_name'].' '.$et['j2_surname'])?>
-                        <?php if ($et['j1_cat'] != $et['j2_cat']) { $cat = $et['j2_cat']; echo( "  Cat. ".$cat); } ?>
                         </th>
                         <td width=10% class="font-weight-bold" id="set"><?php echo($set_blue) ?></td>
                         <td width=10%><?php echo($json->round1->red)?></td>

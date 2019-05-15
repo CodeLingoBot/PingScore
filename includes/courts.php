@@ -60,7 +60,10 @@
                         Table <?php echo($nb)?> - <?php echo( substr($et['hour'],0,5) ) ?>
                         <?php if ($et['j1_cat'] == $et['j2_cat']) { 
                             $cat = $et['j1_cat'] ; 
-                            echo(" - Cat. ".$cat) ; 
+                            echo(" - Cl. ".$cat) ; 
+                        }else{
+                            $cat = $et['j1_cat']."&".$et['j2_cat'] ;
+                            echo(" - Cl. ".$cat) ;
                         } ?>
                     </thead>
 
