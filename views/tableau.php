@@ -4,17 +4,25 @@
 
 <!--==========-->
 
-<h3 class="text-center">Live scoring : *nom de la compétition*</h3>
+<?php
 
-<div class="container shadow p-3 mb-5 bg-light rounded">
+    require_once('../controllers/database.php') ;
+
+    $name = $pdo->prepare("SELECT name FROM challenge") ;
+    $name->execute() ;
+    $name = $name->fetch() ;
+
+?>
+
+<h3 class="text-center">Live scoring : <?php echo($name['name']) ?></h3>
+
+<div class="container shadow p-3 mb-5 bg-light rounded" id="container-tableau">
 
     <h3 class="card text-white bg-info mb-3 text-center">Tableau des matchs en cours</h3>
     
     <div class='row'>
 
     <?php
-
-        require_once('../controllers/database.php') ;
 
         $nb_lignes = $pdo->prepare("SELECT COUNT(*) FROM courts") ;
         $nb_lignes->execute() ;

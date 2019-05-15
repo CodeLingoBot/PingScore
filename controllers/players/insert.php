@@ -12,9 +12,28 @@ if(!empty($_POST)){
     $cat = $_POST["cat"];
     $club = $_POST["club"];
     $rank = $_POST["rank"];
-    $namePicture = $_FILES['picture']['name'];
-    $fileTempo = $_FILES['picture']['tmp_name'];
-    move_uploaded_file($fileTempo, '../../assets/img/players/'.$namePicture);
+
+    print_r($_FILES['picture']['name']);
+
+    if (!empty($_FILES['picture']['name'])) {
+        $allowed_types = array('image/jpeg', 'image/png');
+        $fileInfo = finfo_open(FILEINFO_MIME_TYPE);
+        $detected_type = finfo_file($fileInfo, $_FILES['picture']['tmp_name']);
+        if (!in_array($detected_type, $allowed_types)) {
+            die ("S\'il vous plaît télécharger une image");
+        }
+        finfo_close($fileInfo);
+        if ($detected_type = 'image/jpeg') {
+            $type = '.jpg';
+        } elseif ($detected_type = 'image/png') {
+            $type = '.png';
+        }
+        $namePicture = $name . $id . $type;
+        $fileTempo = $_FILES['picture']['tmp_name'];
+        move_uploaded_file($fileTempo, '../../assets/img/players/' . $namePicture);
+    } else {
+        $namePicture = NULL;
+    }
 
     if($id !== ''){
         $reqQuery = 'UPDATE players SET surname=:surname, name=:name, cat=:cat, club=:club, rank=:rank, picture=:picture WHERE id=:id;';

@@ -17,7 +17,8 @@
                             "round2": {"red": 0, "blue": 0, "state" : 0}, 
                             "round3": {"red": 0, "blue": 0, "state" : 0}, 
                             "round4": {"red": 0, "blue": 0, "state" : 0}, 
-                            "round5": {"red": 0, "blue": 0, "state" : 0}
+                            "round5": {"red": 0, "blue": 0, "state" : 0},
+                            "time": {"blue": 0, "red": 0}
                         }',
 
                 'j1_name'=>'',
@@ -27,6 +28,7 @@
                 'j2_name'=>'',
                 'j2_surname'=>'',
                 'j2_cat'=>'*',
+
                 
                 ] ;
         }
@@ -36,18 +38,34 @@
 
         $json = json_decode($et['score']);
 
+        $set_blue = 0 ;
+        $set_red = 0 ;
+        for ($j=1; $j <=5 ; $j++) { 
+            $round = "round".$j ;
+            if ($json->$round->state == "2") {
+                if ($json->$round->red > $json->$round->blue) {
+                    $set_red++ ;
+                }else{
+                    $set_blue++ ;
+                }
+            }
+        }
+
     ?>
 
         <a href="table.php?table=<?php echo($nb)?>" class="text-danger text-decoration-none">
 
             <div>
-                <table class="table table-dark table-borderless" id="joliecouleur">
+                <table class="table table-dark table-borderless" id="tableau">
 
                     <thead>
                         Table <?php echo($nb)?> - <?php echo( substr($et['hour'],0,5) ) ?>
                         <?php if ($et['j1_cat'] == $et['j2_cat']) { 
                             $cat = $et['j1_cat'] ; 
-                            echo(" - Cat. ".$cat) ; 
+                            echo(" - Cl. ".$cat) ; 
+                        }else{
+                            $cat = $et['j1_cat']."&".$et['j2_cat'] ;
+                            echo(" - Cl. ".$cat) ;
                         } ?>
                     </thead>
 
@@ -55,8 +73,9 @@
                         <tr>
                             <th scope="row">
                                 <?php echo($et['j1_name']." ".$et['j1_surname'])?>
-                                <?php #if ($et[0]['cat'] != $et[1]['cat']) { $cat = $et[0]['cat']; echo( "  Cat. ".$cat); } ?>
                             </th>
+                            <td width=5%> <?php if ($json->time->blue == 1) { echo("<i class='fas fa-stopwatch'></i>") ; }?></td>
+                            <td width=5% class="font-weight-bold" id="set"><?php echo($set_blue) ?></td>
                             <td width=10% <?php if ($json->round1->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json->round1->blue)?></td>
                             <td width=10% <?php if ($json->round2->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json->round2->blue)?></td>
                             <td width=10% <?php if ($json->round3->state == "2") { echo("class='text-dark'"); }?>> <?php echo($json->round3->blue)?></td>
@@ -66,8 +85,9 @@
                         <tr>
                             <th scope="row">
                                 <?php echo($et['j2_name']." ".$et['j2_surname'])?>
-                                <?php #if ($et[0]['cat'] != $et[1]['cat']) { $cat = $et[1]['cat']; echo( "  Cat. ".$cat); } ?>
                             </th>
+                            <td width=5%> <?php if ($json->time->red == 1) { echo("<i class='fas fa-stopwatch'></i>") ; }?></td>
+                            <td width=5% class="font-weight-bold" id="set"><?php echo($set_red) ?></td>
                             <td width=10% <?php if ($json->round1->state == "2") { echo("class='text-dark'"); }?>><?php echo($json->round1->red)?></td>
                             <td width=10% <?php if ($json->round2->state == "2") { echo("class='text-dark'"); }?>><?php echo($json->round2->red)?></td>
                             <td width=10% <?php if ($json->round3->state == "2") { echo("class='text-dark'"); }?>><?php echo($json->round3->red)?></td>

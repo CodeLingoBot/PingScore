@@ -10,7 +10,7 @@ if(!empty($_POST)){
     $blue_player = $_POST["blue_player"];
     $red_player = $_POST["red_player"];
     $state = $_POST["state"];
-    $score = '{"round1":{"blue":0,"red":0,"state" : 0},"round2":{"blue":0,"red":0,"state" : 0},"round3":{"blue":0,"red":0,"state" : 0},"round4":{"blue":0,"red":0,"state" : 0},"round5":{"blue":0,"red":0,"state" : 0}}';
+    $score = '{"round1" :{"blue":0,"red":0,"state":0,"service":0},"round2" :{"blue":0,"red":0,"state":0,"service":0},"round3":{"blue":0,"red":0,"state":0,"service":0 },"round4":{"blue":0,"red":0,"state":0,"service":0},"round5":{"blue":0,"red":0,"state":0,"service":0},"time":{"blue":0,"red":0}}';
     $id = $_POST["id"];
     $mappingSate = ['0'=>'À venir', '1'=>'En cours', '2'=>'Terminé'];
     if($_POST["id"] !== ''){
