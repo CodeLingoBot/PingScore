@@ -13,6 +13,7 @@ include("../includes/partials/header.php") ;
         <th width=50%>
             <div class="jumbotron jumbotron-fluid bg-light">
                 <div class="container">
+                    <h1 class="display-4">404</h1>
                     <h1 class="display-4">Oups, mauvais revers</h1>
                     <p class="lead">Cliquez ici pour revenir en jeu, euh... A l'accueil !</p>
                     <hr class="my-4">
