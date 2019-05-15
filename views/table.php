@@ -52,7 +52,7 @@
     </h3>
 
     
-    <?php #Infos joueurs
+    <?php #Infos joueurs + score
 
         $blue = $et['blue_player'];
 
@@ -69,6 +69,23 @@
         $psRed->execute(array($red)) ;
 
         $etRed = $psRed -> fetch();
+
+        ######################
+
+        $json_clear = json_decode($et['score']) ;
+
+        $set_blue = 0 ;
+        $set_red = 0 ;
+        for ($i=1; $i <=5 ; $i++) { 
+            $round = "round".$i ;
+            if ($json_clear->$round->state == "2") {
+                if ($json_clear->$round->red > $json_clear->$round->blue) {
+                    $set_red++ ;
+                }else{
+                    $set_blue++ ;
+                }
+            }
+        }
     ?>
 
     <table class="table table-secondary shadow p-3 mb-5 rounded">
@@ -84,6 +101,7 @@
                     <h5 class="card-title">
                         <?php echo($etBlue['name']) ?>
                         <?php echo($etBlue['surname']) ?>
+                        <?php if ($json_clear->time->blue == 1) { echo("<i class='fas fa-stopwatch'></i>") ; }?>
                     </h5>
                 </div>
 
@@ -119,25 +137,6 @@
 
             <!-- Partie à refresh -->
             <table class="table table-dark table-borderless" id="match">
-
-                <?php #Traitement du score + comptage des sets
-
-                    $json_clear = json_decode($et['score']) ;
-
-                    $set_blue = 0 ;
-                    $set_red = 0 ;
-                    for ($i=1; $i <=5 ; $i++) { 
-                        $round = "round".$i ;
-                        if ($json_clear->$round->state == "2") {
-                            if ($json_clear->$round->red > $json_clear->$round->blue) {
-                                $set_red++ ;
-                            }else{
-                                $set_blue++ ;
-                            }
-                        }
-                    }
-                
-                ?>
 
                 <tbody>
 
@@ -195,6 +194,8 @@
                     <h5 class="card-title">
                         <?php echo($etRed['name']) ?>
                         <?php echo($etRed['surname']) ?>
+                        <?php if ($json_clear->time->red == 1) { echo("<i class='fas fa-stopwatch'></i>") ; }?>
+
                     </h5>
                 </div>
 

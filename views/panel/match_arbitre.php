@@ -26,7 +26,7 @@
     </h3>
 
 
-    <?php #Infos joueurs
+    <?php #Infos joueurs et score
 
         $blue = $et['blue_player'];
 
@@ -43,6 +43,24 @@
         $psRed->execute(array($red)) ;
 
         $etRed = $psRed -> fetch();
+
+        ######################
+
+        $json = $et['score'] ;
+        $json_clear = json_decode($json) ;
+
+        $set_blue = 0 ;
+        $set_red = 0 ;
+        for ($j=1; $j <=5 ; $j++) { 
+            $round = "round".$j ;
+            if ($json_clear->$round->state == "2") {
+                if ($json_clear->$round->red > $json_clear->$round->blue) {
+                    $set_red++ ;
+                }else{
+                    $set_blue++ ;
+                }
+            }
+        }
     ?>
 
 
@@ -59,6 +77,7 @@
                     <h5 class="card-title">
                         <?php echo($etBlue['name']) ?>
                         <?php echo($etBlue['surname']) ?>
+                        <?php if ($json_clear->time->blue == 1) { echo("<i class='fas fa-stopwatch'></i>") ; }?>
                     </h5>
                 </div>
 
@@ -82,26 +101,6 @@
 
             <!-- Affichage score -->
             <table class="table table-dark table-borderless" id="match">
-
-                <?php 
-
-                    $json = $et['score'] ;
-                    $json_clear = json_decode($json) ;
-
-                    $set_blue = 0 ;
-                    $set_red = 0 ;
-                    for ($j=1; $j <=5 ; $j++) { 
-                        $round = "round".$j ;
-                        if ($json_clear->$round->state == "2") {
-                            if ($json_clear->$round->red > $json_clear->$round->blue) {
-                                $set_red++ ;
-                            }else{
-                                $set_blue++ ;
-                            }
-                        }
-                    }
-
-                ?>
 
                 <tbody>
 
@@ -183,6 +182,22 @@
                 </tr>
                 <tr>
                     <td width=50%>
+                        <a href="../../controllers/arbitration/evo_time.php?match=<?php echo $num_match ?>&player=blue" >
+                            <button type="button" class="btn btn-primary btn-lg btn-block" <?php if ($json_clear->time->blue == 1) { echo("disabled") ; }?>>
+                                TIME
+                            </button>
+                        </a>
+                    </td>
+                    <td width=50%>
+                        <a href="../../controllers/arbitration/evo_time.php?match=<?php echo $num_match ?>&player=red">
+                            <button type="button" class="btn btn-danger btn-lg btn-block" <?php if ($json_clear->time->red == 1) { echo("disabled") ; }?>>
+                                TIME
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=50%>
                         <a href="../../controllers/arbitration/evo_round.php?match=<?php echo $num_match ?>" >
                             <button type="button" class="btn btn-dark btn-lg btn-block">
                                 SET
@@ -226,6 +241,7 @@
                     <h5 class="card-title">
                         <?php echo($etRed['name']) ?>
                         <?php echo($etRed['surname']) ?>
+                        <?php if ($json_clear->time->red == 1) { echo("<i class='fas fa-stopwatch'></i>") ; }?>
                     </h5>
                 </div>
 

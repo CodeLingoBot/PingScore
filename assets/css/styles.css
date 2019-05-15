@@ -57,3 +57,7 @@
     border-width: 2px; 
     border-color: white;
 }
+
+#tableau.td{
+    text-align: center;
+}
