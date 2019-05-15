@@ -51,7 +51,7 @@
         <!-- Affichage joueur bleu -->
         <td>
 
-            <div class="card bg-primary mb-3" style="width: 18rem;">
+            <div class="card bg-primary mb-3" style="width: 70%;">
 
             <img src="../../assets/img/players/<?php if (empty($etBlue['picture'])) { echo('vide.png') ;}else { echo($etBlue['picture']) ; } ; ?>" class="card-img-top" width="320" height=320 alt="">
 
