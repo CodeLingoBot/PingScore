@@ -20,10 +20,10 @@
 <body>
 
 <div class="container-fluid p-3 mb-5" id="container-tableau">
-    
-    <br>
 
-    <div class='row' id="top">
+    <div id="top">
+
+    <div class='row'>
 
     <?php
 
@@ -53,24 +53,19 @@
             }elseif($i == 9){
                 echo("
                 </div>
-                
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
 
-                <div class='row' id='bottom'>");
+                </div>
+                <div id='bottom'>
+
+                <div class='row'>");
             };
 
             $nb = $i;
             require("../includes/courts_ecran.php");
 
         } ; 
+
+        echo("</div>")
     
     ?>
     <!-- Fin de partie à refresh -->
@@ -88,3 +83,30 @@
     <br>
 
 </div>
+
+<?php include_once("../includes/partials/footer.html") ; ?>
+
+<script>
+
+    function change(){
+        $('#top').delay(5000).slideDown() ;
+        $('#bottom').delay(5000).slideUp() ;
+
+        change2() ;
+    } ;
+
+    function change2(){
+        $('#bottom').delay(5000).slideDown() ;
+        $('#top').delay(5000).slideUp() ;
+
+        change() ;
+    } ;
+
+    $('.footer').hide() ;
+    $('#bottom').hide() ;
+
+
+    change() ;  
+
+</script>
+

@@ -78,10 +78,10 @@
                     <td width=5%> <?php if ($json->time->blue == 1) { echo("<i class='fas fa-stopwatch'></i>") ; }?></td>
                     <td width=5% class="font-weight-bold" id="set">  <?php echo($set_blue) ?>  </td>
                     <td width=10% <?php if ($json->round1->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round1->blue)?>  </td>
-                    <td width=10% <?php if ($json->round2->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round1->blue)?>  </td>
-                    <td width=10% <?php if ($json->round3->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round1->blue)?>  </td>
-                    <td width=10% <?php if ($json->round4->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round1->blue)?>  </td>
-                    <td width=10% <?php if ($json->round5->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round1->blue)?>  </td>
+                    <td width=10% <?php if ($json->round2->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round2->blue)?>  </td>
+                    <td width=10% <?php if ($json->round3->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round3->blue)?>  </td>
+                    <td width=10% <?php if ($json->round4->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round4->blue)?>  </td>
+                    <td width=10% <?php if ($json->round5->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round5->blue)?>  </td>
 
                 </tr>
                 <tr>
@@ -91,10 +91,10 @@
                     <td width=5%> <?php if ($json->time->red == 1) { echo("<i class='fas fa-stopwatch'></i>") ; }?></td>
                     <td width=5% class="font-weight-bold" id="set">  <?php echo($set_blue) ?>  </td>
                     <td width=10% <?php if ($json->round1->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round1->red)?>  </td>
-                    <td width=10% <?php if ($json->round2->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round1->red)?>  </td>
-                    <td width=10% <?php if ($json->round3->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round1->red)?>  </td>
-                    <td width=10% <?php if ($json->round4->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round1->red)?>  </td>
-                    <td width=10% <?php if ($json->round5->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round1->red)?>  </td>
+                    <td width=10% <?php if ($json->round2->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round2->red)?>  </td>
+                    <td width=10% <?php if ($json->round3->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round3->red)?>  </td>
+                    <td width=10% <?php if ($json->round4->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round4->red)?>  </td>
+                    <td width=10% <?php if ($json->round5->state == "2") { echo("class='text-dark'"); }?>>  <?php echo($json->round5->red)?>  </td>
  
                 </tr>
             </tbody>
