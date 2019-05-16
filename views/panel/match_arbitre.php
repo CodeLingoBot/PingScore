@@ -19,7 +19,7 @@
 
 ?>
 
-<div class="container" style='border: solid red;'>
+<div class="container-fluid" style='border: solid red;'>
 
     <h3 class="card text-center" id="match-arbitre">
         Table <?php echo $table['id'] ?> - <?php echo( substr($et['hour'],0,5) ) ?>
@@ -69,7 +69,7 @@
         <!-- Affichage joueur bleu -->
         <td>
 
-            <div class="card bg-primary mb-3" style="width: 70%;">
+            <div class="card bg-primary mb-3" style="width: 250px;">
 
                 <img src="../../assets/img/players/<?php if (empty($etBlue['picture'])) { echo('vide.png') ;}else { echo($etBlue['picture']) ; } ; ?>" class="card-img-top" width="320" height=320 alt="">
 
@@ -233,7 +233,7 @@
         <!-- Affichage joueur rouge -->
         <td>
 
-            <div class="card mb-3" id=card-red>
+            <div class="card mb-3" id=card-red style="width: 250px;">
 
                 <img src="../../assets/img/players/<?php if (empty($etRed['picture'])) { echo('vide.png') ;}else { echo($etRed['picture']) ; } ; ?>" class="card-img-top" width="320" height=320 alt="">
 

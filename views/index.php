@@ -10,7 +10,7 @@ require_once('../controllers/database.php') ;
     $challenge->execute() ;
     $challenge = $challenge->fetch() ;
 
-    debug($_SESSION);
+
 
 include("../includes/partials/header.php") ;
 include_once ("../includes/toasts.php");
