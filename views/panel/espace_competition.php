@@ -81,8 +81,8 @@
 
                 <form method="post" enctype="multipart/form-data" action="../../controllers/readfile.php">
                     <div class="form-group">
-                        <label for="name">Nom de la compétition</label>
-                        <input type="text" name="name" class="form-control" id="name" required>
+                        <label for="titre">Nom de la compétition</label>
+                        <input type="text" name="titre" class="form-control" id="titre" required>
                     </div>
 
                     <div class="custom-file">

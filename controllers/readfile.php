@@ -8,7 +8,7 @@ require '../vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Reader\Csv;
 
-$name = $_POST['name'];
+$titre = $_POST['titre'];
 if (empty($_FILES["affiche"]['name'])) { 
     $affiche = 'logo_ping_score.png'; 
 }else{ 
@@ -82,6 +82,6 @@ if(isset($_FILES['file']['name']) && in_array($_FILES['file']['type'], $file_mim
 
 $reqChallenge = "INSERT INTO `challenge` (`name`, `poster`, `description`) VALUES (?, ?, ?)";
 $insertChallenge = $pdo->prepare($reqChallenge);
-$insertChallenge->execute(array($name, $affiche, $info));
+$insertChallenge->execute(array($titre, $affiche, $info));
 
 header('Location: ../views/panel/espace_competition.php');
