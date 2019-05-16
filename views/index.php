@@ -10,8 +10,6 @@ require_once('../controllers/database.php') ;
     $challenge->execute() ;
     $challenge = $challenge->fetch() ;
 
-
-
 include("../includes/partials/header.php") ;
 include_once ("../includes/toasts.php");
 
@@ -46,3 +44,5 @@ include_once ("../includes/toasts.php");
         $('.toast').toast("show")
     } );
 </script>
+
+<?php include_once("../includes/partials/footer.html") ; ?>
