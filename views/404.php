@@ -24,3 +24,5 @@ include("../includes/partials/header.php") ;
     </table>
 
 </div>
+
+<?php include_once("../includes/partials/footer.html") ; ?>

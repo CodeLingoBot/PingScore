@@ -61,3 +61,27 @@
 #tableau.td{
     text-align: center;
 }
+
+.footer img{
+    height: 80px ;
+}
+
+#footer-iphone{
+    display: none;
+}
+
+@media (min-width: 576px) { 
+    .footer img{
+        height: 60px ;
+    }
+}
+
+@media (max-width: 574px) { 
+    .footer img, .footer span{
+        display : none;
+    }
+    #footer-iphone{
+        display: inline;
+    }
+
+}

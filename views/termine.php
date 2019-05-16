@@ -77,3 +77,5 @@
     <br />
 
 </div>
+
+<?php include_once("../includes/partials/footer.html") ; ?>
