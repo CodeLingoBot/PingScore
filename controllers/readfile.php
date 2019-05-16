@@ -1,13 +1,50 @@
 <?php
 
+require_once 'login_id.php';
+require_once 'database.php';
+
 require '../vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Reader\Csv;
 
-$courts = $_POST['courts'];
-$i = 1;
+$name = $_POST['name'];
+if (empty($_FILES["affiche"]['name'])) { 
+    $affiche = 'logo_ping_score.png'; 
+}else{ 
+    $affiche = "Affiche.png" ;
 
+    $fichierTempo = $_FILES["affiche"]["tmp_name"] ;
+    move_uploaded_file($fichierTempo, "../assets/img/".$affiche) ;
+} ;
+$info = $_POST['info'];
+$courts = $_POST['courts'];
+
+####
+#Vidange
+$reqBase = "
+            TRUNCATE ".$db.".`challenge`;
+            TRUNCATE ".$db.".`courts`;
+            TRUNCATE ".$db.".`players`;
+            TRUNCATE ".$db.".`matchs`;
+            ";
+    $insertBase = $pdo->prepare($reqBase);
+    $insertBase->execute();
+    $insertBase->closeCursor();
+
+####
+#Création tables
+$i = 1;
+while ($i <= $courts) {
+    $reqCourt = "INSERT INTO `courts` (`id`, `match_id`, `video`) VALUES (?, NULL, '')";
+    $insertCourt = $pdo->prepare($reqCourt);
+    $insertCourt->execute(array($i));
+    $insertCourt->closeCursor();
+    $i++;
+}
+
+####
+#Traitement csv
 $file_mimes = array('text/x-comma-separated-values', 'text/comma-separated-values', 'application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'text/plain', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 
 if(isset($_FILES['file']['name']) && in_array($_FILES['file']['type'], $file_mimes)) {
@@ -22,27 +59,6 @@ if(isset($_FILES['file']['name']) && in_array($_FILES['file']['type'], $file_mim
     $spreadsheet = $reader->load($_FILES['file']['tmp_name']);
 
     $sheetData = $spreadsheet->getActiveSheet()->toArray();
-
-
-    require_once 'database.php';
-
-    $reqBase = "
-            TRUNCATE `lucnicol_aspcn`.`courts`;
-            TRUNCATE `lucnicol_aspcn`.`players`;
-            TRUNCATE `lucnicol_aspcn`.`matchs`;
-            ";
-    $insertBase = $pdo->prepare($reqBase);
-    $insertBase->execute();
-    $insertBase->closeCursor();
-
-
-    while ($i <= $courts) {
-        $reqCourt = "INSERT INTO `courts` (`id`, `match_id`, `video`) VALUES (?, NULL, '')";
-        $insertCourt = $pdo->prepare($reqCourt);
-        $insertCourt->execute(array($i));
-        $insertCourt->closeCursor();
-        $i++;
-    }
 
     $sheetData_lenght = count($sheetData);
 
@@ -62,6 +78,10 @@ if(isset($_FILES['file']['name']) && in_array($_FILES['file']['type'], $file_mim
         $query->bindValue(":rank", $rank);
         $query->execute();
     };
-}
+} ;
+
+$reqChallenge = "INSERT INTO `challenge` (`name`, `poster`, `description`) VALUES (?, ?, ?)";
+$insertChallenge = $pdo->prepare($reqChallenge);
+$insertChallenge->execute(array($name, $affiche, $info));
 
 header('Location: ../views/panel/espace_competition.php');

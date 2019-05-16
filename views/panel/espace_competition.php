@@ -76,20 +76,40 @@
     <div class="container">
         <div class="card border-0 shadow my-5">
             <div class="card-body p-5">
-                <h1 class="font-weight-light text-primary">ESPACE COMPETITION</h1>
-                <p class="lead">Voici l'espace de gestion de la compétition, ici vous pouvez accéder aux différents espace matchs, joueurs et arbitres</p>
+                <h1 class="font-weight-light text-primary">INITIALISATION COMPETITION</h1>
+                <p class="lead">Veuillez entrer les paramètres de la compétition</p>
 
                 <form method="post" enctype="multipart/form-data" action="../../controllers/readfile.php">
-                    <div class="form-group col-md-4 mb-3">
+                    <div class="form-group">
+                        <label for="name">Nom de la compétition</label>
+                        <input type="text" name="name" class="form-control" id="name" required>
+                    </div>
+
+                    <div class="custom-file">
+                        <label class="custom-file-label" for="affiche">Importer l'affiche</label>
+                        <input type="file" name="affiche" class="custom-file-input" id="affiche">
+                    </div>
+
+                    <div class="form-group  mt-2">
+                        <label for="info">Informations complémentaires</label>
+                        <textarea class="form-control" name="info" id="info" rows="3" required></textarea>
+                    </div>
+
+                    <hr>
+
+                    <div class="form-group">
                         <label for="aaa">Nombre de table</label>
-                        <input type="text" name="courts" class="form-control" id="aaa">
+                        <input type="text" name="courts" class="form-control" id="aaa" required>
                     </div>
-                    <div class="custom-file col-md-4 mb-3">
-                        <input type="file" name="file" class="custom-file-input" id="InputFile">
-                        <label class="custom-file-label" for="InputFile">Importer la base de donnée</label>
+
+                    <div class="custom-file">
+                        <label class="custom-file-label">Importer la base de donnée</label>
+                        <input type="file" name="file" class="custom-file-input">
                     </div>
+
                     <br>
-                    <button type="submit" class="btn btn-primary">Valider</button>
+
+                    <button type="submit" class="btn btn-primary mt-4">Valider</button>
                 </form>
             </div>
         </div>
